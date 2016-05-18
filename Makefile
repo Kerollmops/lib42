@@ -26,21 +26,23 @@ endif
 
 # Headers
 INC_PATH = includes
-INC_FILES = ft_vector.h ft_string.h ft_stdlib.h
+INC_FILES = ft_vector.h ft_string.h ft_stdlib.h ft_memory.h
 HEADERS = $(INC_FILES:%.h=$(INC_PATH)/%.h)
 CFLAGS += $(addprefix -I,$(INC_PATH))
 
 # Sources
 SRC_PATH = srcs
-SRC_SUBDIR = vector string stdlib
+SRC_SUBDIR = vector string stdlib memory
 vpath %.c $(addprefix $(SRC_PATH)/,$(SRC_SUBDIR))
 
 # Stdlib
 SOURCES += ft_realloc.c
 
+# Memory
+SOURCES += ft_memset.c ft_bzero.c ft_memalloc.c ft_memcpy.c
+
 # String
-SOURCES += ft_memset.c ft_bzero.c ft_memalloc.c ft_memcpy.c \
-		   ft_strlen.c ft_strchr.c ft_strchrpos.c ft_strnew.c \
+SOURCES += ft_strlen.c ft_strchr.c ft_strchrpos.c ft_strnew.c \
 		   ft_strdup.c ft_strsub.c
 
 # Vector

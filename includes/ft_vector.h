@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/01 16:41:13 by djean             #+#    #+#             */
-/*   Updated: 2016/05/18 14:56:59 by djean            ###   ########.fr       */
+/*   Updated: 2016/05/18 16:46:46 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FT_VECTOR_H
 
 # include <stdlib.h>
+# include "ft_memory.h"
 # include "ft_string.h"
 # include "ft_stdlib.h"
 

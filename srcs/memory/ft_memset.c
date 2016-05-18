@@ -6,11 +6,11 @@
 /*   By: adubois <adubois@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 15:48:41 by adubois           #+#    #+#             */
-/*   Updated: 2016/04/25 19:05:15 by djean            ###   ########.fr       */
+/*   Updated: 2016/05/18 16:48:19 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_string.h>
+#include "ft_string.h"
 
 /*
 ** Set the value 'c' to the first 'len' bytes in the memory space pointed by
