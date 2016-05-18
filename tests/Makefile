@@ -36,14 +36,10 @@ SRC_PATH = srcs
 # SRC_SUBDIR = vector
 # vpath %.c $(addprefix $(SRC_PATH)/,$(SRC_SUBDIR))
 SOURCES = main.c \
-		  vector_add.c \
-		  vector_copy.c \
-		  vector_replace.c \
-		  vector_remove.c \
-		  vector_getset.c \
-		  vector_indexof.c \
-		  vector_insert.c \
-		  vector_strsplit.c
+		  vector_add.c vector_copy.c vector_replace.c vector_remove.c \
+		  vector_getset.c vector_indexof.c vector_insert.c vector_strsplit.c \
+		  buffer.c buffer_rewindchr.c realloc.c strchrpos.c \
+		  strrchrpos.c \
 
 
 # Objects

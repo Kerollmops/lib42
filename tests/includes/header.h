@@ -1,11 +1,14 @@
 #ifndef TEST_LIB42_H
 #define TEST_LIB42_H
 
-#include "42_vector.h"
-#include "42_string.h"
-#include "42_stdlib.h"
+#include "lib42.h"
 #include "vittf.h"
 
+void	suite_realloc(void);
+void	suite_strchrpos(void);
+void	suite_strrchrpos(void);
+void	suite_buffer(void);
+void	suite_buffer_rewindchr(void);
 void	suite_ft_vector_add(void);
 void	suite_ft_vector_copy(void);
 void	suite_ft_vector_replace(void);

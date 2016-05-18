@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/01 16:41:13 by djean             #+#    #+#             */
-/*   Updated: 2016/05/18 17:30:32 by djean            ###   ########.fr       */
+/*   Updated: 2016/05/18 17:59:10 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,19 +35,19 @@ typedef struct	s_vector
 	size_t	total;
 }				t_vector;
 
-t_vector		*ft_vector_new(size_t size);
-void			*ft_vector_init(t_vector *v, size_t size);
-void			*ft_vector_add(t_vector *v, void *e);
-void			*ft_vector_set(t_vector *v, size_t i, void *e);
-void			*ft_vector_replace(t_vector *v, size_t i, void *e);
-void			*ft_vector_remove(t_vector *v, size_t i);
-void			*ft_vector_get(t_vector *v, size_t i);
-void			*ft_vector_resize(t_vector *v);
-void			ft_vector_destroy(t_vector *v);
-void			*ft_vector_insert(t_vector *v, size_t i, void *e);
-void			ft_vector_clear(t_vector *v);
-t_vector		*ft_vector_copy(t_vector *v);
-int				ft_vector_indexof(t_vector *v, void *e);
-t_vector		*ft_vector_strsplit(char *str, char c);
+t_vector	*ft_vector_new(size_t size);
+void		*ft_vector_init(t_vector *v, size_t size);
+void		*ft_vector_add(t_vector *v, void *e);
+void		*ft_vector_set(t_vector *v, size_t i, void *e);
+void		*ft_vector_replace(t_vector *v, size_t i, void *e);
+void		*ft_vector_remove(t_vector *v, size_t i);
+void		*ft_vector_get(t_vector *v, size_t i);
+void		*ft_vector_resize(t_vector *v);
+void		ft_vector_destroy(t_vector *v);
+void		*ft_vector_insert(t_vector *v, size_t i, void *e);
+void		ft_vector_clear(t_vector *v);
+t_vector	*ft_vector_copy(t_vector *v);
+int			ft_vector_indexof(t_vector *v, void *e);
+t_vector	*ft_vector_strsplit(char *str, char c);
 
 #endif

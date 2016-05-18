@@ -25,13 +25,15 @@ endif
 
 # Headers
 INC_PATH = includes
-INC_FILES = 42_vector.h 42_string.h 42_stdlib.h 42_memory.h
+INC_FILES = 42_vector.h 42_string.h 42_stdlib.h 42_memory.h \
+			42_buffer.h
+
 HEADERS = $(INC_FILES:%.h=$(INC_PATH)/%.h)
 CFLAGS += $(addprefix -I,$(INC_PATH))
 
 # Sources
 SRC_PATH = srcs
-SRC_SUBDIR = vector string stdlib memory
+SRC_SUBDIR = vector string stdlib memory buffer
 vpath %.c $(addprefix $(SRC_PATH)/,$(SRC_SUBDIR))
 
 # Stdlib
@@ -41,8 +43,8 @@ SOURCES += ft_realloc.c
 SOURCES += ft_memset.c ft_bzero.c ft_memalloc.c ft_memcpy.c
 
 # String
-SOURCES += ft_strlen.c ft_strchr.c ft_strchrpos.c ft_strnew.c \
-		   ft_strdup.c ft_strsub.c
+SOURCES += ft_strlen.c ft_strdup.c ft_strsub.c ft_strnew.c \
+		   ft_strchr.c ft_strrchr.c ft_strchrpos.c ft_strrchrpos.c
 
 # Vector
 SOURCES += ft_vector_init.c ft_vector_add.c ft_vector_get.c \
@@ -50,6 +52,10 @@ SOURCES += ft_vector_init.c ft_vector_add.c ft_vector_get.c \
 		   ft_vector_destroy.c ft_vector_insert.c ft_vector_copy.c \
 		   ft_vector_new.c ft_vector_replace.c ft_vector_remove.c \
 		   ft_vector_indexof.c ft_vector_strsplit.c
+
+# Buffer
+SOURCES += ft_buffer_init.c ft_buffer_add.c ft_buffer_resize.c ft_buffer_set.c \
+		   ft_buffer_rewindchr.c
 
 # Objects
 OBJ_PATH = obj

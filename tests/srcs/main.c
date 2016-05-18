@@ -2,6 +2,17 @@
 
 int	main(void)
 {
+	// stdlib
+	suite_realloc();
+
+	// string
+	suite_strchrpos();
+	suite_strrchrpos();
+
+	// buffer
+	suite_buffer();
+	suite_buffer_rewindchr();
+
 	// vector
 	suite_ft_vector_add();
 	suite_ft_vector_get_set();
