@@ -1,9 +1,9 @@
 #ifndef TEST_LIB42_H
 #define TEST_LIB42_H
 
-#include "ft_vector.h"
-#include "ft_string.h"
-#include "ft_stdlib.h"
+#include "42_vector.h"
+#include "42_string.h"
+#include "42_stdlib.h"
 #include "vittf.h"
 
 void	suite_ft_vector_add(void);

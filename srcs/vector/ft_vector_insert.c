@@ -6,11 +6,11 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/31 14:17:35 by djean             #+#    #+#             */
-/*   Updated: 2016/05/13 15:48:28 by djean            ###   ########.fr       */
+/*   Updated: 2016/05/18 17:29:37 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_vector.h"
+#include "42_vector.h"
 
 void	*ft_vector_insert(t_vector *v, size_t i, void *e)
 {

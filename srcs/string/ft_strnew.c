@@ -6,11 +6,11 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/04 14:36:11 by djean             #+#    #+#             */
-/*   Updated: 2016/04/25 19:05:16 by djean            ###   ########.fr       */
+/*   Updated: 2016/05/18 17:29:10 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_string.h"
+#include "42_string.h"
 
 char	*ft_strnew(size_t size)
 {

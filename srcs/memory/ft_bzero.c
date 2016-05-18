@@ -6,11 +6,11 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/25 15:03:46 by djean             #+#    #+#             */
-/*   Updated: 2016/04/25 19:05:14 by djean            ###   ########.fr       */
+/*   Updated: 2016/05/18 17:31:04 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_string.h"
+#include "42_memory.h"
 
 void	ft_bzero(void *s, size_t n)
 {

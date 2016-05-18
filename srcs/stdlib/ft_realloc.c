@@ -6,11 +6,11 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/01 17:34:22 by djean             #+#    #+#             */
-/*   Updated: 2016/04/25 19:01:44 by djean            ###   ########.fr       */
+/*   Updated: 2016/05/18 17:28:41 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_stdlib.h"
+#include "42_stdlib.h"
 
 void	*ft_realloc(void *ptr, size_t size, size_t oldsize)
 {

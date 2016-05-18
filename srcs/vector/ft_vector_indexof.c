@@ -6,11 +6,11 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/13 15:35:33 by djean             #+#    #+#             */
-/*   Updated: 2016/05/13 15:43:13 by djean            ###   ########.fr       */
+/*   Updated: 2016/05/18 17:29:37 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_vector.h"
+#include "42_vector.h"
 
 int	ft_vector_indexof(t_vector *v, void *e)
 {

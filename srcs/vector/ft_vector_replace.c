@@ -6,11 +6,11 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/13 11:47:50 by djean             #+#    #+#             */
-/*   Updated: 2016/05/13 13:34:32 by djean            ###   ########.fr       */
+/*   Updated: 2016/05/18 17:29:37 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_vector.h"
+#include "42_vector.h"
 
 /*
 ** Set le nouvel élément à la place i

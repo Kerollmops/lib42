@@ -6,11 +6,11 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/18 14:50:31 by djean             #+#    #+#             */
-/*   Updated: 2016/05/18 15:25:28 by djean            ###   ########.fr       */
+/*   Updated: 2016/05/18 17:29:38 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_vector.h"
+#include "42_vector.h"
 
 static inline void	*free_and_return(t_vector *v, char *sub)
 {

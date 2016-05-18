@@ -25,7 +25,7 @@ endif
 
 # Headers
 INC_PATH = includes
-INC_FILES = ft_vector.h ft_string.h ft_stdlib.h ft_memory.h
+INC_FILES = 42_vector.h 42_string.h 42_stdlib.h 42_memory.h
 HEADERS = $(INC_FILES:%.h=$(INC_PATH)/%.h)
 CFLAGS += $(addprefix -I,$(INC_PATH))
 

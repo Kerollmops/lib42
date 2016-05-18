@@ -6,11 +6,11 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/16 11:36:27 by djean             #+#    #+#             */
-/*   Updated: 2016/05/01 12:03:26 by djean            ###   ########.fr       */
+/*   Updated: 2016/05/18 17:29:37 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_vector.h"
+#include "42_vector.h"
 
 /*
 ** free() chaque pointer contenue dans .data

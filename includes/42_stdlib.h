@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vector_init.c                                   :+:      :+:    :+:   */
+/*   ft_stdlib.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/01 17:10:47 by djean             #+#    #+#             */
-/*   Updated: 2016/05/18 17:29:37 by djean            ###   ########.fr       */
+/*   Created: 2016/04/01 16:55:18 by djean             #+#    #+#             */
+/*   Updated: 2016/05/18 17:30:15 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "42_vector.h"
+#ifndef FT_STDLIB_H
+# define FT_STDLIB_H
 
-void	*ft_vector_init(t_vector *v, size_t size)
-{
-	size_t	s;
+# include <stdlib.h>
+# include "42_string.h"
 
-	s = (size == 0) ? VECTOR_INIT_CAPACITY : size;
-	v->max = s;
-	v->total = 0;
-	v->data = ft_memalloc(sizeof(void*) * s);
-	if (v->data == NULL)
-		return (NULL);
-	return (v);
-}
+# define FT_ABS(x)			(((x) < 0) ? -(x) : (x))
+# define FT_MAX(a, b)		((a) < (b) ? (b) : (a))
+# define FT_MIN(a, b)		((a) > (b) ? (b) : (a))
+# define FREE(ptr)			(free(ptr), (ptr) = NULL)
+# define ARR_SIZ_MAX(a)		(sizeof(a) / sizeof((a)[0]))
+
+void	*ft_realloc(void *ptr, size_t size, size_t oldsize);
+
+#endif
