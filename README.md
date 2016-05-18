@@ -4,6 +4,5 @@
 * Alexandre DUBOIS (adubois)
 * Donovan JEAN (djean)
 
-## Macros
-
-## Vector
+## ToDo
+* Tests for all functions
