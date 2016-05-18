@@ -10,6 +10,7 @@ int	main(void)
 	suite_ft_vector_remove();
 	suite_ft_vector_indexof();
 	suite_ft_vector_insert();
+	suite_ft_vector_strsplit();
 
 	v_full_success("Test Lib42");
 	return (0);

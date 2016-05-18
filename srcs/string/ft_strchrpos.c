@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vector_new.c                                    :+:      :+:    :+:   */
+/*   ft_strchrpos.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/10 14:00:18 by djean             #+#    #+#             */
-/*   Updated: 2016/05/18 14:53:07 by djean            ###   ########.fr       */
+/*   Created: 2016/04/28 17:25:12 by djean             #+#    #+#             */
+/*   Updated: 2016/04/28 17:38:06 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_vector.h"
+#include "ft_string.h"
 
-t_vector	*ft_vector_new(size_t size)
+int	ft_strchrpos(const char *s, int c)
 {
-	t_vector	*v;
+	char	*p;
 
-	v = ft_memalloc(sizeof(t_vector));
-	if (v == NULL)
-		return (NULL);
-	if ((ft_vector_init(v, size)) == NULL)
-	{
-		free(v);
-		return (NULL);
-	}
-	return (v);
+	p = ft_strchr(s, c);
+	if (p == NULL)
+		return (-1);
+	return (p - s);
 }

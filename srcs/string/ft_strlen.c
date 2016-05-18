@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vector_new.c                                    :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/10 14:00:18 by djean             #+#    #+#             */
-/*   Updated: 2016/05/18 14:53:07 by djean            ###   ########.fr       */
+/*   Created: 2015/11/27 12:11:40 by djean             #+#    #+#             */
+/*   Updated: 2016/05/18 16:41:16 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_vector.h"
+#include "ft_string.h"
 
-t_vector	*ft_vector_new(size_t size)
+size_t	ft_strlen(const char *s)
 {
-	t_vector	*v;
+	size_t	len;
 
-	v = ft_memalloc(sizeof(t_vector));
-	if (v == NULL)
-		return (NULL);
-	if ((ft_vector_init(v, size)) == NULL)
-	{
-		free(v);
-		return (NULL);
-	}
-	return (v);
+	len = 0;
+	while (s[len])
+		++len;
+	return (len);
 }

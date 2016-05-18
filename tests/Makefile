@@ -42,7 +42,8 @@ SOURCES = main.c \
 		  vector_remove.c \
 		  vector_getset.c \
 		  vector_indexof.c \
-		  vector_insert.c
+		  vector_insert.c \
+		  vector_strsplit.c
 
 
 # Objects
@@ -98,17 +99,6 @@ sub-init:
 
 sub-update:
 	git submodule update --remote
-
-
-# Tests
-.PHONY: check test-cleanup
-
-check: all
-	@$(MAKE) -C $(TEST_PATH) all
-	@./$(TEST_EXEC)
-
-test-cleanup:
-	cd $(TEST_PATH) && $(GIT_CLEAN)
 
 
 # Tools

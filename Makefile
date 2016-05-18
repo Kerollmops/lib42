@@ -39,14 +39,16 @@ vpath %.c $(addprefix $(SRC_PATH)/,$(SRC_SUBDIR))
 SOURCES += ft_realloc.c
 
 # String
-SOURCES += ft_memset.c ft_bzero.c ft_memalloc.c ft_memcpy.c
+SOURCES += ft_memset.c ft_bzero.c ft_memalloc.c ft_memcpy.c \
+		   ft_strlen.c ft_strchr.c ft_strchrpos.c ft_strnew.c \
+		   ft_strdup.c ft_strsub.c
 
 # Vector
 SOURCES += ft_vector_init.c ft_vector_add.c ft_vector_get.c \
 		   ft_vector_resize.c ft_vector_set.c ft_vector_clear.c \
 		   ft_vector_destroy.c ft_vector_insert.c ft_vector_copy.c \
 		   ft_vector_new.c ft_vector_replace.c ft_vector_remove.c \
-		   ft_vector_indexof.c
+		   ft_vector_indexof.c ft_vector_strsplit.c
 
 # Objects
 OBJ_PATH = obj
@@ -54,7 +56,7 @@ OBJECTS = $(addprefix $(OBJ_PATH)/, $(SOURCES:%.c=%.o))
 
 # Tests
 TEST_PATH = tests
-TEST_EXEC = $(TEST_PATH)/test_lib42
+TEST_EXEC = $(TEST_PATH)/test_lib42.out
 
 # Benchmarks
 BENCHMARKS_PATH = benchmarks

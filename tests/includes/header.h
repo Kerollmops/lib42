@@ -13,5 +13,6 @@ void	suite_ft_vector_remove(void);
 void	suite_ft_vector_get_set(void);
 void	suite_ft_vector_indexof(void);
 void	suite_ft_vector_insert(void);
+void	suite_ft_vector_strsplit(void);
 
 #endif

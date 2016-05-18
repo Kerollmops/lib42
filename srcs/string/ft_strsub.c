@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vector_new.c                                    :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/10 14:00:18 by djean             #+#    #+#             */
-/*   Updated: 2016/05/18 14:53:07 by djean            ###   ########.fr       */
+/*   Created: 2015/11/30 16:42:36 by djean             #+#    #+#             */
+/*   Updated: 2016/04/25 19:05:17 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_vector.h"
+#include "ft_string.h"
 
-t_vector	*ft_vector_new(size_t size)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	t_vector	*v;
+	char	*str;
 
-	v = ft_memalloc(sizeof(t_vector));
-	if (v == NULL)
-		return (NULL);
-	if ((ft_vector_init(v, size)) == NULL)
-	{
-		free(v);
-		return (NULL);
-	}
-	return (v);
+	if ((str = ft_strnew(len)))
+		return (ft_memcpy(str, s + start, len));
+	return (NULL);
 }
