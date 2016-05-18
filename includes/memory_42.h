@@ -6,12 +6,12 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/18 16:45:36 by djean             #+#    #+#             */
-/*   Updated: 2016/05/18 16:48:37 by djean            ###   ########.fr       */
+/*   Updated: 2016/05/18 19:02:18 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_MEMORY_H
-# define FT_MEMORY_H
+#ifndef MEMORY_42_H
+# define MEMORY_42_H
 
 # include <stdlib.h>
 

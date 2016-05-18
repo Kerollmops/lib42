@@ -6,16 +6,16 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/01 16:51:24 by djean             #+#    #+#             */
-/*   Updated: 2016/05/18 18:36:18 by djean            ###   ########.fr       */
+/*   Updated: 2016/05/18 19:07:12 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_BUFFER_H
-# define FT_BUFFER_H
+#ifndef BUFFER_42_H
+# define BUFFER_42_H
 
 # include <stdlib.h>
-# include "42_string.h"
-# include "42_stdlib.h"
+# include "string_42.h"
+# include "stdlib_42.h"
 
 # define BUFFER_INIT_SIZE		256UL
 # define BUFFER_GROWTH_FACTOR	2UL

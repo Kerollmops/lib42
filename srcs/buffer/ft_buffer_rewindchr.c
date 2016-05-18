@@ -6,11 +6,11 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/18 18:52:25 by djean             #+#    #+#             */
-/*   Updated: 2016/05/18 18:52:26 by djean            ###   ########.fr       */
+/*   Updated: 2016/05/18 19:04:30 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "42_buffer.h"
+#include "buffer_42.h"
 
 /*
 ** Recule le buffer jusqu'au char c

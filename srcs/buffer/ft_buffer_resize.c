@@ -6,11 +6,11 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/01 17:21:27 by djean             #+#    #+#             */
-/*   Updated: 2016/05/18 18:37:59 by djean            ###   ########.fr       */
+/*   Updated: 2016/05/18 19:04:30 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "42_buffer.h"
+#include "buffer_42.h"
 
 t_buffer	*ft_buffer_resize(t_buffer *b, size_t len)
 {

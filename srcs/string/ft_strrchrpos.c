@@ -6,11 +6,11 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/18 18:38:34 by djean             #+#    #+#             */
-/*   Updated: 2016/05/18 18:38:44 by djean            ###   ########.fr       */
+/*   Updated: 2016/05/18 19:04:49 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "42_string.h"
+#include "string_42.h"
 
 int	ft_strrchrpos(const char *s, int c)
 {

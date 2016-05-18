@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_string.h                                        :+:      :+:    :+:   */
+/*   ft_stdlib.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/01 16:53:21 by djean             #+#    #+#             */
-/*   Updated: 2016/05/18 18:47:56 by djean            ###   ########.fr       */
+/*   Created: 2016/04/01 16:55:18 by djean             #+#    #+#             */
+/*   Updated: 2016/05/18 19:07:02 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_STRING_H
-# define FT_STRING_H
+#ifndef STDLIB_42_H
+# define STDLIB_42_H
 
 # include <stdlib.h>
-# include "42_memory.h"
+# include "string_42.h"
 
-char	*ft_strnew(size_t size);
-size_t	ft_strlen(const char *s);
-char	*ft_strchr(const char *s, int c);
-char	*ft_strrchr(const char *s, int c);
-int		ft_strchrpos(const char *s, int c);
-int		ft_strrchrpos(const char *s, int c);
-char	*ft_strsub(char const *s, unsigned int start, size_t len);
-char	*ft_strdup(const char *s1);
+# define FT_ABS(x)			(((x) < 0) ? -(x) : (x))
+# define FT_MAX(a, b)		((a) < (b) ? (b) : (a))
+# define FT_MIN(a, b)		((a) > (b) ? (b) : (a))
+# define FREE(ptr)			(free(ptr), (ptr) = NULL)
+# define ARR_SIZ_MAX(a)		(sizeof(a) / sizeof((a)[0]))
+
+void	*ft_realloc(void *ptr, size_t size, size_t oldsize);
 
 #endif

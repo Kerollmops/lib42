@@ -6,11 +6,11 @@
 /*   By: adubois <adubois@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 15:48:41 by adubois           #+#    #+#             */
-/*   Updated: 2016/05/18 17:31:04 by djean            ###   ########.fr       */
+/*   Updated: 2016/05/18 19:06:01 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "42_memory.h"
+#include "memory_42.h"
 
 /*
 ** Set the value 'c' to the first 'len' bytes in the memory space pointed by
