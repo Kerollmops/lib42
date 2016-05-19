@@ -39,7 +39,7 @@ SOURCES = main.c \
 		  vector_add.c vector_copy.c vector_replace.c vector_remove.c \
 		  vector_getset.c vector_indexof.c vector_insert.c vector_strsplit.c \
 		  buffer.c buffer_rewindchr.c realloc.c strchrpos.c \
-		  strrchrpos.c \
+		  strrchrpos.c buffer_rewind.c
 
 
 # Objects

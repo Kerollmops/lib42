@@ -54,7 +54,7 @@ SOURCES += ft_vector_init.c ft_vector_add.c ft_vector_get.c \
 
 # Buffer
 SOURCES += ft_buffer_init.c ft_buffer_add.c ft_buffer_resize.c ft_buffer_set.c \
-		   ft_buffer_rewindchr.c
+		   ft_buffer_rewindchr.c ft_buffer_rewind.c
 
 # Objects
 OBJ_PATH = obj
