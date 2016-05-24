@@ -12,6 +12,7 @@ int	main(void)
 	// buffer
 	suite_buffer();
 	suite_buffer_rewindchr();
+	suite_buffer_rewind();
 
 	// vector
 	suite_ft_vector_add();

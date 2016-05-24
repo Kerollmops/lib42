@@ -9,6 +9,7 @@ void	suite_strchrpos(void);
 void	suite_strrchrpos(void);
 void	suite_buffer(void);
 void	suite_buffer_rewindchr(void);
+void	suite_buffer_rewind(void);
 void	suite_ft_vector_add(void);
 void	suite_ft_vector_copy(void);
 void	suite_ft_vector_replace(void);
