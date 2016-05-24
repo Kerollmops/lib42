@@ -9,6 +9,13 @@ int	main(void)
 	suite_strchrpos();
 	suite_strrchrpos();
 
+	// memory
+	suite_memset();
+	suite_bzero();
+	suite_memcpy();
+	suite_memccpy();
+	suite_memmove();
+
 	// buffer
 	suite_buffer();
 	suite_buffer_rewindchr();
