@@ -61,7 +61,7 @@ OBJ_PATH = obj
 OBJECTS = $(addprefix $(OBJ_PATH)/, $(SOURCES:%.c=%.o))
 
 # Tests
-TEST_PATH = tests
+TEST_PATH = test
 TEST_EXEC = $(TEST_PATH)/test_lib42.out
 
 # Benchmarks
@@ -101,7 +101,7 @@ norme:
 	@norminette $(HEADERS)
 
 ctags:
-	ctags -R --tag-relative=yes --exclude='.git*' --exclude=tests --exclude='*.o' --exclude='*dSYM' --exclude='*.pdf'
+	ctags -R --tag-relative=yes --exclude='.git*' --exclude=test --exclude='*.o' --exclude='*dSYM' --exclude='*.pdf'
 
 # Tests
 .PHONY: check
