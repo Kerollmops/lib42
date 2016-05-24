@@ -24,14 +24,14 @@ ifeq ($(SAN),yes)
 endif
 
 # Headers
-INC_PATH = includes
+INC_PATH = inc
 INC_FILES = buffer_42.h memory_42.h stdlib_42.h string_42.h vector_42.h
 
 HEADERS = $(INC_FILES:%.h=$(INC_PATH)/%.h)
 CFLAGS += $(addprefix -I,$(INC_PATH))
 
 # Sources
-SRC_PATH = srcs
+SRC_PATH = src
 SRC_SUBDIR = vector string stdlib memory buffer
 vpath %.c $(addprefix $(SRC_PATH)/,$(SRC_SUBDIR))
 
