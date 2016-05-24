@@ -38,6 +38,8 @@ SRC_PATH = src
 SOURCES = main.c \
 		  vector_add.c vector_copy.c vector_replace.c vector_remove.c \
 		  vector_getset.c vector_indexof.c vector_insert.c vector_strsplit.c \
+		  memory_bzero.c memory_memset.c memory_memcpy.c memory_memccpy.c \
+		  memory_memmove.c \
 		  buffer.c buffer_rewindchr.c realloc.c strchrpos.c \
 		  strrchrpos.c buffer_rewind.c
 
