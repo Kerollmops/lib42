@@ -1,3 +1,3 @@
-[submodule "tests/vittf"]
-	path = tests/vittf
+[submodule "test/vittf"]
+	path = test/vittf
 	url = https://github.com/dkrmr/vittf.git
