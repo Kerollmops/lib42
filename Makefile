@@ -39,7 +39,8 @@ vpath %.c $(addprefix $(SRC_PATH)/,$(SRC_SUBDIR))
 SOURCES += ft_realloc.c
 
 # Memory
-SOURCES += ft_memset.c ft_bzero.c ft_memalloc.c ft_memcpy.c
+SOURCES += ft_bzero.c ft_memset.c ft_memalloc.c ft_memcpy.c \
+		   ft_memccpy.c ft_memmove.c
 
 # String
 SOURCES += ft_strlen.c ft_strdup.c ft_strsub.c ft_strnew.c \
