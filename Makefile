@@ -64,10 +64,6 @@ OBJECTS = $(addprefix $(OBJ_PATH)/, $(SOURCES:%.c=%.o))
 TEST_PATH = tests
 TEST_EXEC = $(TEST_PATH)/test_lib42.out
 
-# Benchmarks
-BENCHMARKS_PATH = benchmarks
-CG_OUTPUT_FILE=callgrind.output
-
 
 # Rules
 all: $(NAME)
