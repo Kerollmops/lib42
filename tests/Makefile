@@ -25,14 +25,14 @@ ifeq ($(SAN),yes)
 endif
 
 # Headers
-INC_PATH = includes
+INC_PATH = inc
 INC_FILES = header.h
 HEADERS = $(INC_FILES:%.h=$(INC_PATH)/%.h)
 CFLAGS += $(addprefix -I,$(INC_PATH))
 
 
 # Sources
-SRC_PATH = srcs
+SRC_PATH = src
 # SRC_SUBDIR = vector
 # vpath %.c $(addprefix $(SRC_PATH)/,$(SRC_SUBDIR))
 SOURCES = main.c \
@@ -50,7 +50,7 @@ OBJECTS = $(addprefix $(OBJ_PATH)/,$(SOURCES:%.c=%.o))
 # Lib42
 LIB42_PATH = ..
 LIB42 = $(LIB42_PATH)/$(NAME)
-CFLAGS += -I $(LIB42_PATH)/includes
+CFLAGS += -I $(LIB42_PATH)/inc
 LDFLAGS += -L $(LIB42_PATH) -l42
 
 # Vittf
