@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/18 14:50:31 by djean             #+#    #+#             */
-/*   Updated: 2016/05/25 13:58:02 by adubois          ###   ########.fr       */
+/*   Updated: 2016/05/25 18:01:11 by adubois          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ static inline void	*free_and_return(t_array *v, char *sub)
 	return (NULL);
 }
 
-t_array			*ft_array_strsplit(char *str, char c)
+t_array				*ft_array_strsplit(char *str, char c)
 {
-	t_array	*v;
+	t_array		*v;
 	char		*sub;
 	int			len;
 

@@ -6,7 +6,7 @@
 /*   By: adubois <adubois@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/17 21:00:52 by adubois           #+#    #+#             */
-/*   Updated: 2016/05/24 19:46:08 by adubois          ###   ########.fr       */
+/*   Updated: 2016/05/25 18:00:09 by adubois          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ static void	ft_memmove_align(void **dest, const void **src, size_t *n)
 	*n -= size;
 	while (size)
 	{
-        --destination;
-        --source;
+		--destination;
+		--source;
 		*destination = *source;
 		--size;
 	}
@@ -37,35 +37,35 @@ static void	ft_memmove_align(void **dest, const void **src, size_t *n)
 
 static void	ft_memmove_bulk(void **dest, const void **src, size_t *n)
 {
-    unsigned char   swap[4096];
+	unsigned char	swap[4096];
 	unsigned char	*destination;
 	unsigned char	*source;
 
 	destination = (unsigned char *)*dest;
 	source = (unsigned char *)*src;
-    while (*n >= 4096)
-    {
-        destination -= 4096;
-        source -= 4096;
-        ft_memcpy(swap, source, 4096); 
-        ft_memcpy(destination, swap, 4096); 
-        *n -= 4096;
-    }
+	while (*n >= 4096)
+	{
+		destination -= 4096;
+		source -= 4096;
+		ft_memcpy(swap, source, 4096);
+		ft_memcpy(destination, swap, 4096);
+		*n -= 4096;
+	}
 	*dest = (void *)destination;
 	*src = (void *)source;
 }
 
 static void	ft_memmove_terminate(void **dest, const void **src, size_t *n)
 {
-    unsigned char   swap[*n];
+	unsigned char	swap[*n];
 	unsigned char	*destination;
 	unsigned char	*source;
 
 	destination = (unsigned char *)*dest - *n;
 	source = (unsigned char *)*src - *n;
-    ft_memcpy(swap, source, *n); 
-    ft_memcpy(destination, swap, *n); 
-    *n -= 0;
+	ft_memcpy(swap, source, *n);
+	ft_memcpy(destination, swap, *n);
+	*n -= 0;
 	*dest = (void *)destination;
 	*src = (void *)source;
 }
@@ -76,12 +76,12 @@ void		*ft_memmove(void *dest, const void *src, size_t n)
 
 	if (n == 0 || dest == src)
 		return (dest);
-    if (src > dest)
-        return (ft_memcpy(dest, src, n));
+	if (src > dest)
+		return (ft_memcpy(dest, src, n));
 	orig = dest;
-    ft_memmove_align(&dest, &src, &n);
-    if (n >= 4096)
-        ft_memmove_bulk(&dest, &src, &n);
+	ft_memmove_align(&dest, &src, &n);
+	if (n >= 4096)
+		ft_memmove_bulk(&dest, &src, &n);
 	if (n != 0)
 		ft_memmove_terminate(&dest, &src, &n);
 	return (orig);

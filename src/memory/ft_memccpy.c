@@ -6,7 +6,7 @@
 /*   By: adubois <adubois@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/12 18:25:00 by adubois           #+#    #+#             */
-/*   Updated: 2016/05/24 16:35:35 by adubois          ###   ########.fr       */
+/*   Updated: 2016/05/25 18:00:44 by adubois          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 		if (size == n)
 		{
 			ft_memcpy(dest, src, n);
-			return (NULL);	
+			return (NULL);
 		}
 	}
 	ft_memcpy(dest, src, size);
