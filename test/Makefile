@@ -33,15 +33,25 @@ CFLAGS += $(addprefix -I,$(INC_PATH))
 
 # Sources
 SRC_PATH = src
-# SRC_SUBDIR = vector
-# vpath %.c $(addprefix $(SRC_PATH)/,$(SRC_SUBDIR))
-SOURCES = main.c \
-		  vector_add.c vector_copy.c vector_replace.c vector_remove.c \
-		  vector_getset.c vector_indexof.c vector_insert.c vector_strsplit.c \
-		  memory_bzero.c memory_memset.c memory_memcpy.c memory_memccpy.c \
-		  memory_memmove.c \
-		  buffer.c buffer_rewindchr.c realloc.c strchrpos.c \
-		  strrchrpos.c buffer_rewind.c
+SRC_SUBDIR = . array buffer memory stdlib string
+vpath %.c $(addprefix $(SRC_PATH)/,$(SRC_SUBDIR))
+SOURCES = main.c
+
+# Array
+SOURCES += array_add.c array_copy.c array_replace.c array_remove.c \
+		  array_getset.c array_indexof.c array_insert.c array_strsplit.c
+
+# Buffer
+SOURCES += buffer.c buffer_rewindchr.c buffer_rewind.c
+
+# Memory
+SOURCES += bzero.c memset.c memcpy.c memccpy.c memmove.c
+
+# Stdlib
+SOURCES += realloc.c
+
+# String
+SOURCES += strchrpos.c strrchrpos.c
 
 
 # Objects
@@ -72,7 +82,7 @@ $(NAME): $(OBJECTS) | $(LIB42)
 	$(CC) -o $@ $^ $(LDFLAGS)
 
 $(OBJECTS): $(HEADERS) | $(OBJ_PATH)
-$(OBJECTS): $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
+$(OBJECTS): $(OBJ_PATH)/%.o: %.c
 	$(CC) $(CFLAGS) -o $@ -c $<
 
 $(OBJ_PATH):

@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vector_init.c                                   :+:      :+:    :+:   */
+/*   ft_array_insert.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/01 17:10:47 by djean             #+#    #+#             */
-/*   Updated: 2016/05/18 19:05:13 by djean            ###   ########.fr       */
+/*   Created: 2016/03/31 14:17:35 by djean             #+#    #+#             */
+/*   Updated: 2016/05/25 13:57:26 by adubois          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vector_42.h"
+#include "array_42.h"
 
-void	*ft_vector_init(t_vector *v, size_t size)
+void	*ft_array_insert(t_array *v, size_t i, void *e)
 {
-	size_t	s;
+	unsigned char	**src;
+	size_t			len;
 
-	s = (size == 0) ? VECTOR_INIT_CAPACITY : size;
-	v->max = s;
-	v->total = 0;
-	v->data = ft_memalloc(sizeof(void*) * s);
-	if (v->data == NULL)
+	if (i > v->total)
 		return (NULL);
+	if (v->total + 1 >= v->max)
+		if (ft_array_resize(v) == NULL)
+			return (NULL);
+	if (i == v->total)
+		return (ft_array_add(v, e));
+	src = (unsigned char **)(v->data + i);
+	len = (v->total - i) * sizeof(void*);
+	ft_memmove(src + 1, src, len);
+	v->data[i] = e;
+	v->total++;
 	return (v);
 }

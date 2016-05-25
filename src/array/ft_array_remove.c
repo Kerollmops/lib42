@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vector_clear.c                                  :+:      :+:    :+:   */
+/*   ft_array_remove.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/16 11:36:27 by djean             #+#    #+#             */
-/*   Updated: 2016/05/18 19:05:12 by djean            ###   ########.fr       */
+/*   Created: 2016/05/13 12:02:38 by djean             #+#    #+#             */
+/*   Updated: 2016/05/25 13:57:37 by adubois          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vector_42.h"
+#include "array_42.h"
 
 /*
-** free() chaque pointer contenue dans .data
-** et reset .total
+** Retire un élément du array et le retourne
 */
 
-void	ft_vector_clear(t_vector *v)
+void	*ft_array_remove(t_array *v, size_t i)
 {
-	while (v->total > 0)
-		free(v->data[--(v->total)]);
+	void	*ptr;
+
+	if (i >= v->total)
+		return (NULL);
+	ptr = v->data[i];
+	while (i < v->total)
+	{
+		v->data[i] = v->data[i + 1];
+		++i;
+	}
+	v->total -= 1;
+	return (ptr);
 }

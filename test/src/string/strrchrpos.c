@@ -1,6 +1,6 @@
 #include "header.h"
 
-void	test_00_ft_strrchrpos_SimpleString1(void)
+void	test_00_strrchrpos_SimpleString1(void)
 {
 	int ret;
 
@@ -10,7 +10,7 @@ void	test_00_ft_strrchrpos_SimpleString1(void)
 	VTS;
 }
 
-void	test_01_ft_strrchrpos_SimpleString2(void)
+void	test_01_strrchrpos_SimpleString2(void)
 {
 	int ret;
 
@@ -20,7 +20,7 @@ void	test_01_ft_strrchrpos_SimpleString2(void)
 	VTS;
 }
 
-void	test_02_ft_strrchrpos_CharNotFound(void)
+void	test_02_strrchrpos_CharNotFound(void)
 {
 	int ret;
 
@@ -30,7 +30,7 @@ void	test_02_ft_strrchrpos_CharNotFound(void)
 	VTS;
 }
 
-void	test_03_ft_strrchrpos_TwoOccurrence(void)
+void	test_03_strrchrpos_TwoOccurrence(void)
 {
 	int ret;
 
@@ -40,7 +40,7 @@ void	test_03_ft_strrchrpos_TwoOccurrence(void)
 	VTS;
 }
 
-void	test_04_ft_strrchrpos_EndOfString(void)
+void	test_04_strrchrpos_EndOfString(void)
 {
 	int ret;
 
@@ -50,7 +50,7 @@ void	test_04_ft_strrchrpos_EndOfString(void)
 	VTS;
 }
 
-void	test_05_ft_strrchrpos_SimpleString3(void)
+void	test_05_strrchrpos_SimpleString3(void)
 {
 	int ret;
 
@@ -62,12 +62,12 @@ void	test_05_ft_strrchrpos_SimpleString3(void)
 
 void	suite_strrchrpos(void)
 {
-	test_00_ft_strrchrpos_SimpleString1();
-	test_01_ft_strrchrpos_SimpleString2();
-	test_02_ft_strrchrpos_CharNotFound();
-	test_03_ft_strrchrpos_TwoOccurrence();
-	test_04_ft_strrchrpos_EndOfString();
-	test_05_ft_strrchrpos_SimpleString3();
+	test_00_strrchrpos_SimpleString1();
+	test_01_strrchrpos_SimpleString2();
+	test_02_strrchrpos_CharNotFound();
+	test_03_strrchrpos_TwoOccurrence();
+	test_04_strrchrpos_EndOfString();
+	test_05_strrchrpos_SimpleString3();
 
 	VSS;
 }

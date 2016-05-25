@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vector_get.c                                    :+:      :+:    :+:   */
+/*   ft_array_destroy.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/31 15:14:53 by djean             #+#    #+#             */
-/*   Updated: 2016/05/18 19:05:13 by djean            ###   ########.fr       */
+/*   Created: 2016/04/06 14:01:46 by djean             #+#    #+#             */
+/*   Updated: 2016/05/25 13:57:04 by adubois          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vector_42.h"
+#include "array_42.h"
 
-void	*ft_vector_get(t_vector *v, size_t i)
+void	ft_array_destroy(t_array *v)
 {
-	if (i >= v->total)
-		return (NULL);
-	return (v->data[i]);
+	free(v->data);
+	free(v);
 }

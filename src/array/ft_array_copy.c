@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vector_indexof.c                                :+:      :+:    :+:   */
+/*   ft_array_copy.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/13 15:35:33 by djean             #+#    #+#             */
-/*   Updated: 2016/05/18 19:05:13 by djean            ###   ########.fr       */
+/*   Created: 2016/05/10 13:41:37 by djean             #+#    #+#             */
+/*   Updated: 2016/05/25 13:56:59 by adubois          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vector_42.h"
+#include "array_42.h"
 
-int	ft_vector_indexof(t_vector *v, void *e)
+/*
+** Alloue un nouveau array et copie la structure *v
+** Dans le nouvel espace.
+*/
+
+t_array	*ft_array_copy(t_array *v)
 {
-	size_t	i;
+	t_array	*cp;
 
-	i = 0;
-	while (i < FT_VECTOR_TOTAL(v))
-	{
-		if (FT_VECTOR_GET(v, i) == e)
-			return (i);
-		++i;
-	}
-	return (-1);
+	if ((cp = ft_array_new(FT_ARRAY_MAX(v))) == NULL)
+		return (NULL);
+	FT_ARRAY_TOTAL(cp) = FT_ARRAY_TOTAL(v);
+	ft_memcpy(FT_ARRAY_DATA(cp), FT_ARRAY_DATA(v),
+			FT_ARRAY_TOTAL(v) * sizeof(void*));
+	return (cp);
 }

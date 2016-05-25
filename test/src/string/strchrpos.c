@@ -1,6 +1,6 @@
 #include "header.h"
 
-void	test_00_ft_strchrpos_SimpleString1(void)
+void	test_00_strchrpos_SimpleString1(void)
 {
 	int ret;
 
@@ -10,7 +10,7 @@ void	test_00_ft_strchrpos_SimpleString1(void)
 	VTS;
 }
 
-void	test_01_ft_strchrpos_SimpleString2(void)
+void	test_01_strchrpos_SimpleString2(void)
 {
 	int ret;
 
@@ -20,7 +20,7 @@ void	test_01_ft_strchrpos_SimpleString2(void)
 	VTS;
 }
 
-void	test_02_ft_strchrpos_CharNotFound(void)
+void	test_02_strchrpos_CharNotFound(void)
 {
 	int ret;
 
@@ -30,7 +30,7 @@ void	test_02_ft_strchrpos_CharNotFound(void)
 	VTS;
 }
 
-void	test_03_ft_strchrpos_TwoOccurrence(void)
+void	test_03_strchrpos_TwoOccurrence(void)
 {
 	int ret;
 
@@ -40,7 +40,7 @@ void	test_03_ft_strchrpos_TwoOccurrence(void)
 	VTS;
 }
 
-void	test_04_ft_strchrpos_EndOfString(void)
+void	test_04_strchrpos_EndOfString(void)
 {
 	int ret;
 
@@ -52,11 +52,11 @@ void	test_04_ft_strchrpos_EndOfString(void)
 
 void	suite_strchrpos(void)
 {
-	test_00_ft_strchrpos_SimpleString1();
-	test_01_ft_strchrpos_SimpleString2();
-	test_02_ft_strchrpos_CharNotFound();
-	test_03_ft_strchrpos_TwoOccurrence();
-	test_04_ft_strchrpos_EndOfString();
+	test_00_strchrpos_SimpleString1();
+	test_01_strchrpos_SimpleString2();
+	test_02_strchrpos_CharNotFound();
+	test_03_strchrpos_TwoOccurrence();
+	test_04_strchrpos_EndOfString();
 
 	VSS;
 }

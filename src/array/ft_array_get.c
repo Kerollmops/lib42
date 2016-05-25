@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vector_replace.c                                :+:      :+:    :+:   */
+/*   ft_array_get.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/13 11:47:50 by djean             #+#    #+#             */
-/*   Updated: 2016/05/18 19:05:13 by djean            ###   ########.fr       */
+/*   Created: 2016/03/31 15:14:53 by djean             #+#    #+#             */
+/*   Updated: 2016/05/25 13:57:09 by adubois          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vector_42.h"
+#include "array_42.h"
 
-/*
-** Set le nouvel élément à la place i
-** Et retourne l'ancien élément
-*/
-
-void	*ft_vector_replace(t_vector *v, size_t i, void *e)
+void	*ft_array_get(t_array *v, size_t i)
 {
-	void	*old;
-
-	if (i >= FT_VECTOR_TOTAL(v))
+	if (i >= v->total)
 		return (NULL);
-	old = ft_vector_get(v, i);
-	ft_vector_set(v, i, e);
-	return (old);
+	return (v->data[i]);
 }

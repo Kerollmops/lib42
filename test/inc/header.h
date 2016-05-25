@@ -15,13 +15,13 @@ void	suite_memcpy(void);
 void	suite_memccpy(void);
 void	suite_memmove(void);
 void	suite_memset(void);
-void	suite_ft_vector_add(void);
-void	suite_ft_vector_copy(void);
-void	suite_ft_vector_replace(void);
-void	suite_ft_vector_remove(void);
-void	suite_ft_vector_get_set(void);
-void	suite_ft_vector_indexof(void);
-void	suite_ft_vector_insert(void);
-void	suite_ft_vector_strsplit(void);
+void	suite_array_add(void);
+void	suite_array_copy(void);
+void	suite_array_replace(void);
+void	suite_array_remove(void);
+void	suite_array_get_set(void);
+void	suite_array_indexof(void);
+void	suite_array_insert(void);
+void	suite_array_strsplit(void);
 
 #endif
