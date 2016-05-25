@@ -39,13 +39,14 @@ SOURCES = main.c
 
 # Array
 SOURCES += array_add.c array_copy.c array_replace.c array_remove.c \
-		  array_getset.c array_indexof.c array_insert.c array_strsplit.c
+			array_getset.c array_indexof.c array_insert.c array_strsplit.c
 
 # Buffer
 SOURCES += buffer.c buffer_rewindchr.c buffer_rewind.c
 
 # Memory
-SOURCES += bzero.c memset.c memcpy.c memccpy.c memmove.c memchr.c
+SOURCES += bzero.c memset.c memcpy.c memccpy.c memmove.c memchr.c \
+			memcmp.c
 
 # Stdlib
 SOURCES += realloc.c

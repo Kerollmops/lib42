@@ -48,7 +48,7 @@ SOURCES += ft_buffer_init.c ft_buffer_add.c ft_buffer_resize.c ft_buffer_set.c \
 
 # Memory
 SOURCES += ft_bzero.c ft_memset.c ft_memalloc.c ft_memcpy.c \
-		   ft_memccpy.c ft_memmove.c ft_memchr.c
+		   ft_memccpy.c ft_memmove.c ft_memchr.c ft_memcmp.c
 
 # Stdlib
 SOURCES += ft_realloc.c
