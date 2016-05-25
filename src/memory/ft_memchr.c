@@ -6,13 +6,13 @@
 /*   By: adubois <adubois@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/25 16:15:26 by adubois           #+#    #+#             */
-/*   Updated: 2016/05/25 17:54:38 by adubois          ###   ########.fr       */
+/*   Updated: 2016/05/25 18:55:24 by adubois          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "memory_42.h"
 
-void	*ft_memchr_align(const void **s, unsigned char c, size_t *n)
+static void	*ft_memchr_align(const void **s, unsigned char c, size_t *n)
 {
 	size_t			size;
 	unsigned char	*ptr;
@@ -32,7 +32,7 @@ void	*ft_memchr_align(const void **s, unsigned char c, size_t *n)
 	return (NULL);
 }
 
-void	*ft_memchr_bulk(const void **s, unsigned char c, size_t *n)
+static void	*ft_memchr_bulk(const void **s, unsigned char c, size_t *n)
 {
 	unsigned long	chr;
 	unsigned long	bytes;
@@ -61,7 +61,7 @@ void	*ft_memchr_bulk(const void **s, unsigned char c, size_t *n)
 	return (NULL);
 }
 
-void	*ft_memchr_terminate(const void *s, unsigned char c, size_t n)
+static void	*ft_memchr_terminate(const void *s, unsigned char c, size_t n)
 {
 	unsigned char	*ptr;
 
@@ -75,7 +75,7 @@ void	*ft_memchr_terminate(const void *s, unsigned char c, size_t n)
 	return (NULL);
 }
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void		*ft_memchr(const void *s, int c, size_t n)
 {
 	void	*ptr;
 
