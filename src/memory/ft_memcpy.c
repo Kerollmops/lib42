@@ -6,9 +6,11 @@
 /*   By: adubois <adubois@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/12 17:49:56 by adubois           #+#    #+#             */
-/*   Updated: 2016/05/24 19:45:44 by adubois          ###   ########.fr       */
+/*   Updated: 2016/05/25 10:59:32 by adubois          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "lib42.h"
 
 static void	ft_memcpy_align(void **dest, const void **src, size_t *n)
 {
