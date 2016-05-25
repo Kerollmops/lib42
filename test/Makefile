@@ -45,7 +45,7 @@ SOURCES += array_add.c array_copy.c array_replace.c array_remove.c \
 SOURCES += buffer.c buffer_rewindchr.c buffer_rewind.c
 
 # Memory
-SOURCES += bzero.c memset.c memcpy.c memccpy.c memmove.c
+SOURCES += bzero.c memset.c memcpy.c memccpy.c memmove.c memchr.c
 
 # Stdlib
 SOURCES += realloc.c

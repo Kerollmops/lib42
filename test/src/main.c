@@ -12,8 +12,9 @@ int	main(void)
 	// memory
 	suite_memset();
 	suite_bzero();
-	suite_memcpy();
 	suite_memccpy();
+	suite_memcpy();
+	suite_memchr();
 	suite_memmove();
 
 	// buffer
