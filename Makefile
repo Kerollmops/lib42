@@ -54,8 +54,8 @@ SOURCES += ft_bzero.c ft_memset.c ft_memalloc.c ft_memcpy.c \
 SOURCES += ft_realloc.c
 
 # String
-SOURCES += ft_strlen.c ft_strnlen.c ft_strdup.c ft_strsub.c ft_strnew.c \
-		   ft_strchr.c ft_strrchr.c ft_strchrpos.c ft_strrchrpos.c
+SOURCES += ft_strlen.c ft_strnlen.c ft_strdup.c ft_strndup.c ft_strsub.c \
+		   ft_strnew.c ft_strchr.c ft_strrchr.c ft_strchrpos.c ft_strrchrpos.c
 
 # Objects
 OBJ_PATH = obj
