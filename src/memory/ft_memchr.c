@@ -6,7 +6,7 @@
 /*   By: adubois <adubois@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/25 16:15:26 by adubois           #+#    #+#             */
-/*   Updated: 2016/05/25 18:55:24 by adubois          ###   ########.fr       */
+/*   Updated: 2016/05/26 12:31:04 by adubois          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ static void	*ft_memchr_bulk(const void **s, unsigned char c, size_t *n)
 		if (((bytes - 0x0101010101010101UL) & (~bytes & 0x8080808080808080UL)))
 		{
 			current = (unsigned char *)ptr;
-			i = 8;
-			while (--i >= 0)
-				if (*(current + i) == c)
-					return ((void *)(current + i));
+			i = 0;
+			while (i++ < 8)
+				if (*(current + i - 1) == c)
+					return ((void *)(current + i - 1));
 		}
 		++ptr;
 		*n -= 8;
