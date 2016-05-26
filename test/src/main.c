@@ -17,6 +17,7 @@ int	main(void)
 	// string
 	suite_strlen();
 	suite_strnlen();
+	suite_strdup();
 	suite_strchrpos();
 	suite_strrchrpos();
 
