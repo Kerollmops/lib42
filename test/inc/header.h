@@ -45,5 +45,6 @@ void	suite_strchr(void);
 void	suite_strrchr(void);
 void	suite_strchrpos(void);
 void	suite_strrchrpos(void);
+void	suite_strstr(void);
 
 #endif

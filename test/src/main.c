@@ -28,6 +28,7 @@ int	main(void)
 	suite_strrchr();
 	suite_strchrpos();
 	suite_strrchrpos();
+	suite_strstr();
 
 	// buffer
 	suite_buffer();

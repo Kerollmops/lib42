@@ -54,7 +54,7 @@ SOURCES += realloc.c
 # String
 SOURCES += strchrpos.c strrchrpos.c strlen.c strnlen.c strdup.c strndup.c \
 			strcpy.c strncpy.c strcat.c strncat.c strlcat.c strchr.c \
-			strrchr.c
+			strrchr.c strstr.c
 
 
 # Objects
