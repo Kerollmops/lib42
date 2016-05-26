@@ -2,14 +2,6 @@
 
 int	main(void)
 {
-	// stdlib
-	suite_realloc();
-
-	// string
-	suite_strlen();
-	suite_strchrpos();
-	suite_strrchrpos();
-
 	// memory
 	suite_memset();
 	suite_bzero();
@@ -18,6 +10,15 @@ int	main(void)
 	suite_memcpy();
 	suite_memchr();
 	suite_memmove();
+
+	// stdlib
+	suite_realloc();
+
+	// string
+	suite_strlen();
+	suite_strnlen();
+	suite_strchrpos();
+	suite_strrchrpos();
 
 	// buffer
 	suite_buffer();
