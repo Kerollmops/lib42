@@ -6,6 +6,8 @@ int	main(void)
 	suite_realloc();
 
 	// string
+	suite_strchr();
+	suite_strrchr();
 	suite_strchrpos();
 	suite_strrchrpos();
 
