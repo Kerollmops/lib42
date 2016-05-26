@@ -21,6 +21,7 @@ int	main(void)
 	suite_strndup();
 	suite_strcpy();
 	suite_strncpy();
+	suite_strcat();
 	suite_strchrpos();
 	suite_strrchrpos();
 
