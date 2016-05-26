@@ -6,18 +6,14 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 12:11:40 by djean             #+#    #+#             */
-/*   Updated: 2016/05/18 19:04:49 by djean            ###   ########.fr       */
+/*   Updated: 2016/05/26 12:36:46 by adubois          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "string_42.h"
+#include <stdio.h>
 
 size_t	ft_strlen(const char *s)
 {
-	size_t	len;
-
-	len = 0;
-	while (s[len])
-		++len;
-	return (len);
+	return ((char *)ft_memchr(s, (int)'\0', ~0ULL) - s);
 }
