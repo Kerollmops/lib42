@@ -50,6 +50,26 @@ void	test_04_ft_strchrpos_EndOfString(void)
 	VTS;
 }
 
+void	test_05_ft_strchrpos_EmptyString(void)
+{
+	int ret;
+
+	ret = ft_strchrpos("", 'a');
+	v_assert_int(-1, ==, ret);
+
+	VTS;
+}
+
+void	test_06_ft_strchrpos_EmptyStringNullChar(void)
+{
+	int ret;
+
+	ret = ft_strchrpos("", '\0');
+	v_assert_int(0, ==, ret);
+
+	VTS;
+}
+
 void	suite_strchrpos(void)
 {
 	test_00_ft_strchrpos_SimpleString1();
@@ -57,6 +77,8 @@ void	suite_strchrpos(void)
 	test_02_ft_strchrpos_CharNotFound();
 	test_03_ft_strchrpos_TwoOccurrence();
 	test_04_ft_strchrpos_EndOfString();
+	test_05_ft_strchrpos_EmptyString();
+	test_06_ft_strchrpos_EmptyStringNullChar();
 
 	VSS;
 }
