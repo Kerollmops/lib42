@@ -6,7 +6,7 @@
 /*   By: adubois <adubois@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/26 15:47:35 by adubois           #+#    #+#             */
-/*   Updated: 2016/05/26 15:57:11 by adubois          ###   ########.fr       */
+/*   Updated: 2016/05/26 16:56:40 by adubois          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,5 @@ void		suite_strcat(void)
 	test_01_strcat_SimpleString();
 	test_02_strcat_LongString();
 
-VSS;
+	VSS;
 }
