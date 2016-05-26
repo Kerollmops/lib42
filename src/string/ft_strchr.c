@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 12:14:45 by djean             #+#    #+#             */
-/*   Updated: 2016/05/18 19:04:48 by djean            ###   ########.fr       */
+/*   Updated: 2016/05/26 17:57:26 by adubois          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,10 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	char	*pc;
+	size_t	len;
 
-	pc = (char*)s;
+	len = ft_strlen(s);
 	if ((char)c == '\0')
-		return (pc + ft_strlen(s));
-	while (*pc)
-		if (*pc++ == (char)c)
-			return (pc - 1);
-	return (NULL);
+		return ((char *)s + len);
+	return (ft_memchr(s, c, len));
 }
