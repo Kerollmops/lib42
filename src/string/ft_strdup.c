@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 12:14:44 by djean             #+#    #+#             */
-/*   Updated: 2016/05/18 19:04:49 by djean            ###   ########.fr       */
+/*   Updated: 2016/05/26 13:09:58 by adubois          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ char	*ft_strdup(const char *s1)
 	size_t	len;
 
 	len = ft_strlen(s1);
-	if ((str = ft_strnew(len)) == NULL)
+	if ((str = (char *)malloc(len + 1)) == NULL)
 		return (NULL);
-	return (ft_memcpy(str, s1, len));
+	ft_memcpy(str, s1, len);
+	str[len] = '\0';
+	return (str);
 }
