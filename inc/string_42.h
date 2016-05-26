@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/01 16:53:21 by djean             #+#    #+#             */
-/*   Updated: 2016/05/26 13:21:55 by adubois          ###   ########.fr       */
+/*   Updated: 2016/05/26 13:53:39 by adubois          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 char	*ft_strnew(size_t size);
 char	*ft_strdup(const char *s1);
 char	*ft_strndup(const char *s1, size_t n);
+char	*ft_strcpy(char *dst, const char *src);
 size_t	ft_strlen(const char *s);
 size_t	ft_strnlen(const char *s, size_t maxlen);
 char	*ft_strchr(const char *s, int c);

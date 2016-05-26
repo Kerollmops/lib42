@@ -6,7 +6,7 @@
 /*   By: adubois <adubois@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/26 13:36:38 by adubois           #+#    #+#             */
-/*   Updated: 2016/05/26 13:41:53 by adubois          ###   ########.fr       */
+/*   Updated: 2016/05/26 13:46:06 by adubois          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	test_00_strcpy_EmptyString(void)
 	char	src[] = "";
 	char	dst[10];
 
-	v_assert_ptr(dst, ft_strcpy(dst, src));
+	v_assert_ptr(dst, ==, ft_strcpy(dst, src));
 	v_assert_str(src, dst);
 
 	VTS;
@@ -28,7 +28,7 @@ static void	test_01_strcpy_SimpleString(void)
 	char	src[] = "Hello World!";
 	char	dst[20];
 
-	v_assert_ptr(dst, ft_strcpy(dst, src));
+	v_assert_ptr(dst, ==, ft_strcpy(dst, src));
 	v_assert_str(src, dst);
 
 	VTS;
@@ -43,7 +43,7 @@ static void	test_02_strcpy_LongString(void)
 					"hBbfUW4RY5FCeaXZwPPd jUus5zmEwkoh1FwCxUN3";
 	char	dst[300];
 
-	v_assert_ptr(dst, ft_strcpy(dst, src));
+	v_assert_ptr(dst, ==, ft_strcpy(dst, src));
 	v_assert_str(src, dst);
 
 	VTS;
