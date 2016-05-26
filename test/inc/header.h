@@ -39,6 +39,7 @@ void	suite_strndup(void);
 void	suite_strcpy(void);
 void	suite_strncpy(void);
 void	suite_strcat(void);
+void	suite_strncat(void);
 void	suite_strchrpos(void);
 void	suite_strrchrpos(void);
 
