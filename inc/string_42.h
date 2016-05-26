@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/01 16:53:21 by djean             #+#    #+#             */
-/*   Updated: 2016/05/26 14:11:54 by adubois          ###   ########.fr       */
+/*   Updated: 2016/05/26 16:00:42 by adubois          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ char	*ft_strdup(const char *s1);
 char	*ft_strndup(const char *s1, size_t n);
 char	*ft_strcpy(char *dst, const char *src);
 char	*ft_strncpy(char *dst, const char *src, size_t n);
+char	*ft_strcat(char *restrict s1, const char *restrict s2);
 size_t	ft_strlen(const char *s);
 size_t	ft_strnlen(const char *s, size_t maxlen);
 char	*ft_strchr(const char *s, int c);
