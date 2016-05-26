@@ -32,6 +32,7 @@ void	suite_memchr(void);
 void	suite_realloc(void);
 
 // String
+void	suite_strlen(void);
 void	suite_strchrpos(void);
 void	suite_strrchrpos(void);
 
