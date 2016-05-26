@@ -36,6 +36,7 @@ void	suite_strlen(void);
 void	suite_strnlen(void);
 void	suite_strdup(void);
 void	suite_strndup(void);
+void	suite_strcpy(void);
 void	suite_strchrpos(void);
 void	suite_strrchrpos(void);
 

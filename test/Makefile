@@ -52,7 +52,8 @@ SOURCES += bzero.c memset.c memcpy.c memccpy.c memmove.c memchr.c \
 SOURCES += realloc.c
 
 # String
-SOURCES += strchrpos.c strrchrpos.c strlen.c strnlen.c strdup.c strndup.c
+SOURCES += strchrpos.c strrchrpos.c strlen.c strnlen.c strdup.c strndup.c \
+			strcpy.c
 
 
 # Objects
