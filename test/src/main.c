@@ -23,6 +23,7 @@ int	main(void)
 	suite_strncpy();
 	suite_strcat();
 	suite_strncat();
+	suite_strlcat();
 	suite_strchrpos();
 	suite_strrchrpos();
 
