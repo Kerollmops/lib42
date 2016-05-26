@@ -6,7 +6,7 @@
 /*   By: adubois <adubois@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/26 17:42:50 by adubois           #+#    #+#             */
-/*   Updated: 2016/05/26 17:53:30 by adubois          ###   ########.fr       */
+/*   Updated: 2016/05/26 18:13:50 by adubois          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,22 @@ static void	test_03_strchr_LongStringSeveralChars(void)
 	VTS;
 }
 
+static void	test_04_strchr_NoChar(void)
+{
+	char	str[] = "Hello World!";
+
+	v_assert_ptr(ft_strchr(str, 'z'), ==, strchr(str, 'z'));
+
+	VTS;
+}
+
 void		suite_strchr(void)
 {
 	test_00_strchr_FirstChar();
 	test_01_strchr_Null();
 	test_02_strchr_LongStringOneChar();
 	test_03_strchr_LongStringSeveralChars();
+	test_04_strchr_NoChar();
 
 	VSS;
 }
