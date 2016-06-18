@@ -4,8 +4,6 @@ compiler:
   - gcc
   - clang
 
-# install: git submodule update --init
-
 script: make check
 
 git:
@@ -14,3 +12,8 @@ git:
 branches:
   only:
     - master
+
+addons:
+  apt:
+    packages:
+      - libc6-dev
