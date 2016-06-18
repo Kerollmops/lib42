@@ -16,5 +16,6 @@ branches:
 addons:
   apt:
     sources:
-      - libc6-dev
-      - libc-dev-bin
+      - ubuntu-toolchain-r-test
+    packages:
+      - libc-dev
