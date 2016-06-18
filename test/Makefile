@@ -1,6 +1,6 @@
 NAME = test_lib42.out
 CC ?= clang
-CFLAGS = -Wall -Werror -Wextra -pedantic -std=c99 -pedantic-errors
+CFLAGS = -Wall -Werror -Wextra -pedantic -std=c99 -pedantic-errors -Wno-unused-variable
 
 #Debug
 ifeq ($(DEBUG),yes)
