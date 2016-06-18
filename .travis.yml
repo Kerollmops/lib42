@@ -1,10 +1,16 @@
-sudo: false
+sudo: required
+dist: trusty
 
 language: c
 
 compiler:
   - gcc
   - clang
+
+before_install:
+  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+  - sudo apt-get update -q
+  - sudo apt-get install build-essential gcc-5 clang-3.9 -y
 
 script: make check
 
@@ -14,8 +20,3 @@ git:
 branches:
   only:
     - master
-
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
