@@ -1,0 +1,16 @@
+language: c
+
+compiler:
+  - gcc
+  - clang
+
+# install: git submodule update --init
+
+script: make check
+
+git:
+  depth: 3
+
+branches:
+  only:
+    - master

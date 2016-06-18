@@ -1,7 +1,6 @@
 NAME = test_lib42.out
 CC ?= clang
 CFLAGS = -Wall -Werror -Wextra -pedantic -std=c99 -pedantic-errors
-DEBUG=yes
 
 #Debug
 ifeq ($(DEBUG),yes)
