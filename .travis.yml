@@ -15,5 +15,6 @@ branches:
 
 addons:
   apt:
-    packages:
+    sources:
       - libc6-dev
+      - libc-dev-bin
