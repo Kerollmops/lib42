@@ -105,6 +105,6 @@ ctags:
 # Tests
 .PHONY: check
 
-check: all
+check: re
 	@$(MAKE) -C $(TEST_PATH) re
 	@./$(TEST_EXEC)

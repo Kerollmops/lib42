@@ -1,6 +1,10 @@
 #ifndef TEST_LIB42_H
 #define TEST_LIB42_H
 
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 #include "lib42.h"
 #include "vittf.h"
 
