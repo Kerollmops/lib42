@@ -23,7 +23,7 @@ static void	setup(void)
 static void	teardown(void)
 {
 	FT_ARRAY_FREE(&v);
-	bzero(&v, sizeof(t_array));
+	memset(&v, 0, sizeof(t_array));
 }
 
 void	test_00_array_indexof_First(void)
@@ -35,7 +35,7 @@ void	test_00_array_indexof_First(void)
 	index = ft_array_indexof(&v, str[0]);
 	v_assert_int(0, ==, index);
 	v_assert_ptr(str[0], ==, FT_ARRAY_GET(&v, (size_t)index));
-	v_assert_str(str[0], FT_ARRAY_GET(&v, (size_t)index));
+	v_assert_str(str[0], ft_array_get(&v, (size_t)index));
 
 	v_assert_size_t(5, ==, FT_ARRAY_TOTAL(&v));
 	v_assert_size_t(8, ==, FT_ARRAY_MAX(&v));
@@ -67,7 +67,7 @@ void	test_01_array_indexof_Last(void)
 	index = ft_array_indexof(&v, str[4]);
 	v_assert_int(4, ==, index);
 	v_assert_ptr(str[4], ==, FT_ARRAY_GET(&v, (size_t)index));
-	v_assert_str(str[4], FT_ARRAY_GET(&v, (size_t)index));
+	v_assert_str(str[4], ft_array_get(&v, (size_t)index));
 
 	v_assert_size_t(5, ==, FT_ARRAY_TOTAL(&v));
 	v_assert_size_t(8, ==, FT_ARRAY_MAX(&v));

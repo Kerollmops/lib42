@@ -6,7 +6,7 @@
 /*   By: adubois <adubois@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/12 16:37:17 by adubois           #+#    #+#             */
-/*   Updated: 2016/05/24 19:47:06 by adubois          ###   ########.fr       */
+/*   Updated: 2016/06/21 14:43:18 by leonhart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	test_00_bzero_SizeOf0(void)
 {
 	char	str[2];
 
-	bzero(str, 2);
+	memset(str, 0, 2);
 	memset(str, 48, 1);
 	ft_bzero(str, 0);
 	v_assert_str("0", str);
@@ -40,7 +40,7 @@ static void	test_02_bzero_SizeOf5(void)
 	char	str[6];
 
 	memset(str, 97, 6);
-	bzero(str, 5);
+	ft_bzero(str, 5);
 	v_assert(str[0] == 0 && str[1] == 0 && str[2] == 0
 			&& str[3] == 0 && str[4] == 0 && str[5] == 97);
 

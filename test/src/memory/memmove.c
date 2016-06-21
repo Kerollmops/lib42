@@ -6,7 +6,7 @@
 /*   By: adubois <adubois@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/12 17:37:47 by adubois           #+#    #+#             */
-/*   Updated: 2016/05/24 19:20:12 by adubois          ###   ########.fr       */
+/*   Updated: 2016/06/21 14:48:30 by leonhart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	test_00_memmove_SizeOf0(void)
 	void	*res;
 
 	memset(str1, 48, 11);
-	bzero(str2, 11);
+	memset(str2, 0, 11);
 	res = ft_memmove(str2, str1, 0);
 	v_assert_ptr(res, ==, str2);
 	v_assert_str("", str2);
@@ -34,7 +34,7 @@ static void	test_01_memmove_SizeOf1(void)
 	void	*res;
 
 	memset(str1, 48, 11);
-	bzero(str2, 11);
+	memset(str2, 0, 11);
 	res = ft_memmove(str2, str1, 1);
 	v_assert_ptr(res, ==, str2);
 	v_assert_str("0", str2);
@@ -49,7 +49,7 @@ static void	test_02_memmove_FullString(void)
 	void	*res;
 
 	str1 = strdup("It works!");
-	bzero(str2, 11);
+	memset(str2, 0, 11);
 	res = ft_memmove(str2, str1, strlen(str1));
 	v_assert_ptr(res, ==, str2);
 	v_assert_str(str1, str2);
@@ -64,7 +64,7 @@ static void	test_03_memmove_PartialString(void)
 	void	*res;
 
 	str1 = strdup("It works!");
-	bzero(str2, 11);
+	memset(str2, 0, 11);
 	res = ft_memmove(str2, str1, strlen(str1) - 5);
 	v_assert_ptr(res, ==, str2);
 	v_assert_str("It w", str2);
@@ -79,7 +79,7 @@ static void	test_04_memmove_LongString(void)
 	void	*res;
 
 	str1 = strdup("KIa4jjPwBhAdTNhod2Q IYokyuGtHsTukcF7eXmM X1GMMRyONOTF3nvVg756 L2gUK6ite8DgGotsK7uT 5xHKqIrxa3paMM5r7v WL 4yRbouzdn0odl5ehELgN oyrGLZwXC0MSXBLbFYot YbpRY5k9v5Oq8DiwZHSG 9K8nnL2hLT38jUl0nyrV uonf1uol3dZii9Z 9b74x");
-	bzero(str2, 250);
+	memset(str2, 0, 250);
 	res = ft_memmove(str2, str1, strlen(str1));
 	v_assert_ptr(res, ==, str2);
 	v_assert_str(str1, str2);

@@ -23,7 +23,7 @@ static void	setup(void)
 static void	teardown(void)
 {
 	FT_ARRAY_FREE(&v);
-	bzero(&v, sizeof(t_array));
+	memset(&v, 0, sizeof(t_array));
 }
 
 void	test_00_array_getMacro_FirstItem(void)
@@ -33,10 +33,7 @@ void	test_00_array_getMacro_FirstItem(void)
 
 	ptr = FT_ARRAY_GET(&v, 0);
 	v_assert_ptr(v.data[0], ==, ptr);
-	v_assert_ptr(v.data[0], ==, FT_ARRAY_GET(&v, 0));
 	v_assert_str(v.data[0], ptr);
-	v_assert_str(v.data[0], FT_ARRAY_GET(&v, 0));
-	FT_ARRAY_GET(&v, 0);
 
 	teardown();
 	VTS;
@@ -49,10 +46,7 @@ void	test_01_array_getMacro_LastItem(void)
 
 	ptr = FT_ARRAY_GET(&v, 4);
 	v_assert_ptr(v.data[4], ==, ptr);
-	v_assert_ptr(v.data[4], ==, FT_ARRAY_GET(&v, 4));
 	v_assert_str(v.data[4], ptr);
-	v_assert_str(v.data[4], FT_ARRAY_GET(&v, 4));
-	FT_ARRAY_GET(&v, 4);
 
 	teardown();
 	VTS;
@@ -65,8 +59,6 @@ void	test_02_array_getMacro_OutOfRange(void)
 
 	ptr = FT_ARRAY_GET(&v, 5);
 	v_assert_ptr(NULL, ==, ptr);
-	v_assert_ptr(NULL, ==, FT_ARRAY_GET(&v, 5));
-	FT_ARRAY_GET(&v, 5);
 
 	teardown();
 	VTS;
@@ -81,10 +73,8 @@ void	test_03_array_setMacro_FirstItem(void)
 	ptr = FT_ARRAY_SET(&v, 0, new);
 	v_assert_ptr(v.data[0], ==, ptr);
 	v_assert_ptr(v.data[0], ==, new);
-	v_assert_ptr(v.data[0], ==, FT_ARRAY_SET(&v, 0, new));
 	v_assert_str(v.data[0], ptr);
 	v_assert_str(v.data[0], new);
-	v_assert_str(v.data[0], FT_ARRAY_SET(&v, 0, new));
 	FT_ARRAY_SET(&v, 0, new);
 
 	teardown();
@@ -100,10 +90,8 @@ void	test_04_array_setMacro_LastItem(void)
 	ptr = FT_ARRAY_SET(&v, 4, new);
 	v_assert_ptr(v.data[4], ==, ptr);
 	v_assert_ptr(v.data[4], ==, new);
-	v_assert_ptr(v.data[4], ==, FT_ARRAY_SET(&v, 4, new));
 	v_assert_str(v.data[4], ptr);
 	v_assert_str(v.data[4], new);
-	v_assert_str(v.data[4], FT_ARRAY_SET(&v, 4, new));
 	FT_ARRAY_SET(&v, 4, new);
 
 	teardown();
@@ -118,7 +106,6 @@ void	test_05_array_setMacro_OutOfRange(void)
 
 	ptr = FT_ARRAY_SET(&v, 5, new);
 	v_assert_ptr(NULL, ==, ptr);
-	v_assert_ptr(NULL, ==, FT_ARRAY_SET(&v, 5, new));
 	FT_ARRAY_SET(&v, 5, new);
 
 	teardown();

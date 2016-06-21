@@ -22,7 +22,7 @@ static void	setup(void)
 static void	teardown(void)
 {
 	FT_ARRAY_FREE(&v);
-	bzero(&v, sizeof(t_array));
+	memset(&v, 0, sizeof(t_array));
 }
 
 void	test_00_array_remove_FirstItem(void)

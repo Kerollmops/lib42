@@ -66,35 +66,35 @@ void	test_04_buffer_add_resize(void)
 {
 	t_buffer	b;
 	size_t		initsize;
-	char		*oldstr;
+	/* char		*oldstr; */
 	char		a[300];
 	size_t		alen;
 	char		m[3000];
 	size_t		mlen;
 	char		z[4000];
-	size_t		zlen;
+	/* size_t		zlen; */
 
 	memset(a, 'a', sizeof(a));
 	memset(m, 'm', sizeof(m));
-	bzero(z, sizeof(z));
+	memset(z, 0, sizeof(z));
 	a[299] = 0;
 	m[2999] = 0;
 	strcat(z, a);
 	strcat(z, m);
 	alen = strlen(a);
 	mlen = strlen(m);
-	zlen = strlen(z);
+	/* zlen = strlen(z); */
 
 	ft_buffer_init(&b, 0);
 
-	oldstr = b.str;
+	/* oldstr = b.str; */
 	initsize = FT_BUFFER_MAX(&b);
 	ft_buffer_add(&b, a, alen);
 	v_assert_size_t(alen, ==, FT_BUFFER_LEN(&b));
 	v_assert_size_t(initsize * BUFFER_GROWTH_FACTOR, ==, FT_BUFFER_MAX(&b));
 	v_assert_str(a, b.str);
 
-	oldstr = b.str;
+	/* oldstr = b.str; */
 	initsize = 4096UL;
 	ft_buffer_add(&b, m, mlen);
 	v_assert_size_t(mlen + alen, ==, FT_BUFFER_LEN(&b));

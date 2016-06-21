@@ -15,10 +15,11 @@ static void	teardown(void)
 
 void	test_00_buffer_rewindchr_SimpleRewind(void)
 {
-	size_t res;
+	/* size_t res; */
 	setup();
 
-	res = ft_buffer_rewindchr(&b, 'l');
+	/* res = ft_buffer_rewindchr(&b, 'l'); */
+	ft_buffer_rewindchr(&b, 'l');
 	v_assert_size_t(128, ==, FT_BUFFER_MAX(&b));
 	v_assert_size_t(9, ==, FT_BUFFER_LEN(&b));
 	v_assert_str("Hello Wor", FT_BUFFER_GET(&b));
@@ -29,10 +30,11 @@ void	test_00_buffer_rewindchr_SimpleRewind(void)
 
 void	test_01_buffer_rewindchr_EndOfString(void)
 {
-	size_t res;
+	/* size_t res; */
 	setup();
 
-	res = ft_buffer_rewindchr(&b, '\0');
+	/* res = ft_buffer_rewindchr(&b, '\0'); */
+	ft_buffer_rewindchr(&b, '\0');
 	v_assert_size_t(128, ==, FT_BUFFER_MAX(&b));
 	v_assert_size_t(12, ==, FT_BUFFER_LEN(&b));
 	v_assert_str("Hello World!", FT_BUFFER_GET(&b));
@@ -43,10 +45,11 @@ void	test_01_buffer_rewindchr_EndOfString(void)
 
 void	test_02_buffer_rewindchr_LastChar(void)
 {
-	size_t res;
+	/* size_t res; */
 	setup();
 
-	res = ft_buffer_rewindchr(&b, '!');
+	/* res = ft_buffer_rewindchr(&b, '!'); */
+	ft_buffer_rewindchr(&b, '!');
 	v_assert_size_t(128, ==, FT_BUFFER_MAX(&b));
 	v_assert_size_t(11, ==, FT_BUFFER_LEN(&b));
 	v_assert_str("Hello World", FT_BUFFER_GET(&b));
@@ -57,10 +60,11 @@ void	test_02_buffer_rewindchr_LastChar(void)
 
 void	test_03_buffer_rewindchr_FirstChar(void)
 {
-	size_t res;
+	/* size_t res; */
 	setup();
 
-	res = ft_buffer_rewindchr(&b, 'H');
+	/* res = ft_buffer_rewindchr(&b, 'H'); */
+	ft_buffer_rewindchr(&b, 'H');
 	v_assert_size_t(128, ==, FT_BUFFER_MAX(&b));
 	v_assert_size_t(0, ==, FT_BUFFER_LEN(&b));
 	v_assert_str("", FT_BUFFER_GET(&b));
@@ -71,10 +75,11 @@ void	test_03_buffer_rewindchr_FirstChar(void)
 
 void	test_04_buffer_rewindchr_MultipleOccurrence(void)
 {
-	size_t res;
+	/* size_t res; */
 	setup();
 
-	res = ft_buffer_rewindchr(&b, 'o');
+	/* res = ft_buffer_rewindchr(&b, 'o'); */
+	ft_buffer_rewindchr(&b, 'o');
 	v_assert_size_t(128, ==, FT_BUFFER_MAX(&b));
 	v_assert_size_t(7, ==, FT_BUFFER_LEN(&b));
 	v_assert_str("Hello W", FT_BUFFER_GET(&b));

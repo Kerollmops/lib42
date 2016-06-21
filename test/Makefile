@@ -1,6 +1,6 @@
 NAME = test_lib42.out
 CC ?= clang
-CFLAGS = -Wall -Werror -Wextra -pedantic -std=c99 -pedantic-errors -Wno-unused-variable
+CFLAGS = -Wall -Werror -Wextra -pedantic -std=c99 -pedantic-errors -Wno-unused-variable -Wno-unused-function
 
 #Debug
 ifeq ($(DEBUG),yes)
@@ -70,6 +70,9 @@ LDFLAGS += -L $(LIB42_PATH) -l42
 # Vittf
 VITTF_PATH = vittf
 CFLAGS += -I$(VITTF_PATH)
+
+# BSD Libc
+LDFLAGS += -lbsd
 
 
 # Rules
