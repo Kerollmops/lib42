@@ -29,7 +29,6 @@ void	suite_buffer_rewindchr(void);
 void	suite_buffer_rewind(void);
 
 // Memory
-void	suite_bzero(void);
 void	suite_memcpy(void);
 void	suite_memccpy(void);
 void	suite_memcmp(void);
