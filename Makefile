@@ -25,15 +25,34 @@ endif
 
 # Headers
 INC_PATH = inc
-INC_FILES = array_42.h buffer_42.h memory_42.h stdlib_42.h string_42.h macros_42.h
+INC_FILES += lib42.h
+INC_FILES += typedefs_42.h
+INC_FILES += structs_42.h
+INC_FILES += macros_42.h
+INC_FILES += memory_42.h
+INC_FILES += stdlib_42.h
+INC_FILES += string_42.h
+INC_FILES += array_42.h
+INC_FILES += buffer_42.h
 
 HEADERS = $(INC_FILES:%.h=$(INC_PATH)/%.h)
 CFLAGS += $(addprefix -I,$(INC_PATH))
 
 # Sources
 SRC_PATH = src
-SRC_SUBDIR = array string stdlib memory buffer
+SRC_SUBDIR += array
+SRC_SUBDIR += string
+SRC_SUBDIR += stdlib
+SRC_SUBDIR += memory
+SRC_SUBDIR += buffer
 vpath %.c $(addprefix $(SRC_PATH)/,$(SRC_SUBDIR))
+
+# Memory
+SOURCES += ft_bzero.c ft_memset.c ft_memalloc.c ft_memcpy.c \
+		   ft_memccpy.c ft_memmove.c ft_memchr.c ft_memcmp.c
+
+# Stdlib
+SOURCES += ft_realloc.c
 
 # Array
 SOURCES += ft_array_init.c ft_array_add.c ft_array_get.c \
@@ -45,13 +64,6 @@ SOURCES += ft_array_init.c ft_array_add.c ft_array_get.c \
 # Buffer
 SOURCES += ft_buffer_init.c ft_buffer_add.c ft_buffer_resize.c ft_buffer_set.c \
 		   ft_buffer_rewindchr.c ft_buffer_rewind.c
-
-# Memory
-SOURCES += ft_bzero.c ft_memset.c ft_memalloc.c ft_memcpy.c \
-		   ft_memccpy.c ft_memmove.c ft_memchr.c ft_memcmp.c
-
-# Stdlib
-SOURCES += ft_realloc.c
 
 # String
 SOURCES += ft_strlen.c ft_strnlen.c ft_strdup.c ft_strndup.c ft_strsub.c \
