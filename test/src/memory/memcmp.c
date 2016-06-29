@@ -6,7 +6,7 @@
 /*   By: adubois <adubois@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/25 18:11:24 by adubois           #+#    #+#             */
-/*   Updated: 2016/06/29 12:25:05 by leonhart         ###   ########.fr       */
+/*   Updated: 2016/06/29 12:33:18 by leonhart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,11 @@ static void	test_06_memcmp_NonMatchingLongString(void)
 	str2[3095] = ' ';
 	str2[4095] = '\0';
 
+#ifdef __APPLE__
 	v_assert_int(ft_memcmp(str1, str2, n), ==, memcmp(str1, str2, n));
+#else
+	v_assert_int(0, !=, ft_memcmp(str1, str2, n));
+#endif
 
 	VTS;
 }
