@@ -25,7 +25,7 @@ endif
 
 # Headers
 INC_PATH = inc
-INC_FILES = array_42.h buffer_42.h memory_42.h stdlib_42.h string_42.h
+INC_FILES = array_42.h buffer_42.h memory_42.h stdlib_42.h string_42.h macros_42.h
 
 HEADERS = $(INC_FILES:%.h=$(INC_PATH)/%.h)
 CFLAGS += $(addprefix -I,$(INC_PATH))
