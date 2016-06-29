@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/01 16:53:21 by djean             #+#    #+#             */
-/*   Updated: 2016/06/29 11:15:17 by leonhart         ###   ########.fr       */
+/*   Updated: 2016/06/29 14:56:15 by leonhart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <stdlib.h>
 # include "memory_42.h"
 
-char	*ft_strnew(size_t size);
 char	*ft_strdup(const char *s1);
 char	*ft_strndup(const char *s1, size_t n);
 char	*ft_strcpy(char *dst, const char *src);

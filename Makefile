@@ -68,7 +68,7 @@ SOURCES += ft_buffer_init.c ft_buffer_add.c ft_buffer_resize.c ft_buffer_set.c \
 # String
 SOURCES += ft_strlen.c ft_strnlen.c ft_strdup.c ft_strndup.c ft_strsub.c \
 			ft_strcpy.c ft_strncpy.c ft_strcat.c ft_strncat.c ft_strlcat.c \
-			ft_strnew.c ft_strchr.c ft_strrchr.c ft_strchrpos.c ft_strrchrpos.c \
+			ft_strchr.c ft_strrchr.c ft_strchrpos.c ft_strrchrpos.c \
 			ft_strstr.c ft_strnstr.c
 
 # Objects
