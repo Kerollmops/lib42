@@ -85,6 +85,7 @@ SOURCES += ft_buffer_set.c
 SOURCES += ft_buffer_rewindchr.c
 SOURCES += ft_buffer_rewind.c
 SOURCES += ft_buffer_insert.c
+SOURCES += ft_buffer_remove.c
 
 # String
 SOURCES += ft_strlen.c

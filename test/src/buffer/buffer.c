@@ -130,11 +130,14 @@ void	test_06_buffer_insert_AddStringMiddle(void)
 {
 	t_buffer b;
 	char	*s = "docfolamour";
+	char	*good = "docteur folamour";
+	size_t	len_good = strlen(good);
 
 	ft_buffer_init(&b, 32);
 	ft_buffer_add(&b, s, strlen(s));
 	ft_buffer_insert(&b, 3, "teur ", 5);
-	v_assert_str("docteur folamour", b.str);
+	v_assert_str(good, b.str);
+	v_assert_size_t(len_good, ==, b.len);
 
 	FT_BUFFER_FREE(&b);
 	VTS;
@@ -144,11 +147,14 @@ void	test_07_buffer_insert_AddStringHead(void)
 {
 	t_buffer b;
 	char	*s = "folamour";
+	char	*good = "docteur folamour";
+	size_t	len_good = strlen(good);
 
 	ft_buffer_init(&b, 32);
 	ft_buffer_add(&b, s, strlen(s));
 	ft_buffer_insert(&b, 0, "docteur ", 8);
-	v_assert_str("docteur folamour", b.str);
+	v_assert_str(good, b.str);
+	v_assert_size_t(len_good, ==, b.len);
 
 	FT_BUFFER_FREE(&b);
 	VTS;
@@ -158,11 +164,148 @@ void	test_08_buffer_insert_AddStringTail(void)
 {
 	t_buffer b;
 	char	*s = "docteur";
+	char	*good = "docteur folamour";
+	size_t	len_good = strlen(good);
 
 	ft_buffer_init(&b, 32);
 	ft_buffer_add(&b, s, strlen(s));
 	ft_buffer_insert(&b, b.len, " folamour", 9);
-	v_assert_str("docteur folamour", b.str);
+
+	v_assert_str(good, b.str);
+	v_assert_size_t(len_good, ==, b.len);
+
+	FT_BUFFER_FREE(&b);
+	VTS;
+}
+
+void	test_09_buffer_remove_Middle(void)
+{
+	t_buffer b;
+	char	*s = "hello world";
+	size_t	len = strlen(s);
+	size_t	ret;
+
+	ft_buffer_init(&b, 32);
+	ft_buffer_add(&b, s, len);
+	ret = ft_buffer_remove(&b, 5, 5);
+
+	v_assert_size_t(5, ==, ret);
+	v_assert_size_t(6, ==, b.len);
+	v_assert_str("hellod", b.str);
+
+	FT_BUFFER_FREE(&b);
+	VTS;
+}
+
+void	test_10_buffer_remove_OutOfRange(void)
+{
+	t_buffer b;
+	char	*s = "hello world";
+	size_t	len = strlen(s);
+	size_t	ret;
+
+	ft_buffer_init(&b, 32);
+	ft_buffer_add(&b, s, len);
+	ret = ft_buffer_remove(&b, 11, 1);
+
+	v_assert_size_t(0, ==, ret);
+	v_assert_size_t(len, ==, b.len);
+	v_assert_str(s, b.str);
+
+	FT_BUFFER_FREE(&b);
+	VTS;
+}
+
+void	test_11_buffer_remove_MiddleLongRange(void)
+{
+	t_buffer b;
+	char	*s = "hello world";
+	size_t	len = strlen(s);
+	size_t	ret;
+
+	ft_buffer_init(&b, 32);
+	ft_buffer_add(&b, s, len);
+	ret = ft_buffer_remove(&b, 5, 20);
+
+	v_assert_size_t(6, ==, ret);
+	v_assert_size_t(5, ==, b.len);
+	v_assert_str("hello", b.str);
+
+	FT_BUFFER_FREE(&b);
+	VTS;
+}
+
+void	test_12_buffer_remove_Head(void)
+{
+	t_buffer b;
+	char	*s = "hello world";
+	size_t	len = strlen(s);
+	size_t	ret;
+
+	ft_buffer_init(&b, 32);
+	ft_buffer_add(&b, s, len);
+	ret = ft_buffer_remove(&b, 0, 6);
+
+	v_assert_size_t(6, ==, ret);
+	v_assert_size_t(5, ==, b.len);
+	v_assert_str("world", b.str);
+
+	FT_BUFFER_FREE(&b);
+	VTS;
+}
+
+void	test_13_buffer_remove_HeadLongRange(void)
+{
+	t_buffer b;
+	char	*s = "hello world";
+	size_t	len = strlen(s);
+	size_t	ret;
+
+	ft_buffer_init(&b, 32);
+	ft_buffer_add(&b, s, len);
+	ret = ft_buffer_remove(&b, 0, 20);
+
+	v_assert_size_t(11, ==, ret);
+	v_assert_size_t(0, ==, b.len);
+	v_assert_str("", b.str);
+
+	FT_BUFFER_FREE(&b);
+	VTS;
+}
+
+void	test_14_buffer_remove_Tail(void)
+{
+	t_buffer b;
+	char	*s = "hello world";
+	size_t	len = strlen(s);
+	size_t	ret;
+
+	ft_buffer_init(&b, 32);
+	ft_buffer_add(&b, s, len);
+	ret = ft_buffer_remove(&b, 10, 1);
+
+	v_assert_size_t(1, ==, ret);
+	v_assert_size_t(10, ==, b.len);
+	v_assert_str("hello worl", b.str);
+
+	FT_BUFFER_FREE(&b);
+	VTS;
+}
+
+void	test_15_buffer_remove_TailLongRange(void)
+{
+	t_buffer b;
+	char	*s = "hello world";
+	size_t	len = strlen(s);
+	size_t	ret;
+
+	ft_buffer_init(&b, 32);
+	ft_buffer_add(&b, s, len);
+	ret = ft_buffer_remove(&b, 10, 20);
+
+	v_assert_size_t(1, ==, ret);
+	v_assert_size_t(10, ==, b.len);
+	v_assert_str("hello worl", b.str);
 
 	FT_BUFFER_FREE(&b);
 	VTS;
@@ -179,6 +322,13 @@ void	suite_buffer(void)
 	test_06_buffer_insert_AddStringMiddle();
 	test_07_buffer_insert_AddStringHead();
 	test_08_buffer_insert_AddStringTail();
+	test_09_buffer_remove_Middle();
+	test_10_buffer_remove_OutOfRange();
+	test_11_buffer_remove_MiddleLongRange();
+	test_12_buffer_remove_Head();
+	test_13_buffer_remove_HeadLongRange();
+	test_14_buffer_remove_Tail();
+	test_15_buffer_remove_TailLongRange();
 
 	VSS;
 }
