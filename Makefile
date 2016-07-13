@@ -50,28 +50,59 @@ SRC_SUBDIR += error
 vpath %.c $(addprefix $(SRC_PATH)/,$(SRC_SUBDIR))
 
 # Memory
-SOURCES += ft_memset.c ft_memalloc.c ft_memcpy.c \
-		   ft_memccpy.c ft_memmove.c ft_memchr.c ft_memcmp.c
+SOURCES += ft_memset.c
+SOURCES += ft_memalloc.c
+SOURCES += ft_memcpy.c
+SOURCES += ft_memccpy.c
+SOURCES += ft_memmove.c
+SOURCES += ft_memchr.c
+SOURCES += ft_memcmp.c
 
 # Stdlib
 SOURCES += ft_realloc.c
 
 # Array
-SOURCES += ft_array_init.c ft_array_add.c ft_array_get.c \
-		   ft_array_resize.c ft_array_set.c ft_array_clear.c \
-		   ft_array_destroy.c ft_array_insert.c ft_array_copy.c \
-		   ft_array_new.c ft_array_replace.c ft_array_remove.c \
-		   ft_array_indexof.c ft_array_strsplit.c
+SOURCES += ft_array_init.c
+SOURCES += ft_array_add.c
+SOURCES += ft_array_get.c
+SOURCES += ft_array_resize.c
+SOURCES += ft_array_set.c
+SOURCES += ft_array_clear.c
+SOURCES += ft_array_destroy.c
+SOURCES += ft_array_insert.c
+SOURCES += ft_array_copy.c
+SOURCES += ft_array_new.c
+SOURCES += ft_array_replace.c
+SOURCES += ft_array_remove.c
+SOURCES += ft_array_indexof.c
+SOURCES += ft_array_strsplit.c
 
 # Buffer
-SOURCES += ft_buffer_init.c ft_buffer_add.c ft_buffer_resize.c ft_buffer_set.c \
-		   ft_buffer_rewindchr.c ft_buffer_rewind.c
+SOURCES += ft_buffer_init.c
+SOURCES += ft_buffer_add.c
+SOURCES += ft_buffer_resize.c
+SOURCES += ft_buffer_set.c
+SOURCES += ft_buffer_rewindchr.c
+SOURCES += ft_buffer_rewind.c
+SOURCES += ft_buffer_insert.c
 
 # String
-SOURCES += ft_strlen.c ft_strnlen.c ft_strdup.c ft_strndup.c ft_strsub.c \
-			ft_strcpy.c ft_strncpy.c ft_strcat.c ft_strncat.c ft_strlcat.c \
-			ft_strchr.c ft_strrchr.c ft_strchrpos.c ft_strrchrpos.c \
-			ft_strstr.c ft_strnstr.c
+SOURCES += ft_strlen.c
+SOURCES += ft_strnlen.c
+SOURCES += ft_strdup.c
+SOURCES += ft_strndup.c
+SOURCES += ft_strsub.c
+SOURCES += ft_strcpy.c
+SOURCES += ft_strncpy.c
+SOURCES += ft_strcat.c
+SOURCES += ft_strncat.c
+SOURCES += ft_strlcat.c
+SOURCES += ft_strchr.c
+SOURCES += ft_strrchr.c
+SOURCES += ft_strchrpos.c
+SOURCES += ft_strrchrpos.c
+SOURCES += ft_strstr.c
+SOURCES += ft_strnstr.c
 
 # Error
 SOURCES += ft_error.c

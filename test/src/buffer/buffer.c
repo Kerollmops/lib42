@@ -126,6 +126,48 @@ void	test_05_buffer_set_simple(void)
 	VTS;
 }
 
+void	test_06_buffer_insert_AddStringMiddle(void)
+{
+	t_buffer b;
+	char	*s = "docfolamour";
+
+	ft_buffer_init(&b, 32);
+	ft_buffer_add(&b, s, strlen(s));
+	ft_buffer_insert(&b, 3, "teur ", 5);
+	v_assert_str("docteur folamour", b.str);
+
+	FT_BUFFER_FREE(&b);
+	VTS;
+}
+
+void	test_07_buffer_insert_AddStringHead(void)
+{
+	t_buffer b;
+	char	*s = "folamour";
+
+	ft_buffer_init(&b, 32);
+	ft_buffer_add(&b, s, strlen(s));
+	ft_buffer_insert(&b, 0, "docteur ", 8);
+	v_assert_str("docteur folamour", b.str);
+
+	FT_BUFFER_FREE(&b);
+	VTS;
+}
+
+void	test_08_buffer_insert_AddStringTail(void)
+{
+	t_buffer b;
+	char	*s = "docteur";
+
+	ft_buffer_init(&b, 32);
+	ft_buffer_add(&b, s, strlen(s));
+	ft_buffer_insert(&b, b.len, " folamour", 9);
+	v_assert_str("docteur folamour", b.str);
+
+	FT_BUFFER_FREE(&b);
+	VTS;
+}
+
 void	suite_buffer(void)
 {
 	test_00_buffer_init_zero();
@@ -134,6 +176,9 @@ void	suite_buffer(void)
 	test_03_buffer_add_limit();
 	test_04_buffer_add_resize();
 	test_05_buffer_set_simple();
+	test_06_buffer_insert_AddStringMiddle();
+	test_07_buffer_insert_AddStringHead();
+	test_08_buffer_insert_AddStringTail();
 
 	VSS;
 }
