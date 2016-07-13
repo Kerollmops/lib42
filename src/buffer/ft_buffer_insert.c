@@ -2,6 +2,8 @@
 
 t_buffer	*ft_buffer_insert(t_buffer *b, size_t pos, char *s, size_t len)
 {
+	if (pos > b->len)
+		return (NULL);
 	if (FT_BUFFER_LEN(b) + len >= FT_BUFFER_MAX(b))
 		if (ft_buffer_resize(b, len) == NULL)
 			return (NULL);
