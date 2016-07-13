@@ -34,6 +34,7 @@ INC_FILES += stdlib_42.h
 INC_FILES += string_42.h
 INC_FILES += array_42.h
 INC_FILES += buffer_42.h
+INC_FILES += error_42.h
 
 HEADERS = $(INC_FILES:%.h=$(INC_PATH)/%.h)
 CFLAGS += $(addprefix -I,$(INC_PATH))
@@ -45,6 +46,7 @@ SRC_SUBDIR += string
 SRC_SUBDIR += stdlib
 SRC_SUBDIR += memory
 SRC_SUBDIR += buffer
+SRC_SUBDIR += error
 vpath %.c $(addprefix $(SRC_PATH)/,$(SRC_SUBDIR))
 
 # Memory
@@ -70,6 +72,9 @@ SOURCES += ft_strlen.c ft_strnlen.c ft_strdup.c ft_strndup.c ft_strsub.c \
 			ft_strcpy.c ft_strncpy.c ft_strcat.c ft_strncat.c ft_strlcat.c \
 			ft_strchr.c ft_strrchr.c ft_strchrpos.c ft_strrchrpos.c \
 			ft_strstr.c ft_strnstr.c
+
+# Error
+SOURCES += ft_error.c
 
 # Objects
 OBJ_PATH = obj

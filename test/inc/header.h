@@ -56,4 +56,7 @@ void	suite_strrchrpos(void);
 void	suite_strstr(void);
 void	suite_strnstr(void);
 
+// Error
+void	suite_error(void);
+
 #endif

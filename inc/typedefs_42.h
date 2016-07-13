@@ -6,7 +6,7 @@
 /*   By: leonhart </var/spool/mail/leonhart>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/29 11:05:59 by leonhart          #+#    #+#             */
-/*   Updated: 2016/06/29 11:10:46 by leonhart         ###   ########.fr       */
+/*   Updated: 2016/07/13 12:17:05 by leonhart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,6 @@
 
 typedef struct s_buffer	t_buffer;
 typedef struct s_array	t_array;
+typedef struct s_errors	t_errors;
 
 #endif

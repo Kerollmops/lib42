@@ -45,6 +45,9 @@ int	main(void)
 	suite_array_insert();
 	suite_array_strsplit();
 
+	// error
+	suite_error();
+
 	v_full_success("Test Lib42");
 	return (0);
 }

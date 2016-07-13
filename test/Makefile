@@ -32,7 +32,7 @@ CFLAGS += $(addprefix -I,$(INC_PATH))
 
 # Sources
 SRC_PATH = src
-SRC_SUBDIR = . array buffer memory stdlib string
+SRC_SUBDIR = . array buffer memory stdlib string error
 vpath %.c $(addprefix $(SRC_PATH)/,$(SRC_SUBDIR))
 SOURCES = main.c
 
@@ -54,6 +54,9 @@ SOURCES += realloc.c
 SOURCES += strchrpos.c strrchrpos.c strlen.c strnlen.c strdup.c strndup.c \
 			strcpy.c strncpy.c strcat.c strncat.c strlcat.c strchr.c \
 			strrchr.c strstr.c strnstr.c
+
+# Error
+SOURCES += error.c
 
 
 # Objects
