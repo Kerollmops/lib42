@@ -22,10 +22,10 @@ char	*ft_strerror(int errnum)
 
 void	ft_perror(const char *msg)
 {
-	ft_perror_num(msg, g_errno);
+	ft_perrorn(msg, g_errno);
 }
 
-void	ft_perror_num(const char *msg, int errnum)
+void	ft_perrorn(const char *msg, int errnum)
 {
 	t_buffer	buf;
 	char		*errmsg;
