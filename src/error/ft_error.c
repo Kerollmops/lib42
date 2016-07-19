@@ -41,6 +41,7 @@ void	ft_perrorn(const char *msg, int errnum)
 	errmsg = ft_strerror(errnum);
 	ft_buffer_add(&buf, errmsg, ft_strlen(errmsg));
 	write(STDERR_FILENO, FT_BUFFER_GET(&buf), FT_BUFFER_LEN(&buf));
+	FT_BUFFER_FREE(&buf);
 }
 
 void	ft_die(const char *msg)
