@@ -51,8 +51,6 @@ void	suite_strncat(void);
 void	suite_strlcat(void);
 void	suite_strchr(void);
 void	suite_strrchr(void);
-void	suite_strchrpos(void);
-void	suite_strrchrpos(void);
 void	suite_strstr(void);
 void	suite_strnstr(void);
 

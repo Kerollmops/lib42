@@ -51,7 +51,7 @@ SOURCES += memset.c memcpy.c memccpy.c memmove.c memchr.c \
 SOURCES += realloc.c
 
 # String
-SOURCES += strchrpos.c strrchrpos.c strlen.c strnlen.c strdup.c strndup.c \
+SOURCES += strlen.c strnlen.c strdup.c strndup.c \
 			strcpy.c strncpy.c strcat.c strncat.c strlcat.c strchr.c \
 			strrchr.c strstr.c strnstr.c
 

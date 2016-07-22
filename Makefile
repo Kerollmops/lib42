@@ -100,8 +100,6 @@ SOURCES += ft_strncat.c
 SOURCES += ft_strlcat.c
 SOURCES += ft_strchr.c
 SOURCES += ft_strrchr.c
-SOURCES += ft_strchrpos.c
-SOURCES += ft_strrchrpos.c
 SOURCES += ft_strstr.c
 SOURCES += ft_strnstr.c
 
