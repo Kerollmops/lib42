@@ -10,7 +10,7 @@
 # define FATAL_MALLOC	"fatal: malloc failed !"
 # define UNKNOWN_ERROR	"Unknown error !"
 
-void	register_errlist(char *name, t_errors *list, size_t max);
+void	register_errlist(char *name, char **list, size_t max);
 char	*ft_strerror(int errnum);
 void	ft_perror(const char *msg);
 void	ft_perrorn(const char *msg, int errnum);

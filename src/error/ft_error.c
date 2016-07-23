@@ -2,10 +2,10 @@
 
 int				g_errno;
 static char		*g_project_name;
-static t_errors	*g_errlist;
+static char		**g_errlist;
 static size_t	g_nerr;
 
-void	register_errlist(char *name, t_errors *list, size_t max)
+void	register_errlist(char *name, char **list, size_t max)
 {
 	g_errno = 0;
 	g_project_name = (name == NULL) ? "error" : name;
@@ -17,7 +17,7 @@ char	*ft_strerror(int errnum)
 {
 	if (errnum < 0 || (size_t)errnum >= g_nerr)
 		return (UNKNOWN_ERROR);
-	return (g_errlist[errnum].errmsg);
+	return (g_errlist[errnum]);
 }
 
 void	ft_perror(const char *msg)

@@ -6,7 +6,7 @@
 /*   By: leonhart </var/spool/mail/leonhart>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/13 12:18:25 by leonhart          #+#    #+#             */
-/*   Updated: 2016/07/13 12:18:29 by leonhart         ###   ########.fr       */
+/*   Updated: 2016/07/23 19:02:26 by leonhart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,5 @@ struct	s_array
 	size_t	max;
 	size_t	total;
 };
-
-struct	s_errors
-{
-	int		errnum;
-	char	*errmsg;
-};
-
 
 #endif
