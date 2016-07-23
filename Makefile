@@ -81,6 +81,7 @@ SOURCES += ft_array_strsplit.c
 SOURCES += ft_buffer_init.c
 SOURCES += ft_buffer_new.c
 SOURCES += ft_buffer_add.c
+SOURCES += ft_buffer_dup.c
 SOURCES += ft_buffer_resize.c
 SOURCES += ft_buffer_set.c
 SOURCES += ft_buffer_rewindchr.c

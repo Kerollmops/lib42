@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/01 16:51:24 by djean             #+#    #+#             */
-/*   Updated: 2016/07/23 11:43:02 by leonhart         ###   ########.fr       */
+/*   Updated: 2016/07/23 12:21:13 by leonhart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@
 t_buffer	*ft_buffer_new(size_t size);
 t_buffer	*ft_buffer_init(t_buffer *b, size_t size);
 t_buffer	*ft_buffer_add(t_buffer *b, const char *s, size_t len);
+t_buffer	*ft_buffer_dup(t_buffer *b);
 t_buffer	*ft_buffer_resize(t_buffer *b, size_t len);
 t_buffer	*ft_buffer_set(t_buffer *b, int c, size_t len);
 size_t		ft_buffer_rewindchr(t_buffer *b, int c);
