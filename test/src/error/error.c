@@ -7,11 +7,11 @@ enum e_errnum {
 	ERROR_3,
 };
 
-t_errors	errlist[] = {
-	{ ERROR_0, "err num 0"},
-	{ ERROR_1, "err num 1"},
-	{ ERROR_2, "err num 2"},
-	{ ERROR_3, "err num 3"},
+char	*errlist[] = {
+	[ERROR_0] = "err num 0",
+	[ERROR_1] = "err num 1",
+	[ERROR_2] = "err num 2",
+	[ERROR_3] = "err num 3",
 };
 
 static void	setup_error(const char *name)
@@ -33,7 +33,7 @@ static void	test_00_ft_strerror_IndexInRange(void)
 	for (size_t i = 0; i < ARR_SIZ_MAX(errlist) - 1; ++i)
 	{
 		ret = ft_strerror(i);
-		v_assert_str(errlist[i].errmsg, ret);
+		v_assert_str(errlist[i], ret);
 	}
 
 	teardown_error();
