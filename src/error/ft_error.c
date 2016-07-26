@@ -30,18 +30,18 @@ void	ft_perrorn(const char *msg, int errnum)
 	t_buffer	buf;
 	char		*errmsg;
 
-	ft_buffer_init(&buf, 64);
-	ft_buffer_add(&buf, g_project_name, ft_strlen(g_project_name));
-	ft_buffer_add(&buf, ": ", 2);
+	buffer_init(&buf, 64);
+	buffer_cat(&buf, g_project_name);
+	buffer_ncat(&buf, ": ", 2);
 	if (msg != NULL && msg[0] != '\0')
 	{
-		ft_buffer_add(&buf, msg, ft_strlen(msg));
-		ft_buffer_add(&buf, ": ", 2);
+		buffer_cat(&buf, msg);
+		buffer_ncat(&buf, ": ", 2);
 	}
 	errmsg = ft_strerror(errnum);
-	ft_buffer_add(&buf, errmsg, ft_strlen(errmsg));
-	write(STDERR_FILENO, FT_BUFFER_GET(&buf), FT_BUFFER_LEN(&buf));
-	FT_BUFFER_FREE(&buf);
+	buffer_cat(&buf, errmsg);
+	write(STDERR_FILENO, buf.str, buf.len);
+	free(buf.str);
 }
 
 void	ft_die(const char *msg)

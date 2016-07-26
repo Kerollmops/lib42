@@ -70,17 +70,18 @@ SOURCES += array_resize.c
 SOURCES += array_transform.c
 
 # Buffer
-SOURCES += ft_buffer_init.c
-SOURCES += ft_buffer_new.c
-SOURCES += ft_buffer_add.c
-SOURCES += ft_buffer_dup.c
-SOURCES += ft_buffer_resize.c
-SOURCES += ft_buffer_set.c
-SOURCES += ft_buffer_rewindchr.c
-SOURCES += ft_buffer_rewind.c
-SOURCES += ft_buffer_insert.c
-SOURCES += ft_buffer_remove.c
-SOURCES += ft_buffer_destroy.c
+SOURCES += buffer_cat.c
+SOURCES += buffer_destroy.c
+SOURCES += buffer_insert.c
+SOURCES += buffer_merge.c
+SOURCES += buffer_new.c
+SOURCES += buffer_remove.c
+SOURCES += buffer_replace.c
+SOURCES += buffer_resize.c
+SOURCES += buffer_rewind.c
+SOURCES += buffer_set.c
+SOURCES += buffer_toa.c
+SOURCES += buffer_twin.c
 
 # String
 SOURCES += ft_strlen.c

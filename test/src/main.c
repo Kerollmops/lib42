@@ -30,10 +30,13 @@ int	main(void)
 	suite_strstr();
 	suite_strnstr();
 	suite_strrev();
-#endif
 
 	// buffer
-	suite_buffer();
+	suite_buffer_cat();
+	suite_buffer_insert();
+#endif
+	suite_buffer_remove();
+	suite_buffer_set();
 	suite_buffer_rewindchr();
 	suite_buffer_rewind();
 

@@ -48,7 +48,10 @@ SOURCES += array_strsplit.c
 SOURCES += array_iterator.c
 
 # Buffer
-SOURCES += buffer.c
+SOURCES += buffer_cat.c
+SOURCES += buffer_insert.c
+SOURCES += buffer_remove.c
+SOURCES += buffer_set.c
 SOURCES += buffer_rewindchr.c
 SOURCES += buffer_rewind.c
 

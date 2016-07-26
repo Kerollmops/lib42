@@ -29,6 +29,10 @@ void	suite_array_iterator(void);
 
 // Buffer
 void	suite_buffer(void);
+void	suite_buffer_cat(void);
+void	suite_buffer_insert(void);
+void	suite_buffer_remove(void);
+void	suite_buffer_set(void);
 void	suite_buffer_rewindchr(void);
 void	suite_buffer_rewind(void);
 

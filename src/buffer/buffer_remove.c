@@ -4,7 +4,7 @@
 ** Return the numbers of bytes effectively remove
 */
 
-size_t	ft_buffer_remove(t_buffer *b, size_t pos, size_t size)
+size_t	buffer_remove(t_buffer *b, size_t pos, size_t size)
 {
 	size_t	removed;
 

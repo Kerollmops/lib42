@@ -4,13 +4,13 @@ static t_buffer b;
 
 static void	setup(void)
 {
-	ft_buffer_init(&b, 128);
-	ft_buffer_add(&b, "Hello World!", 12);
+	buffer_init(&b, 128);
+	buffer_ncat(&b, "Hello World!", 12);
 }
 
 static void	teardown(void)
 {
-	FT_BUFFER_FREE(&b);
+	TBUFFER_FREE(&b);
 }
 
 void	test_00_buffer_rewind_SimpleSize(void)
@@ -18,10 +18,10 @@ void	test_00_buffer_rewind_SimpleSize(void)
 	int res;
 	setup();
 
-	res = ft_buffer_rewind(&b, 3);
-	v_assert_size_t(128, ==, FT_BUFFER_MAX(&b));
-	v_assert_size_t(9, ==, FT_BUFFER_LEN(&b));
-	v_assert_str("Hello Wor", FT_BUFFER_GET(&b));
+	res = buffer_rewind(&b, 3);
+	v_assert_size_t(128, ==, TBUFFER_MAX(&b));
+	v_assert_size_t(9, ==, TBUFFER_LEN(&b));
+	v_assert_str("Hello Wor", TBUFFER_GET(&b));
 	v_assert_int(9, ==, res);
 
 	teardown();
@@ -33,10 +33,10 @@ void	test_01_buffer_rewind_ZeroSize(void)
 	int res;
 	setup();
 
-	res = ft_buffer_rewind(&b, 0);
-	v_assert_size_t(128, ==, FT_BUFFER_MAX(&b));
-	v_assert_size_t(12, ==, FT_BUFFER_LEN(&b));
-	v_assert_str("Hello World!", FT_BUFFER_GET(&b));
+	res = buffer_rewind(&b, 0);
+	v_assert_size_t(128, ==, TBUFFER_MAX(&b));
+	v_assert_size_t(12, ==, TBUFFER_LEN(&b));
+	v_assert_str("Hello World!", TBUFFER_GET(&b));
 	v_assert_int(12, ==, res);
 
 	teardown();
@@ -48,10 +48,10 @@ void	test_02_buffer_rewind_FullSize(void)
 	int res;
 	setup();
 
-	res = ft_buffer_rewind(&b, 12);
-	v_assert_size_t(128, ==, FT_BUFFER_MAX(&b));
-	v_assert_size_t(0, ==, FT_BUFFER_LEN(&b));
-	v_assert_str("", FT_BUFFER_GET(&b));
+	res = buffer_rewind(&b, 12);
+	v_assert_size_t(128, ==, TBUFFER_MAX(&b));
+	v_assert_size_t(0, ==, TBUFFER_LEN(&b));
+	v_assert_str("", TBUFFER_GET(&b));
 	v_assert_int(0, ==, res);
 
 	teardown();
@@ -63,10 +63,10 @@ void	test_03_buffer_rewind_SizeOverflow(void)
 	int res;
 	setup();
 
-	res = ft_buffer_rewind(&b, 42);
-	v_assert_size_t(128, ==, FT_BUFFER_MAX(&b));
-	v_assert_size_t(12, ==, FT_BUFFER_LEN(&b));
-	v_assert_str("Hello World!", FT_BUFFER_GET(&b));
+	res = buffer_rewind(&b, 42);
+	v_assert_size_t(128, ==, TBUFFER_MAX(&b));
+	v_assert_size_t(12, ==, TBUFFER_LEN(&b));
+	v_assert_str("Hello World!", TBUFFER_GET(&b));
 	v_assert_int(-1, ==, res);
 
 	teardown();
