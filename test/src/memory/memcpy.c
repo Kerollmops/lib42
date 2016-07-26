@@ -6,7 +6,7 @@
 /*   By: adubois <adubois@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/12 17:37:47 by adubois           #+#    #+#             */
-/*   Updated: 2016/06/21 14:47:57 by leonhart         ###   ########.fr       */
+/*   Updated: 2016/07/26 14:26:46 by leonhart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ static void	test_02_memcpy_FullString(void)
 	v_assert_ptr(res, ==, str2);
 	v_assert_str(str1, str2);
 
+	free(str1);
+
 	VTS;
 }
 
@@ -70,6 +72,8 @@ static void	test_03_memcpy_PartialString(void)
 	v_assert_ptr(res, ==, str2);
 	v_assert_str("It w", str2);
 
+	free(str1);
+
 	VTS;
 }
 
@@ -84,6 +88,8 @@ static void	test_04_memcpy_LongString(void)
 	res = ft_memcpy(str2, str1, strlen(str1));
 	v_assert_ptr(res, ==, str2);
 	v_assert_str(str1, str2);
+
+	free(str1);
 
 	VTS;
 }

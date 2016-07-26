@@ -14,19 +14,21 @@ int	main(void)
 	suite_realloc();
 
 	// string
+#if !defined(SANITIZE)
 	suite_strlen();
 	suite_strnlen();
 	suite_strdup();
 	suite_strndup();
 	suite_strcpy();
 	suite_strncpy();
+	suite_strchr();
 	suite_strcat();
 	suite_strncat();
 	suite_strlcat();
-	suite_strchr();
 	suite_strrchr();
 	suite_strstr();
 	suite_strnstr();
+#endif
 
 	// buffer
 	suite_buffer();
@@ -41,7 +43,9 @@ int	main(void)
 	suite_array_remove();
 	suite_array_clear();
 	suite_array_copy();
+#if !defined(SANITIZE)
 	suite_array_strsplit();
+#endif
 
 	// error
 	suite_error();

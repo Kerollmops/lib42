@@ -6,7 +6,7 @@
 /*   By: adubois <adubois@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/12 17:37:47 by adubois           #+#    #+#             */
-/*   Updated: 2016/06/21 14:48:30 by leonhart         ###   ########.fr       */
+/*   Updated: 2016/07/26 14:25:53 by leonhart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ static void	test_02_memmove_FullString(void)
 	v_assert_ptr(res, ==, str2);
 	v_assert_str(str1, str2);
 
+	free(str1);
+
 	VTS;
 }
 
@@ -68,6 +70,8 @@ static void	test_03_memmove_PartialString(void)
 	res = ft_memmove(str2, str1, strlen(str1) - 5);
 	v_assert_ptr(res, ==, str2);
 	v_assert_str("It w", str2);
+
+	free(str1);
 
 	VTS;
 }
@@ -84,6 +88,8 @@ static void	test_04_memmove_LongString(void)
 	v_assert_ptr(res, ==, str2);
 	v_assert_str(str1, str2);
 
+	free(str1);
+
 	VTS;
 }
 
@@ -98,6 +104,7 @@ static void	test_05_memmove_LongStringDestinationFirst(void)
 	res = ft_memmove(str2, str1, strlen(str1));
 	v_assert_ptr(res, ==, str2);
 	v_assert_str("L2gUK6ite8DgGotsK7uT 5xHKqIrxa3paMM5r7v WL 4yRbouzdn0odl5ehELgN oyrGLZwXC0MSXBLbFYot YbpRY5k9v5Oq8DiwZHSG 9K8nnL2hLT38jUl0nyrV uonf1uol3dZii9Z 9b74xbpRY5k9v5Oq8DiwZHSG 9K8nnL2hLT38jUl0nyrV uonf1uol3dZii9Z 9b74x", str2);
+	free(str2);
 
 	VTS;
 }
@@ -113,6 +120,8 @@ static void	test_06_memmove_LongStringSourceFirst(void)
 	res = ft_memmove(str2, str1, strlen(str1) - 13);
 	v_assert_ptr(res, ==, str2);
 	v_assert_str("KIa4jjPwBhAdTNhod2Q IYokyuGtHsTukcF7eXmM X1GMMRyONOTF3nvVg756 L2gUK6ite8DgGotsK7uT 5xHKqIrxa3paMM5r7v WL 4yRbouzdn0odl5ehELgN oyrGLZwXC0MSXBLbFYot YbpRY5k9v5Oq8DiwZHSG 9K8nnL2hLT38jUl0nyrV uonf1uol", str2);
+
+	free(str1);
 
 	VTS;
 }

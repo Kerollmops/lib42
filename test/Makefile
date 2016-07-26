@@ -20,7 +20,7 @@ endif
 # Sanitize
 ifeq ($(SAN),yes)
 	LDFLAGS += -fsanitize=address
-	CFLAGS += -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls
+	CFLAGS += -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls -DSANITIZE
 endif
 
 # Headers

@@ -6,7 +6,7 @@
 /*   By: adubois <adubois@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/25 14:52:06 by adubois           #+#    #+#             */
-/*   Updated: 2016/05/25 17:53:24 by adubois          ###   ########.fr       */
+/*   Updated: 2016/07/26 14:14:06 by leonhart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ static void	test_03_memchr_FindNoChar(void)
 	VTS;
 }
 
+#if !defined(SANITIZE)
 static void	test_04_memchr_FindNullChar(void)
 {
 	char	str[] = "Hello World!";
@@ -66,6 +67,7 @@ static void	test_04_memchr_FindNullChar(void)
 
 	VTS;
 }
+#endif
 
 static void	test_05_memchr_FindNullCharLongString(void)
 {
@@ -86,7 +88,9 @@ void		suite_memchr(void)
 	test_01_memchr_Len1();
 	test_02_memchr_FindFirstChar();
 	test_03_memchr_FindNoChar();
+#if !defined(SANITIZE)
 	test_04_memchr_FindNullChar();
+#endif
 	test_05_memchr_FindNullCharLongString();
 
 	VSS;
