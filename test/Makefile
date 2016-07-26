@@ -48,19 +48,37 @@ SOURCES += array_strsplit.c
 SOURCES += array_iterator.c
 
 # Buffer
-SOURCES += buffer.c buffer_rewindchr.c buffer_rewind.c
+SOURCES += buffer.c
+SOURCES += buffer_rewindchr.c
+SOURCES += buffer_rewind.c
 
 # Memory
-SOURCES += memset.c memcpy.c memccpy.c memmove.c memchr.c \
-			memcmp.c
+SOURCES += memset.c
+SOURCES += memcpy.c
+SOURCES += memccpy.c
+SOURCES += memmove.c
+SOURCES += memchr.c
+SOURCES += memcmp.c
 
 # Stdlib
 SOURCES += realloc.c
+SOURCES += toa_base.c
 
 # String
-SOURCES += strlen.c strnlen.c strdup.c strndup.c \
-			strcpy.c strncpy.c strcat.c strncat.c strlcat.c strchr.c \
-			strrchr.c strstr.c strnstr.c
+SOURCES += strlen.c
+SOURCES += strnlen.c
+SOURCES += strdup.c
+SOURCES += strndup.c
+SOURCES += strcpy.c
+SOURCES += strncpy.c
+SOURCES += strcat.c
+SOURCES += strncat.c
+SOURCES += strlcat.c
+SOURCES += strchr.c
+SOURCES += strrchr.c
+SOURCES += strstr.c
+SOURCES += strnstr.c
+SOURCES += strrev.c
 
 # Error
 SOURCES += error.c

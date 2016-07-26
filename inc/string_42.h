@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/01 16:53:21 by djean             #+#    #+#             */
-/*   Updated: 2016/07/22 04:06:30 by leonhart         ###   ########.fr       */
+/*   Updated: 2016/07/26 19:56:25 by leonhart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ int		ft_strrnchrpos(const char *s, int c, size_t n);
 char	*ft_strstr(const char *big, const char *little);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strsub(char const *s, unsigned int start, size_t len);
+char	*ft_strrev(char *str);
 
 #endif

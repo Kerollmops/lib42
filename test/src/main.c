@@ -12,6 +12,7 @@ int	main(void)
 
 	// stdlib
 	suite_realloc();
+	suite_toa_base();
 
 	// string
 #if !defined(SANITIZE)
@@ -28,6 +29,7 @@ int	main(void)
 	suite_strrchr();
 	suite_strstr();
 	suite_strnstr();
+	suite_strrev();
 #endif
 
 	// buffer

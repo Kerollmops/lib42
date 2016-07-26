@@ -60,6 +60,7 @@ SOURCES += ft_memcmp.c
 
 # Stdlib
 SOURCES += ft_realloc.c
+SOURCES += ft_toa_base.c
 
 # Array
 SOURCES += array_delete.c
@@ -96,6 +97,7 @@ SOURCES += ft_strchr.c
 SOURCES += ft_strrchr.c
 SOURCES += ft_strstr.c
 SOURCES += ft_strnstr.c
+SOURCES += ft_strrev.c
 
 # Error
 SOURCES += ft_error.c

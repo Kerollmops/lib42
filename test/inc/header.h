@@ -10,6 +10,7 @@
 #include <string.h>
 #include <strings.h>
 #include <bsd/string.h>
+#include <stdint.h>
 #include "lib42.h"
 #include "vittf.h"
 
@@ -41,6 +42,7 @@ void	suite_memchr(void);
 
 // Stdlib
 void	suite_realloc(void);
+void	suite_toa_base(void);
 
 // String
 void	suite_strlen(void);
@@ -56,6 +58,7 @@ void	suite_strchr(void);
 void	suite_strrchr(void);
 void	suite_strstr(void);
 void	suite_strnstr(void);
+void	suite_strrev(void);
 
 // Error
 void	suite_error(void);
