@@ -85,19 +85,10 @@ SOURCES += buffer_twin.c
 
 # String
 SOURCES += ft_strlen.c
-SOURCES += ft_strnlen.c
 SOURCES += ft_strdup.c
-SOURCES += ft_strndup.c
 SOURCES += ft_strsub.c
-SOURCES += ft_strcpy.c
-SOURCES += ft_strncpy.c
-SOURCES += ft_strcat.c
-SOURCES += ft_strncat.c
-SOURCES += ft_strlcat.c
 SOURCES += ft_strchr.c
 SOURCES += ft_strrchr.c
-SOURCES += ft_strstr.c
-SOURCES += ft_strnstr.c
 SOURCES += ft_strrev.c
 
 # Error

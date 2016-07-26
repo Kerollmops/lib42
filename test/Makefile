@@ -72,15 +72,8 @@ SOURCES += strlen.c
 SOURCES += strnlen.c
 SOURCES += strdup.c
 SOURCES += strndup.c
-SOURCES += strcpy.c
-SOURCES += strncpy.c
-SOURCES += strcat.c
-SOURCES += strncat.c
-SOURCES += strlcat.c
 SOURCES += strchr.c
 SOURCES += strrchr.c
-SOURCES += strstr.c
-SOURCES += strnstr.c
 SOURCES += strrev.c
 
 # Error

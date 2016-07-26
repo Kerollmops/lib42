@@ -20,15 +20,8 @@ int	main(void)
 	suite_strnlen();
 	suite_strdup();
 	suite_strndup();
-	suite_strcpy();
-	suite_strncpy();
 	suite_strchr();
-	suite_strcat();
-	suite_strncat();
-	suite_strlcat();
 	suite_strrchr();
-	suite_strstr();
-	suite_strnstr();
 	suite_strrev();
 
 	// buffer

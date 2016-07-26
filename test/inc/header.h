@@ -53,15 +53,8 @@ void	suite_strlen(void);
 void	suite_strnlen(void);
 void	suite_strdup(void);
 void	suite_strndup(void);
-void	suite_strcpy(void);
-void	suite_strncpy(void);
-void	suite_strcat(void);
-void	suite_strncat(void);
-void	suite_strlcat(void);
 void	suite_strchr(void);
 void	suite_strrchr(void);
-void	suite_strstr(void);
-void	suite_strnstr(void);
 void	suite_strrev(void);
 
 // Error
