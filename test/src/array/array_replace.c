@@ -37,7 +37,7 @@ void	test_00_array_set_FirstItem(void)
 	v_assert_ptr(str[ind], ==, ptr);
 
 	// Check array integrity
-	v_assert_size_t(5, ==, v.total);
+	v_assert_size_t(5, ==, v.count);
 	v_assert_size_t(8, ==, v.max);
 
 	v_assert_ptr(rep, ==, array_get(&v, 0));
@@ -73,7 +73,7 @@ void	test_01_array_set_MiddleItem(void)
 	v_assert_ptr(str[ind], ==, ptr);
 
 	// Check array integrity
-	v_assert_size_t(5, ==, v.total);
+	v_assert_size_t(5, ==, v.count);
 	v_assert_size_t(8, ==, v.max);
 
 	v_assert_ptr(str[0], ==, array_get(&v, 0));
@@ -109,7 +109,7 @@ void	test_02_array_set_LastItem(void)
 	v_assert_ptr(str[ind], ==, ptr);
 
 	// Check array integrity
-	v_assert_size_t(5, ==, v.total);
+	v_assert_size_t(5, ==, v.count);
 	v_assert_size_t(8, ==, v.max);
 
 	v_assert_ptr(str[0], ==, array_get(&v, 0));
@@ -143,7 +143,7 @@ void	test_03_array_set_OutOfRange(void)
 	v_assert_ptr(NULL, ==, ptr);
 
 	// Check array integrity
-	v_assert_size_t(5, ==, v.total);
+	v_assert_size_t(5, ==, v.count);
 	v_assert_size_t(8, ==, v.max);
 
 	v_assert_ptr(str[0], ==, array_get(&v, 0));

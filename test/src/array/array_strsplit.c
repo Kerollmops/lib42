@@ -17,7 +17,7 @@ void	test_00_array_strsplit_3ElemsSepColon(void)
 
 	v_assert_ptr(NULL, !=, v);
 	v_assert_size_t(8, ==, v->max);
-	v_assert_size_t(3, ==, v->total);
+	v_assert_size_t(3, ==, v->count);
 	v_assert_str("elem1", array_get(v, 0));
 	v_assert_str("elem2", array_get(v, 1));
 	v_assert_str("elem3", array_get(v, 2));
@@ -35,7 +35,7 @@ void	test_01_array_strsplit_1ElemSepEndOfString(void)
 
 	v_assert_ptr(NULL, !=, v);
 	v_assert_size_t(8, ==, v->max);
-	v_assert_size_t(1, ==, v->total);
+	v_assert_size_t(1, ==, v->count);
 	v_assert_str("elem1", array_get(v, 0));
 	v_assert_ptr(NULL, ==, array_get(v, 1));
 
@@ -51,7 +51,7 @@ void	test_02_array_strsplit_EmptyStringSepEndOfString(void)
 
 	v_assert_ptr(NULL, !=, v);
 	v_assert_size_t(8, ==, v->max);
-	v_assert_size_t(1, ==, v->total);
+	v_assert_size_t(1, ==, v->count);
 	v_assert_str("", array_get(v, 0));
 	v_assert_ptr(NULL, ==, array_get(v, 1));
 
@@ -67,7 +67,7 @@ void	test_03_array_strsplit_8ElemsSepSpace(void)
 
 	v_assert_ptr(NULL, !=, v);
 	v_assert_size_t(16, ==, v->max);
-	v_assert_size_t(8, ==, v->total);
+	v_assert_size_t(8, ==, v->count);
 	v_assert_str("Hello", array_get(v, 0));
 	v_assert_str("world", array_get(v, 1));
 	v_assert_str("and", array_get(v, 2));
@@ -90,7 +90,7 @@ void	test_04_array_strsplit_OnlySep(void)
 
 	v_assert_ptr(NULL, !=, v);
 	v_assert_size_t(8, ==, v->max);
-	v_assert_size_t(4, ==, v->total);
+	v_assert_size_t(4, ==, v->count);
 	v_assert_str("", array_get(v, 0));
 	v_assert_str("", array_get(v, 1));
 	v_assert_str("", array_get(v, 2));
@@ -109,7 +109,7 @@ void	test_05_array_strsplit_SimpleStringSepSlash(void)
 
 	v_assert_ptr(NULL, !=, v);
 	v_assert_size_t(8, ==, v->max);
-	v_assert_size_t(4, ==, v->total);
+	v_assert_size_t(4, ==, v->count);
 	v_assert_str("a", array_get(v, 0));
 	v_assert_str("b", array_get(v, 1));
 	v_assert_str("", array_get(v, 2));

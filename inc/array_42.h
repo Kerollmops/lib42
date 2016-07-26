@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/01 16:41:13 by djean             #+#    #+#             */
-/*   Updated: 2016/07/26 14:52:53 by leonhart         ###   ########.fr       */
+/*   Updated: 2016/07/26 15:21:18 by leonhart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@
 # define ARRAY_INIT_CAPACITY	8
 # define ARRAY_GROWTH_FACTOR	2
 # define TARRAY_MAX(v)			((v)->max)
-# define TARRAY_TOTAL(v)		((v)->total)
+# define TARRAY_COUNT(v)		((v)->count)
 # define TARRAY_DATA(v)			((v)->data)
-# define TARRAY_GET(v, i)		((i) >= (v)->total ? NULL : (v)->data[i])
-# define TARRAY_SET(v, i, e)	((v)->data[i] = (i) >= (v)->total ? NULL : e)
+# define TARRAY_GET(v, i)		((i) >= (v)->count ? NULL : (v)->data[i])
+# define TARRAY_SET(v, i, e)	((v)->data[i] = (i) >= (v)->count ? NULL : e)
 # define TARRAY_FREE(v)			free((v)->data)
 
 /*

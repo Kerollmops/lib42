@@ -30,7 +30,7 @@ void	test_00_array_insert_FirstPlace(void)
 	array_insert(&v, 0, s1);
 
 	// Check array integrity
-	v_assert_size_t(6, ==, v.total);
+	v_assert_size_t(6, ==, v.count);
 	v_assert_size_t(8, ==, v.max);
 
 	v_assert_ptr(s1, ==, array_get(&v, 0));
@@ -61,7 +61,7 @@ void	test_01_array_insert_LastPlace(void)
 	array_insert(&v, 4, s1);
 
 	// Check array integrity
-	v_assert_size_t(6, ==, v.total);
+	v_assert_size_t(6, ==, v.count);
 	v_assert_size_t(8, ==, v.max);
 
 	v_assert_ptr(str[0], ==, array_get(&v, 0));
@@ -92,7 +92,7 @@ void	test_02_array_insert_MiddlePlace(void)
 	array_insert(&v, 2, s1);
 
 	// Check array integrity
-	v_assert_size_t(6, ==, v.total);
+	v_assert_size_t(6, ==, v.count);
 	v_assert_size_t(8, ==, v.max);
 
 	v_assert_ptr(str[0], ==, array_get(&v, 0));
@@ -121,11 +121,11 @@ void	test_03_array_insert_Resize(void)
 	char	*s2 = "zut2";
 	setup();
 
-	array_insert(&v, v.total, s1);
-	array_insert(&v, v.total, s2);
+	array_insert(&v, v.count, s1);
+	array_insert(&v, v.count, s2);
 
 	// Check array integrity
-	v_assert_size_t(7, ==, v.total);
+	v_assert_size_t(7, ==, v.count);
 	v_assert_size_t(8, ==, v.max);
 
 	v_assert_ptr(str[0], ==, array_get(&v, 0));

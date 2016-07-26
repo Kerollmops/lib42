@@ -11,8 +11,8 @@ t_array				*array_copy(t_array *v)
 
 	if ((cp = array_new(v->max)) == NULL)
 		return (NULL);
-	cp->total = v->total;
-	ft_memcpy(cp->data, v->data, v->total * sizeof(void*));
+	cp->count = v->count;
+	ft_memcpy(cp->data, v->data, v->count * sizeof(void*));
 	return (cp);
 }
 

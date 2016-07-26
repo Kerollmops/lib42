@@ -10,13 +10,13 @@ void	*array_remove(t_array *v, size_t i)
 	void	**ptr;
 	size_t	len;
 
-	if (i >= v->total)
+	if (i >= v->count)
 		return (NULL);
 	ret = v->data[i];
 	ptr = v->data + i;
-	len = (v->total - i) * sizeof(void*);
+	len = (v->count - i) * sizeof(void*);
 	ft_memmove(ptr, ptr + 1, len);
-	v->total -= 1;
+	v->count -= 1;
 	return (ret);
 }
 
@@ -28,18 +28,18 @@ void	array_destroy(t_array *v)
 
 /*
 ** free() chaque pointer
-** set .data et .total à 0
+** set .data et .count à 0
 */
 
 void	array_clear(t_array *v)
 {
-	while (v->total > 0)
-		free(v->data[--(v->total)]);
+	while (v->count > 0)
+		free(v->data[--(v->count)]);
 	ft_memset(v->data, 0, v->max * sizeof(void*));
 }
 
 void	array_reset(t_array *v)
 {
-	v->total = 0;
+	v->count = 0;
 	v->data[0] = NULL;
 }

@@ -17,7 +17,7 @@ static void	setup(void)
 	v.data[2] = str[2];
 	v.data[3] = str[3];
 	v.data[4] = str[4];
-	v.total = 5;
+	v.count = 5;
 }
 
 static void	teardown(void)
@@ -37,7 +37,7 @@ void	test_00_array_indexof_First(void)
 	v_assert_ptr(str[0], ==, v.data[index]);
 	v_assert_str(str[0], v.data[index]);
 
-	v_assert_size_t(5, ==, v.total);
+	v_assert_size_t(5, ==, v.count);
 	v_assert_size_t(8, ==, v.max);
 	v_assert_ptr(str[0], ==, array_get(&v, 0));
 	v_assert_ptr(str[1], ==, array_get(&v, 1));
@@ -69,7 +69,7 @@ void	test_01_array_indexof_Last(void)
 	v_assert_ptr(str[4], ==, v.data[index]);
 	v_assert_str(str[4], v.data[index]);
 
-	v_assert_size_t(5, ==, v.total);
+	v_assert_size_t(5, ==, v.count);
 	v_assert_size_t(8, ==, v.max);
 	v_assert_ptr(str[0], ==, array_get(&v, 0));
 	v_assert_ptr(str[1], ==, array_get(&v, 1));
@@ -99,7 +99,7 @@ void	test_02_array_indexof_DoesntExist(void)
 	index = array_indexof(&v, "zut");
 	v_assert_int(-1, ==, index);
 
-	v_assert_size_t(5, ==, v.total);
+	v_assert_size_t(5, ==, v.count);
 	v_assert_size_t(8, ==, v.max);
 	v_assert_ptr(str[0], ==, array_get(&v, 0));
 	v_assert_ptr(str[1], ==, array_get(&v, 1));

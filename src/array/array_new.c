@@ -21,7 +21,7 @@ void	*array_init(t_array *v, size_t size)
 
 	s = (size == 0) ? ARRAY_INIT_CAPACITY : size;
 	v->max = s;
-	v->total = 0;
+	v->count = 0;
 	v->data = ft_memalloc(sizeof(void*) * s);
 	if (v->data == NULL)
 		return (NULL);

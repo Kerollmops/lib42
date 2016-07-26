@@ -2,15 +2,15 @@
 
 void	*array_pop(t_array *v)
 {
-	if (v->total == 0)
+	if (v->count == 0)
 		return (NULL);
-	return (v->data[--(v->total)]);
+	return (v->data[--(v->count)]);
 }
 
 t_array	*array_push(t_array *v, void *e)
 {
-	if (v->total == v->max)
+	if (v->count == v->max)
 		return (NULL);
-	v->data[v->total++] = e;
+	v->data[v->count++] = e;
 	return (v);
 }

@@ -26,7 +26,7 @@ void	test_00_array_clear_Simple(void)
 	array_clear(&v);
 
 	v_assert_size_t(8, ==, v.max);
-	v_assert_size_t(0, ==, v.total);
+	v_assert_size_t(0, ==, v.count);
 	v_assert_ptr(NULL, ==, v.data[0]);
 	v_assert_ptr(NULL, ==, v.data[1]);
 	v_assert_ptr(NULL, ==, v.data[2]);
