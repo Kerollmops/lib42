@@ -35,12 +35,12 @@ int	main(void)
 
 	// array
 	suite_array_add();
-	suite_array_get_set();
-	suite_array_copy();
+	suite_array_insert();
+	suite_array_indexof();
 	suite_array_replace();
 	suite_array_remove();
-	suite_array_indexof();
-	suite_array_insert();
+	suite_array_clear();
+	suite_array_copy();
 	suite_array_strsplit();
 
 	// error

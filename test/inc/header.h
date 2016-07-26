@@ -15,12 +15,14 @@
 
 // Array
 void	suite_array_add(void);
-void	suite_array_copy(void);
+void	suite_array_insert(void);
+void	suite_array_indexof(void);
 void	suite_array_replace(void);
 void	suite_array_remove(void);
-void	suite_array_get_set(void);
-void	suite_array_indexof(void);
-void	suite_array_insert(void);
+void	suite_array_destroy(void);
+void	suite_array_clear(void);
+void	suite_array_reset(void);
+void	suite_array_copy(void);
 void	suite_array_strsplit(void);
 
 // Buffer

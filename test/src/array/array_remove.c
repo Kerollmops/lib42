@@ -14,14 +14,14 @@ static char		*str[] = {
 
 static void	setup(void)
 {
-	ft_array_init(&v, 8);
+	array_init(&v, 8);
 	for (size_t i = 0; i < ARR_SIZ_MAX(str); ++i)
-		ft_array_add(&v, str[i]);
+		array_add(&v, str[i]);
 }
 
 static void	teardown(void)
 {
-	FT_ARRAY_FREE(&v);
+	free(v.data);
 	memset(&v, 0, sizeof(t_array));
 }
 
@@ -31,7 +31,7 @@ void	test_00_array_remove_FirstItem(void)
 	size_t	ind = 0;
 	setup();
 
-	ptr = ft_array_remove(&v, ind);
+	ptr = array_remove(&v, ind);
 
 	// Check return value
 	v_assert_ptr(NULL, !=, ptr);
@@ -39,26 +39,26 @@ void	test_00_array_remove_FirstItem(void)
 	v_assert_ptr(str[ind], ==, ptr);
 
 	// Check array integrity
-	v_assert_size_t(ARR_SIZ_MAX(str) - 1, ==, FT_ARRAY_TOTAL(&v));
-	v_assert_size_t(16, ==, FT_ARRAY_MAX(&v));
+	v_assert_size_t(ARR_SIZ_MAX(str) - 1, ==, v.total);
+	v_assert_size_t(16, ==, v.max);
 
-	v_assert_ptr(str[1], ==, ft_array_get(&v, 0));
-	v_assert_ptr(str[2], ==, ft_array_get(&v, 1));
-	v_assert_ptr(str[3], ==, ft_array_get(&v, 2));
-	v_assert_ptr(str[4], ==, ft_array_get(&v, 3));
-	v_assert_ptr(str[5], ==, ft_array_get(&v, 4));
-	v_assert_ptr(str[6], ==, ft_array_get(&v, 5));
-	v_assert_ptr(str[7], ==, ft_array_get(&v, 6));
-	v_assert_ptr(NULL, ==, ft_array_get(&v, 7));
-	v_assert_ptr(NULL, ==, ft_array_get(&v, 8));
+	v_assert_ptr(str[1], ==, array_get(&v, 0));
+	v_assert_ptr(str[2], ==, array_get(&v, 1));
+	v_assert_ptr(str[3], ==, array_get(&v, 2));
+	v_assert_ptr(str[4], ==, array_get(&v, 3));
+	v_assert_ptr(str[5], ==, array_get(&v, 4));
+	v_assert_ptr(str[6], ==, array_get(&v, 5));
+	v_assert_ptr(str[7], ==, array_get(&v, 6));
+	v_assert_ptr(NULL, ==, array_get(&v, 7));
+	v_assert_ptr(NULL, ==, array_get(&v, 8));
 
-	v_assert_str(str[1], ft_array_get(&v, 0));
-	v_assert_str(str[2], ft_array_get(&v, 1));
-	v_assert_str(str[3], ft_array_get(&v, 2));
-	v_assert_str(str[4], ft_array_get(&v, 3));
-	v_assert_str(str[5], ft_array_get(&v, 4));
-	v_assert_str(str[6], ft_array_get(&v, 5));
-	v_assert_str(str[7], ft_array_get(&v, 6));
+	v_assert_str(str[1], array_get(&v, 0));
+	v_assert_str(str[2], array_get(&v, 1));
+	v_assert_str(str[3], array_get(&v, 2));
+	v_assert_str(str[4], array_get(&v, 3));
+	v_assert_str(str[5], array_get(&v, 4));
+	v_assert_str(str[6], array_get(&v, 5));
+	v_assert_str(str[7], array_get(&v, 6));
 
 	teardown();
 	VTS;
@@ -70,7 +70,7 @@ void	test_01_array_remove_MiddleItem(void)
 	size_t	ind = 3;
 	setup();
 
-	ptr = ft_array_remove(&v, ind);
+	ptr = array_remove(&v, ind);
 
 	// Check return value
 	v_assert_ptr(NULL, !=, ptr);
@@ -78,26 +78,26 @@ void	test_01_array_remove_MiddleItem(void)
 	v_assert_str(str[ind], ptr);
 
 	// Check array integrity
-	v_assert_size_t(ARR_SIZ_MAX(str) - 1, ==, FT_ARRAY_TOTAL(&v));
-	v_assert_size_t(16, ==, FT_ARRAY_MAX(&v));
+	v_assert_size_t(ARR_SIZ_MAX(str) - 1, ==, v.total);
+	v_assert_size_t(16, ==, v.max);
 
-	v_assert_ptr(str[0], ==, ft_array_get(&v, 0));
-	v_assert_ptr(str[1], ==, ft_array_get(&v, 1));
-	v_assert_ptr(str[2], ==, ft_array_get(&v, 2));
-	v_assert_ptr(str[4], ==, ft_array_get(&v, 3));
-	v_assert_ptr(str[5], ==, ft_array_get(&v, 4));
-	v_assert_ptr(str[6], ==, ft_array_get(&v, 5));
-	v_assert_ptr(str[7], ==, ft_array_get(&v, 6));
-	v_assert_ptr(NULL, ==, ft_array_get(&v, 7));
-	v_assert_ptr(NULL, ==, ft_array_get(&v, 8));
+	v_assert_ptr(str[0], ==, array_get(&v, 0));
+	v_assert_ptr(str[1], ==, array_get(&v, 1));
+	v_assert_ptr(str[2], ==, array_get(&v, 2));
+	v_assert_ptr(str[4], ==, array_get(&v, 3));
+	v_assert_ptr(str[5], ==, array_get(&v, 4));
+	v_assert_ptr(str[6], ==, array_get(&v, 5));
+	v_assert_ptr(str[7], ==, array_get(&v, 6));
+	v_assert_ptr(NULL, ==, array_get(&v, 7));
+	v_assert_ptr(NULL, ==, array_get(&v, 8));
 
-	v_assert_str(str[0], ft_array_get(&v, 0));
-	v_assert_str(str[1], ft_array_get(&v, 1));
-	v_assert_str(str[2], ft_array_get(&v, 2));
-	v_assert_str(str[4], ft_array_get(&v, 3));
-	v_assert_str(str[5], ft_array_get(&v, 4));
-	v_assert_str(str[6], ft_array_get(&v, 5));
-	v_assert_str(str[7], ft_array_get(&v, 6));
+	v_assert_str(str[0], array_get(&v, 0));
+	v_assert_str(str[1], array_get(&v, 1));
+	v_assert_str(str[2], array_get(&v, 2));
+	v_assert_str(str[4], array_get(&v, 3));
+	v_assert_str(str[5], array_get(&v, 4));
+	v_assert_str(str[6], array_get(&v, 5));
+	v_assert_str(str[7], array_get(&v, 6));
 
 	teardown();
 	VTS;
@@ -109,7 +109,7 @@ void	test_02_array_remove_LastItem(void)
 	size_t	ind = 7;
 	setup();
 
-	ptr = ft_array_remove(&v, ind);
+	ptr = array_remove(&v, ind);
 
 	// Check return value
 	v_assert_ptr(NULL, !=, ptr);
@@ -117,26 +117,26 @@ void	test_02_array_remove_LastItem(void)
 	v_assert_str(str[ind], ptr);
 
 	// Check array integrity
-	v_assert_size_t(ARR_SIZ_MAX(str) - 1, ==, FT_ARRAY_TOTAL(&v));
-	v_assert_size_t(16, ==, FT_ARRAY_MAX(&v));
+	v_assert_size_t(ARR_SIZ_MAX(str) - 1, ==, v.total);
+	v_assert_size_t(16, ==, v.max);
 
-	v_assert_ptr(str[0], ==, ft_array_get(&v, 0));
-	v_assert_ptr(str[1], ==, ft_array_get(&v, 1));
-	v_assert_ptr(str[2], ==, ft_array_get(&v, 2));
-	v_assert_ptr(str[3], ==, ft_array_get(&v, 3));
-	v_assert_ptr(str[4], ==, ft_array_get(&v, 4));
-	v_assert_ptr(str[5], ==, ft_array_get(&v, 5));
-	v_assert_ptr(str[6], ==, ft_array_get(&v, 6));
-	v_assert_ptr(NULL, ==, ft_array_get(&v, 7));
-	v_assert_ptr(NULL, ==, ft_array_get(&v, 8));
+	v_assert_ptr(str[0], ==, array_get(&v, 0));
+	v_assert_ptr(str[1], ==, array_get(&v, 1));
+	v_assert_ptr(str[2], ==, array_get(&v, 2));
+	v_assert_ptr(str[3], ==, array_get(&v, 3));
+	v_assert_ptr(str[4], ==, array_get(&v, 4));
+	v_assert_ptr(str[5], ==, array_get(&v, 5));
+	v_assert_ptr(str[6], ==, array_get(&v, 6));
+	v_assert_ptr(NULL, ==, array_get(&v, 7));
+	v_assert_ptr(NULL, ==, array_get(&v, 8));
 
-	v_assert_str(str[0], ft_array_get(&v, 0));
-	v_assert_str(str[1], ft_array_get(&v, 1));
-	v_assert_str(str[2], ft_array_get(&v, 2));
-	v_assert_str(str[3], ft_array_get(&v, 3));
-	v_assert_str(str[4], ft_array_get(&v, 4));
-	v_assert_str(str[5], ft_array_get(&v, 5));
-	v_assert_str(str[6], ft_array_get(&v, 6));
+	v_assert_str(str[0], array_get(&v, 0));
+	v_assert_str(str[1], array_get(&v, 1));
+	v_assert_str(str[2], array_get(&v, 2));
+	v_assert_str(str[3], array_get(&v, 3));
+	v_assert_str(str[4], array_get(&v, 4));
+	v_assert_str(str[5], array_get(&v, 5));
+	v_assert_str(str[6], array_get(&v, 6));
 
 	teardown();
 	VTS;
@@ -148,33 +148,33 @@ void	test_03_array_remove_OutOfRange(void)
 	size_t	ind = 8;
 	setup();
 
-	ptr = ft_array_remove(&v, ind);
+	ptr = array_remove(&v, ind);
 
 	// Check return value
 	v_assert_ptr(NULL, ==, ptr);
 
 	// Check array integrity
-	v_assert_size_t(ARR_SIZ_MAX(str), ==, FT_ARRAY_TOTAL(&v));
-	v_assert_size_t(16, ==, FT_ARRAY_MAX(&v));
+	v_assert_size_t(ARR_SIZ_MAX(str), ==, v.total);
+	v_assert_size_t(16, ==, v.max);
 
-	v_assert_ptr(str[0], ==, ft_array_get(&v, 0));
-	v_assert_ptr(str[1], ==, ft_array_get(&v, 1));
-	v_assert_ptr(str[2], ==, ft_array_get(&v, 2));
-	v_assert_ptr(str[3], ==, ft_array_get(&v, 3));
-	v_assert_ptr(str[4], ==, ft_array_get(&v, 4));
-	v_assert_ptr(str[5], ==, ft_array_get(&v, 5));
-	v_assert_ptr(str[6], ==, ft_array_get(&v, 6));
-	v_assert_ptr(str[7], ==, ft_array_get(&v, 7));
-	v_assert_ptr(NULL, ==, ft_array_get(&v, 8));
+	v_assert_ptr(str[0], ==, array_get(&v, 0));
+	v_assert_ptr(str[1], ==, array_get(&v, 1));
+	v_assert_ptr(str[2], ==, array_get(&v, 2));
+	v_assert_ptr(str[3], ==, array_get(&v, 3));
+	v_assert_ptr(str[4], ==, array_get(&v, 4));
+	v_assert_ptr(str[5], ==, array_get(&v, 5));
+	v_assert_ptr(str[6], ==, array_get(&v, 6));
+	v_assert_ptr(str[7], ==, array_get(&v, 7));
+	v_assert_ptr(NULL, ==, array_get(&v, 8));
 
-	v_assert_str(str[0], ft_array_get(&v, 0));
-	v_assert_str(str[1], ft_array_get(&v, 1));
-	v_assert_str(str[2], ft_array_get(&v, 2));
-	v_assert_str(str[3], ft_array_get(&v, 3));
-	v_assert_str(str[4], ft_array_get(&v, 4));
-	v_assert_str(str[5], ft_array_get(&v, 5));
-	v_assert_str(str[6], ft_array_get(&v, 6));
-	v_assert_str(str[7], ft_array_get(&v, 7));
+	v_assert_str(str[0], array_get(&v, 0));
+	v_assert_str(str[1], array_get(&v, 1));
+	v_assert_str(str[2], array_get(&v, 2));
+	v_assert_str(str[3], array_get(&v, 3));
+	v_assert_str(str[4], array_get(&v, 4));
+	v_assert_str(str[5], array_get(&v, 5));
+	v_assert_str(str[6], array_get(&v, 6));
+	v_assert_str(str[7], array_get(&v, 7));
 
 	teardown();
 	VTS;

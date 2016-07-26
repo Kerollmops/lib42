@@ -62,20 +62,11 @@ SOURCES += ft_memcmp.c
 SOURCES += ft_realloc.c
 
 # Array
-SOURCES += ft_array_init.c
-SOURCES += ft_array_add.c
-SOURCES += ft_array_get.c
-SOURCES += ft_array_resize.c
-SOURCES += ft_array_set.c
-SOURCES += ft_array_clear.c
-SOURCES += ft_array_destroy.c
-SOURCES += ft_array_insert.c
-SOURCES += ft_array_copy.c
-SOURCES += ft_array_new.c
-SOURCES += ft_array_replace.c
-SOURCES += ft_array_remove.c
-SOURCES += ft_array_indexof.c
-SOURCES += ft_array_strsplit.c
+SOURCES += array_delete.c
+SOURCES += array_getset.c
+SOURCES += array_new.c
+SOURCES += array_resize.c
+SOURCES += array_transform.c
 
 # Buffer
 SOURCES += ft_buffer_init.c
