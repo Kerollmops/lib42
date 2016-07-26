@@ -22,14 +22,14 @@ static void	teardown(void)
 	memset(&v, 0, sizeof(t_array));
 }
 
-void	test_00_array_replace_FirstItem(void)
+void	test_00_array_set_FirstItem(void)
 {
 	char	*rep = "firstitem";
 	char	*ptr;
 	size_t	ind = 0;
 	setup();
 
-	ptr = array_replace(&v, ind, rep);
+	ptr = array_set(&v, ind, rep);
 
 	// Check return value
 	v_assert_ptr(NULL, !=, ptr);
@@ -58,14 +58,14 @@ void	test_00_array_replace_FirstItem(void)
 	VTS;
 }
 
-void	test_01_array_replace_MiddleItem(void)
+void	test_01_array_set_MiddleItem(void)
 {
 	char	*rep = "middleitem";
 	char	*ptr;
 	size_t	ind = 2;
 	setup();
 
-	ptr = array_replace(&v, ind, rep);
+	ptr = array_set(&v, ind, rep);
 
 	// Check return value
 	v_assert_ptr(NULL, !=, ptr);
@@ -94,14 +94,14 @@ void	test_01_array_replace_MiddleItem(void)
 	VTS;
 }
 
-void	test_02_array_replace_LastItem(void)
+void	test_02_array_set_LastItem(void)
 {
 	char	*rep = "lastitem";
 	char	*ptr;
 	size_t	ind = 4;
 	setup();
 
-	ptr = array_replace(&v, ind, rep);
+	ptr = array_set(&v, ind, rep);
 
 	// Check return value
 	v_assert_ptr(NULL, !=, ptr);
@@ -130,14 +130,14 @@ void	test_02_array_replace_LastItem(void)
 	VTS;
 }
 
-void	test_03_array_replace_OutOfRange(void)
+void	test_03_array_set_OutOfRange(void)
 {
 	char	*rep = "outofrange";
 	char	*ptr;
 	size_t	ind = 5;
 	setup();
 
-	ptr = array_replace(&v, ind, rep);
+	ptr = array_set(&v, ind, rep);
 
 	// Check return value
 	v_assert_ptr(NULL, ==, ptr);
@@ -164,12 +164,12 @@ void	test_03_array_replace_OutOfRange(void)
 	VTS;
 }
 
-void	suite_array_replace(void)
+void	suite_array_set(void)
 {
-	test_00_array_replace_FirstItem();
-	test_01_array_replace_MiddleItem();
-	test_02_array_replace_LastItem();
-	test_03_array_replace_OutOfRange();
+	test_00_array_set_FirstItem();
+	test_01_array_set_MiddleItem();
+	test_02_array_set_LastItem();
+	test_03_array_set_OutOfRange();
 
 	VSS;
 }

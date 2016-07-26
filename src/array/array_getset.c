@@ -7,14 +7,6 @@ void	*array_get(t_array *v, size_t i)
 	return (v->data[i]);
 }
 
-void	*array_set(t_array *v, size_t i, void *e)
-{
-	if (i >= v->total)
-		return (NULL);
-	v->data[i] = e;
-	return (v);
-}
-
 int		array_indexof(t_array *v, void *e)
 {
 	size_t	i;
@@ -34,7 +26,7 @@ int		array_indexof(t_array *v, void *e)
 ** Et retourne l'ancien élément
 */
 
-void	*array_replace(t_array *v, size_t i, void *e)
+void	*array_set(t_array *v, size_t i, void *e)
 {
 	void	*old;
 

@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/01 16:41:13 by djean             #+#    #+#             */
-/*   Updated: 2016/07/26 14:37:22 by leonhart         ###   ########.fr       */
+/*   Updated: 2016/07/26 14:52:53 by leonhart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ t_array	*array_insert(t_array *v, size_t i, void *e);
 void	*array_set(t_array *v, size_t i, void *e);
 void	*array_get(t_array *v, size_t i);
 int		array_indexof(t_array *v, void *e);
-void	*array_replace(t_array *v, size_t i, void *e);
 void	*array_iterator(t_array *v);
 
 /*
