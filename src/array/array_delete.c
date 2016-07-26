@@ -6,18 +6,18 @@
 
 void	*array_remove(t_array *v, size_t i)
 {
-	void	*ptr;
+	void	*ret;
+	void	**ptr;
+	size_t	len;
 
 	if (i >= v->total)
 		return (NULL);
-	ptr = v->data[i];
-	while (i < v->total)
-	{
-		v->data[i] = v->data[i + 1];
-		++i;
-	}
+	ret = v->data[i];
+	ptr = v->data + i;
+	len = (v->total - i) * sizeof(void*);
+	ft_memmove(ptr, ptr + 1, len);
 	v->total -= 1;
-	return (ptr);
+	return (ret);
 }
 
 void	array_destroy(t_array *v)
