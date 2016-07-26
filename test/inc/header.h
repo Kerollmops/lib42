@@ -24,6 +24,7 @@ void	suite_array_clear(void);
 void	suite_array_reset(void);
 void	suite_array_copy(void);
 void	suite_array_strsplit(void);
+void	suite_array_iterator(void);
 
 // Buffer
 void	suite_buffer(void);

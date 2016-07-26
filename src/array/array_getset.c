@@ -44,3 +44,15 @@ void	*array_replace(t_array *v, size_t i, void *e)
 	v->data[i] = e;
 	return (old);
 }
+
+void	*array_iterator(t_array *v)
+{
+	static size_t	index = 0;
+
+	if (v == NULL || index == v->total)
+	{
+		index = 0;
+		return (NULL);
+	}
+	return (v->data[index++]);
+}

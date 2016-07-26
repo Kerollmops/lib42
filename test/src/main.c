@@ -46,6 +46,7 @@ int	main(void)
 #if !defined(SANITIZE)
 	suite_array_strsplit();
 #endif
+	suite_array_iterator();
 
 	// error
 	suite_error();
