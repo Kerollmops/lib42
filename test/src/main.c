@@ -37,7 +37,7 @@ int	main(void)
 	suite_array_add();
 	suite_array_insert();
 	suite_array_indexof();
-	suite_array_set();
+	suite_array_replace();
 	suite_array_remove();
 	suite_array_clear();
 	suite_array_copy();

@@ -18,7 +18,7 @@
 void	suite_array_add(void);
 void	suite_array_insert(void);
 void	suite_array_indexof(void);
-void	suite_array_set(void);
+void	suite_array_replace(void);
 void	suite_array_remove(void);
 void	suite_array_destroy(void);
 void	suite_array_clear(void);

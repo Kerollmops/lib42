@@ -26,7 +26,7 @@ int		array_indexof(t_array *v, void *e)
 ** Et retourne l'ancien élément
 */
 
-void	*array_set(t_array *v, size_t i, void *e)
+void	*array_replace(t_array *v, size_t i, void *e)
 {
 	void	*old;
 
