@@ -50,3 +50,7 @@ void	ft_die(const char *msg)
 	exit(1);
 }
 
+void	fatal_malloc(void)
+{
+	ft_die(FATAL_MALLOC);
+}

@@ -15,5 +15,6 @@ char	*ft_strerror(int errnum);
 void	ft_perror(const char *msg);
 void	ft_perrorn(const char *msg, int errnum);
 void	ft_die(const char *msg);
+void	fatal_malloc(void);
 
 #endif
