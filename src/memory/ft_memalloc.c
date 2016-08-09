@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/25 15:03:46 by djean             #+#    #+#             */
-/*   Updated: 2016/06/29 12:09:19 by leonhart         ###   ########.fr       */
+/*   Updated: 2016/08/09 16:14:38 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,15 @@ void	*ft_memalloc(size_t size)
 	if (size == 0 || (p = malloc(size)) == NULL)
 		return (NULL);
 	ft_memset(p, 0x0, size);
+	return (p);
+}
+
+void	*malloc_or_die(size_t size)
+{
+	void	*p;
+
+	p = ft_memalloc(size);
+	if (p == NULL)
+		fatal_malloc();
 	return (p);
 }
