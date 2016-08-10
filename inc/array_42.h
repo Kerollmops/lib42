@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/01 16:41:13 by djean             #+#    #+#             */
-/*   Updated: 2016/07/28 17:11:10 by leonhart         ###   ########.fr       */
+/*   Updated: 2016/08/10 11:15:25 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # define TARRAY_GET(v, i)		((i) >= (v)->count ? NULL : (v)->data[i])
 # define TARRAY_SET(v, i, e)	((v)->data[i] = (i) >= (v)->count ? NULL : e)
 # define TARRAY_FREE(v)			free((v)->data)
+# define TARRAY_ISEMPTY(v)		(!((v)->count))
 
 /*
 ** new
