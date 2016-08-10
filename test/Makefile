@@ -54,6 +54,7 @@ SOURCES += buffer_remove.c
 SOURCES += buffer_set.c
 SOURCES += buffer_rewindchr.c
 SOURCES += buffer_rewind.c
+SOURCES += buffer_macros.c
 
 # Memory
 SOURCES += memset.c
@@ -96,7 +97,12 @@ VITTF_PATH = vittf
 CFLAGS += -I$(VITTF_PATH)
 
 # BSD Libc
-LDFLAGS += -lbsd
+UNAME_S := $(shell uname -s)
+ifneq ($(UNAME_S), Darwin)
+	LDFLAGS += -lbsd
+endif
+
+
 
 
 # Rules

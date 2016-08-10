@@ -32,6 +32,7 @@ int	main(void)
 	suite_buffer_set();
 	suite_buffer_rewindchr();
 	suite_buffer_rewind();
+	suite_buffer_macros();
 
 	// array
 	suite_array_add();

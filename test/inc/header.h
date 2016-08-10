@@ -9,7 +9,9 @@
 #include <stdio.h>
 #include <string.h>
 #include <strings.h>
+#if !defined(__APPLE__)
 #include <bsd/string.h>
+#endif
 #include <stdint.h>
 #include "lib42.h"
 #include "vittf.h"
@@ -35,6 +37,7 @@ void	suite_buffer_remove(void);
 void	suite_buffer_set(void);
 void	suite_buffer_rewindchr(void);
 void	suite_buffer_rewind(void);
+void	suite_buffer_macros(void);
 
 // Memory
 void	suite_memcpy(void);
