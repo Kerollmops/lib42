@@ -93,6 +93,7 @@ SOURCES += ft_strrev.c
 
 # Error
 SOURCES += ft_error.c
+SOURCES += ft_die.c
 
 # Objects
 OBJ_PATH = obj

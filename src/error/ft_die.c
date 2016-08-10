@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lib42.h                                            :+:      :+:    :+:   */
+/*   ft_die.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/10 16:28:48 by djean             #+#    #+#             */
-/*   Updated: 2016/08/10 16:29:02 by djean            ###   ########.fr       */
+/*   Created: 2016/08/10 16:35:17 by djean             #+#    #+#             */
+/*   Updated: 2016/08/10 16:35:18 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIB42_H
-# define LIB42_H
+#include "error_42.h"
 
-# include "macros_42.h"
-# include "typedefs_42.h"
-# include "structs_42.h"
-# include "stdlib_42.h"
-# include "memory_42.h"
-# include "string_42.h"
-# include "array_42.h"
-# include "buffer_42.h"
-# include "error_42.h"
+void	ft_die(const char *msg)
+{
+	write(STDERR_FILENO, msg, ft_strlen(msg));
+	exit(1);
+}
 
-#endif
+void	fatal_malloc(void)
+{
+	ft_die(FATAL_MALLOC);
+}

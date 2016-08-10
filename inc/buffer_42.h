@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_buffer.h                                        :+:      :+:    :+:   */
+/*   buffer_42.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/01 16:51:24 by djean             #+#    #+#             */
-/*   Updated: 2016/08/10 15:29:18 by djean            ###   ########.fr       */
+/*   Created: 2016/08/10 16:28:48 by djean             #+#    #+#             */
+/*   Updated: 2016/08/10 16:29:36 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@
 # define TBUFFER_LAST(b)		((b)->str[(b)->len - 1])
 # define TBUFFER_FIRST(b)		((b)->str[0])
 # define TBUFFER_ISEMPTY(b)		(!((b)->len))
-
 
 t_buffer	*buffer_new(size_t size);
 t_buffer	*buffer_init(t_buffer *b, size_t size);
