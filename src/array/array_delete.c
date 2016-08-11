@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 16:31:25 by djean             #+#    #+#             */
-/*   Updated: 2016/08/10 16:31:27 by djean            ###   ########.fr       */
+/*   Updated: 2016/08/11 12:26:43 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	*array_remove(t_array *v, size_t i)
 	if (i >= v->count)
 		return (NULL);
 	ret = v->data[i];
+	if (v->iterator > i)
+		--v->iterator;
 	ptr = v->data + i;
 	len = (v->count - i) * sizeof(void*);
 	ft_memmove(ptr, ptr + 1, len);
@@ -58,10 +60,12 @@ void	array_clear(t_array *v)
 	while (v->count > 0)
 		free(v->data[--(v->count)]);
 	ft_memset(v->data, 0, v->max * sizeof(void*));
+	v->iterator = 0;
 }
 
 void	array_reset(t_array *v)
 {
 	v->count = 0;
+	v->iterator = 0;
 	v->data[0] = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 16:28:48 by djean             #+#    #+#             */
-/*   Updated: 2016/08/10 16:28:55 by djean            ###   ########.fr       */
+/*   Updated: 2016/08/11 12:24:16 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # define TARRAY_SET(v, i, e)	((v)->data[i] = (i) >= (v)->count ? NULL : e)
 # define TARRAY_FREE(v)			free((v)->data)
 # define TARRAY_ISEMPTY(v)		(!((v)->count))
+# define TARRAY_RESET_ITER(v)	(v)->iterator = 0
 
 /*
 ** new
@@ -48,7 +49,13 @@ t_array	*array_insert(t_array *v, size_t i, void *e);
 void	*array_replace(t_array *v, size_t i, void *e);
 void	*array_get(t_array *v, size_t i);
 int		array_indexof(t_array *v, void *e);
+
+/*
+** iterator
+*/
 void	*array_iterator(t_array *v);
+void	array_iterator_prev(t_array *v);
+void	array_iterator_next(t_array *v);
 
 /*
 ** delete

@@ -1,42 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   array_new.c                                        :+:      :+:    :+:   */
+/*   array_iter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/10 16:31:25 by djean             #+#    #+#             */
-/*   Updated: 2016/08/11 12:17:31 by djean            ###   ########.fr       */
+/*   Created: 2016/08/11 12:23:49 by djean             #+#    #+#             */
+/*   Updated: 2016/08/11 12:23:50 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "array_42.h"
 
-t_array	*array_new(size_t size)
+void	*array_iterator(t_array *v)
 {
-	t_array	*v;
-
-	v = ft_memalloc(sizeof(t_array));
-	if (v == NULL)
-		return (NULL);
-	if ((array_init(v, size)) == NULL)
+	if (v->iterator >= v->count)
 	{
-		free(v);
+		v->iterator = 0;
 		return (NULL);
 	}
-	return (v);
+	return (v->data[v->iterator++]);
 }
 
-void	*array_init(t_array *v, size_t size)
+void	array_iterator_prev(t_array *v)
 {
-	size_t	s;
+	if (v->iterator > 0)
+		--v->iterator;
+}
 
-	s = (size == 0) ? ARRAY_INIT_CAPACITY : size;
-	v->max = s;
-	v->count = 0;
-	v->iterator = 0;
-	v->data = ft_memalloc(sizeof(void*) * s);
-	if (v->data == NULL)
-		return (NULL);
-	return (v);
+void	array_iterator_next(t_array *v)
+{
+	if (v->iterator < v->count)
+		++v->iterator;
 }

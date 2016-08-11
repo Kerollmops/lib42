@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 16:31:25 by djean             #+#    #+#             */
-/*   Updated: 2016/08/10 16:31:27 by djean            ###   ########.fr       */
+/*   Updated: 2016/08/11 12:23:34 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,4 @@ void	*array_replace(t_array *v, size_t i, void *e)
 	old = v->data[i];
 	v->data[i] = e;
 	return (old);
-}
-
-void	*array_iterator(t_array *v)
-{
-	static size_t	index = 0;
-
-	if (v == NULL || index == v->count)
-	{
-		index = 0;
-		return (NULL);
-	}
-	return (v->data[index++]);
 }

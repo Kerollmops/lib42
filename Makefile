@@ -65,6 +65,7 @@ SOURCES += ft_toa_base.c
 # Array
 SOURCES += array_delete.c
 SOURCES += array_getset.c
+SOURCES += array_iter.c
 SOURCES += array_new.c
 SOURCES += array_resize.c
 SOURCES += array_transform.c
