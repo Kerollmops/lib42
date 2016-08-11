@@ -32,6 +32,16 @@ void	*array_remove(t_array *v, size_t i)
 	return (ret);
 }
 
+void	*array_remove_elem(t_array *v, void *e)
+{
+	size_t	i;
+
+	i = 0;
+	while (v->data[i] != e)
+		++i;
+	return (array_remove(v, i));
+}
+
 void	array_destroy(t_array *v)
 {
 	free(v->data);

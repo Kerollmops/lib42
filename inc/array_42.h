@@ -54,6 +54,7 @@ void	*array_iterator(t_array *v);
 ** delete
 */
 void	*array_remove(t_array *v, size_t i);
+void	*array_remove_elem(t_array *v, void *e);
 void	array_destroy(t_array *v);
 void	array_clear(t_array *v);
 void	array_reset(t_array *v);
