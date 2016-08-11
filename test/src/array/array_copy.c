@@ -25,6 +25,7 @@ void	test_00_array_copy_SimpleCopy(void)
 	v_assert_ptr(NULL, !=, cp);
 	v_assert_size_t(8, ==, cp->max);
 	v_assert_size_t(5, ==, cp->count);
+	v_assert_size_t(0, ==, cp->iterator);
 	v_assert_str(s1, array_get(cp, 0));
 	v_assert_ptr(s1, ==, array_get(cp, 0));
 	v_assert_str(s2, array_get(cp, 1));
