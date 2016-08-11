@@ -56,7 +56,7 @@ SOURCES += ft_memcpy.c
 SOURCES += ft_memccpy.c
 SOURCES += ft_memmove.c
 SOURCES += ft_memchr.c
-SOURCES += ft_memcmp.c
+# SOURCES += ft_memcmp.c
 
 # Stdlib
 SOURCES += ft_realloc.c

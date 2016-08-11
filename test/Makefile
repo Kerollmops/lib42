@@ -62,7 +62,7 @@ SOURCES += memcpy.c
 SOURCES += memccpy.c
 SOURCES += memmove.c
 SOURCES += memchr.c
-SOURCES += memcmp.c
+# SOURCES += memcmp.c
 
 # Stdlib
 SOURCES += realloc.c

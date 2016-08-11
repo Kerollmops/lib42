@@ -42,7 +42,7 @@ void	suite_buffer_macros(void);
 // Memory
 void	suite_memcpy(void);
 void	suite_memccpy(void);
-void	suite_memcmp(void);
+/* void	suite_memcmp(void); */
 void	suite_memmove(void);
 void	suite_memset(void);
 void	suite_memchr(void);
