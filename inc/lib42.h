@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 16:28:48 by djean             #+#    #+#             */
-/*   Updated: 2016/08/10 16:29:02 by djean            ###   ########.fr       */
+/*   Updated: 2016/09/01 12:59:02 by leonhart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include "string_42.h"
 # include "array_42.h"
 # include "buffer_42.h"
+# include "btree_42.h"
 # include "error_42.h"
 
 #endif

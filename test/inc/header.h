@@ -60,6 +60,9 @@ void	suite_strchr(void);
 void	suite_strrchr(void);
 void	suite_strrev(void);
 
+// Btree
+void	suite_btree_new(void);
+
 // Error
 void	suite_error(void);
 

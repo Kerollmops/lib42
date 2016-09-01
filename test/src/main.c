@@ -47,6 +47,9 @@ int	main(void)
 #endif
 	suite_array_iterator();
 
+	// btree
+	suite_btree_new();
+
 	// error
 	suite_error();
 

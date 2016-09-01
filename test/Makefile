@@ -29,57 +29,65 @@ INC_FILES = header.h
 HEADERS = $(INC_FILES:%.h=$(INC_PATH)/%.h)
 CFLAGS += $(addprefix -I,$(INC_PATH))
 
+# Array
+SRC_SUBDIR += array
+SOURCES += test_array_add.c
+SOURCES += test_array_clear.c
+SOURCES += test_array_copy.c
+SOURCES += test_array_replace.c
+SOURCES += test_array_remove.c
+SOURCES += test_array_indexof.c
+SOURCES += test_array_insert.c
+SOURCES += test_array_strsplit.c
+SOURCES += test_array_iterator.c
+
+# Buffer
+SRC_SUBDIR += buffer
+SOURCES += test_buffer_cat.c
+SOURCES += test_buffer_insert.c
+SOURCES += test_buffer_remove.c
+SOURCES += test_buffer_set.c
+SOURCES += test_buffer_rewindchr.c
+SOURCES += test_buffer_rewind.c
+SOURCES += test_buffer_macros.c
+
+# Memory
+SRC_SUBDIR += memory
+SOURCES += test_memset.c
+SOURCES += test_memcpy.c
+SOURCES += test_memccpy.c
+SOURCES += test_memmove.c
+SOURCES += test_memchr.c
+# SOURCES += test_memcmp.c
+
+# Stdlib
+SRC_SUBDIR += stdlib
+SOURCES += test_realloc.c
+SOURCES += test_toa_base.c
+
+# String
+SRC_SUBDIR += string
+SOURCES += test_strlen.c
+SOURCES += test_strnlen.c
+SOURCES += test_strdup.c
+SOURCES += test_strndup.c
+SOURCES += test_strchr.c
+SOURCES += test_strrchr.c
+SOURCES += test_strrev.c
+
+# Btree
+SRC_SUBDIR += btree
+SOURCES += test_btree_new.c
+
+# Error
+SRC_SUBDIR += error
+SOURCES += test_error.c
 
 # Sources
 SRC_PATH = src
-SRC_SUBDIR = . array buffer memory stdlib string error
+SRC_SUBDIR += .
+SOURCES += main.c
 vpath %.c $(addprefix $(SRC_PATH)/,$(SRC_SUBDIR))
-SOURCES = main.c
-
-# Array
-SOURCES += array_add.c
-SOURCES += array_clear.c
-SOURCES += array_copy.c
-SOURCES += array_replace.c
-SOURCES += array_remove.c
-SOURCES += array_indexof.c
-SOURCES += array_insert.c
-SOURCES += array_strsplit.c
-SOURCES += array_iterator.c
-
-# Buffer
-SOURCES += buffer_cat.c
-SOURCES += buffer_insert.c
-SOURCES += buffer_remove.c
-SOURCES += buffer_set.c
-SOURCES += buffer_rewindchr.c
-SOURCES += buffer_rewind.c
-SOURCES += buffer_macros.c
-
-# Memory
-SOURCES += memset.c
-SOURCES += memcpy.c
-SOURCES += memccpy.c
-SOURCES += memmove.c
-SOURCES += memchr.c
-# SOURCES += memcmp.c
-
-# Stdlib
-SOURCES += realloc.c
-SOURCES += toa_base.c
-
-# String
-SOURCES += strlen.c
-SOURCES += strnlen.c
-SOURCES += strdup.c
-SOURCES += strndup.c
-SOURCES += strchr.c
-SOURCES += strrchr.c
-SOURCES += strrev.c
-
-# Error
-SOURCES += error.c
-
 
 # Objects
 OBJ_PATH = obj

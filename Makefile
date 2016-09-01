@@ -29,27 +29,13 @@ INC_FILES += lib42.h
 INC_FILES += typedefs_42.h
 INC_FILES += structs_42.h
 INC_FILES += macros_42.h
-INC_FILES += memory_42.h
-INC_FILES += stdlib_42.h
-INC_FILES += string_42.h
-INC_FILES += array_42.h
-INC_FILES += buffer_42.h
-INC_FILES += error_42.h
-
-HEADERS = $(INC_FILES:%.h=$(INC_PATH)/%.h)
-CFLAGS += $(addprefix -I,$(INC_PATH))
 
 # Sources
 SRC_PATH = src
-SRC_SUBDIR += array
-SRC_SUBDIR += string
-SRC_SUBDIR += stdlib
-SRC_SUBDIR += memory
-SRC_SUBDIR += buffer
-SRC_SUBDIR += error
-vpath %.c $(addprefix $(SRC_PATH)/,$(SRC_SUBDIR))
 
 # Memory
+INC_FILES += memory_42.h
+SRC_SUBDIR += memory
 SOURCES += ft_memset.c
 SOURCES += ft_memalloc.c
 SOURCES += ft_memcpy.c
@@ -59,10 +45,14 @@ SOURCES += ft_memchr.c
 # SOURCES += ft_memcmp.c
 
 # Stdlib
+INC_FILES += stdlib_42.h
+SRC_SUBDIR += stdlib
 SOURCES += ft_realloc.c
 SOURCES += ft_toa_base.c
 
 # Array
+INC_FILES += array_42.h
+SRC_SUBDIR += array
 SOURCES += array_delete.c
 SOURCES += array_getset.c
 SOURCES += array_iter.c
@@ -71,6 +61,8 @@ SOURCES += array_resize.c
 SOURCES += array_transform.c
 
 # Buffer
+INC_FILES += buffer_42.h
+SRC_SUBDIR += buffer
 SOURCES += buffer_cat.c
 SOURCES += buffer_destroy.c
 SOURCES += buffer_insert.c
@@ -85,6 +77,8 @@ SOURCES += buffer_toa.c
 SOURCES += buffer_twin.c
 
 # String
+INC_FILES += string_42.h
+SRC_SUBDIR += string
 SOURCES += ft_strlen.c
 SOURCES += ft_strdup.c
 SOURCES += ft_strsub.c
@@ -92,11 +86,21 @@ SOURCES += ft_strchr.c
 SOURCES += ft_strrchr.c
 SOURCES += ft_strrev.c
 
+# Btree
+INC_FILES += btree_42.h
+SRC_SUBDIR += btree
+SOURCES += btree_new.c
+
 # Error
+INC_FILES += error_42.h
+SRC_SUBDIR += error
 SOURCES += ft_error.c
 SOURCES += ft_die.c
 
-# Objects
+# Generation
+HEADERS = $(INC_FILES:%.h=$(INC_PATH)/%.h)
+CFLAGS += $(addprefix -I,$(INC_PATH))
+vpath %.c $(addprefix $(SRC_PATH)/,$(SRC_SUBDIR))
 OBJ_PATH = obj
 OBJECTS = $(addprefix $(OBJ_PATH)/, $(SOURCES:%.c=%.o))
 
