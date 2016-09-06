@@ -9,19 +9,17 @@ static void	test_00_buffer_append_Simple(void)
 	char		cat[20];
 	size_t		l1 = strlen(s1);
 	size_t		l2 = strlen(s2);
-	ssize_t		total;
 
 	dst = buffer_ndup(s1, l1);
 	src = buffer_ndup(s2, l2);
 	strcpy(cat, s1);
 	strcpy(cat + l1, s2);
-	total = buffer_append(dst, src);
+	buffer_append(dst, src);
 
 	v_assert_size_t(l2, ==, src->len);
 	v_assert_str(s2, src->str);
 
 	/* v_assert_size_t(16, ==, dst->sizemax); */
-	v_assert_size_t(l1 + l2, ==, total);
 	v_assert_size_t(l1 + l2, ==, dst->len);
 	v_assert_str(cat, dst->str);
 
@@ -42,19 +40,17 @@ static void	test_01_buffer_append_EmptyBuffer(void)
 	char		cat[20];
 	size_t		l1 = strlen(s1);
 	size_t		l2 = strlen(s2);
-	ssize_t		total;
 
 	dst = buffer_ndup(s1, l1);
 	src = buffer_ndup(s2, l2);
 	strcpy(cat, s1);
 	strcpy(cat + l1, s2);
-	total = buffer_append(dst, src);
+	buffer_append(dst, src);
 
 	v_assert_size_t(l2, ==, src->len);
 	v_assert_str(s2, src->str);
 
 	/* v_assert_size_t(16, ==, dst->sizemax); */
-	v_assert_size_t(l1 + l2, ==, total);
 	v_assert_size_t(l1 + l2, ==, dst->len);
 	v_assert_str(cat, dst->str);
 

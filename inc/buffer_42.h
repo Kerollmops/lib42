@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 16:28:48 by djean             #+#    #+#             */
-/*   Updated: 2016/09/06 12:21:16 by djean            ###   ########.fr       */
+/*   Updated: 2016/09/06 12:49:42 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int			buffer_rewind(t_buffer *b, size_t n);
 size_t		buffer_rewindchr(t_buffer *b, int c);
 size_t		buffer_rewindnchr(t_buffer *b, int c, size_t n);
 t_buffer	*buffer_twin(t_buffer *b);
-ssize_t		buffer_append(t_buffer *dst, t_buffer *src);
+t_buffer	*buffer_append(t_buffer *dst, t_buffer *src);
 t_buffer	*buffer_merge(t_buffer *b1, t_buffer *b2);
 t_buffer	*buffer_stoa(t_buffer *b, long long value, int base);
 t_buffer	*buffer_utoa(t_buffer *b, unsigned long long value, int base);
