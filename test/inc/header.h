@@ -37,6 +37,7 @@ void	suite_buffer_remove(void);
 void	suite_buffer_set(void);
 void	suite_buffer_rewindchr(void);
 void	suite_buffer_rewind(void);
+void	suite_buffer_append(void);
 void	suite_buffer_macros(void);
 
 // Memory

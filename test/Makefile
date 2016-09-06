@@ -54,6 +54,7 @@ SOURCES += buffer_remove.c
 SOURCES += buffer_set.c
 SOURCES += buffer_rewindchr.c
 SOURCES += buffer_rewind.c
+SOURCES += buffer_append.c
 SOURCES += buffer_macros.c
 
 # Memory

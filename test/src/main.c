@@ -27,6 +27,7 @@ int	main(void)
 	// buffer
 	suite_buffer_cat();
 	suite_buffer_insert();
+	suite_buffer_append();
 #endif
 	suite_buffer_remove();
 	suite_buffer_set();
