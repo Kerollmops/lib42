@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 12:23:49 by djean             #+#    #+#             */
-/*   Updated: 2016/08/11 12:23:50 by djean            ###   ########.fr       */
+/*   Updated: 2016/09/08 10:40:05 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*array_iterator(t_array *v)
 		v->iterator = 0;
 		return (NULL);
 	}
-	return (v->data[v->iterator++]);
+	return (array_get(v, v->iterator++));
 }
 
 void	array_iterator_prev(t_array *v)

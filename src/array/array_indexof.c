@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   array_resize.c                                     :+:      :+:    :+:   */
+/*   array_indexof.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/10 16:31:25 by djean             #+#    #+#             */
-/*   Updated: 2016/09/07 15:13:49 by djean            ###   ########.fr       */
+/*   Created: 2016/09/02 15:54:59 by djean             #+#    #+#             */
+/*   Updated: 2016/09/07 15:52:29 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "array_42.h"
 
-void	*array_resize(t_array *v)
-{
-	void	*new;
-	size_t	new_size;
+/*
+** Search if the pointer e belongs to the array range
+** Return the index or -1 on error
+*/
 
-	new_size = v->elem_size * v->max * TARRAY_GROWTH_FACTOR;
-	new = ft_realloc(v->data, new_size, v->count * v->elem_size);
-	if (new == NULL)
-		return (NULL);
-	v->data = new;
-	v->max *= TARRAY_GROWTH_FACTOR;
-	return (v);
+int		array_indexof(t_array *v, void *e)
+{
+	if (TARRAY_IN_RANGE(v, e))
+		return (((uintptr_t)e - (uintptr_t)v->data) / v->elem_size);
+	return (-1);
 }

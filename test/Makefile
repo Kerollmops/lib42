@@ -37,15 +37,16 @@ vpath %.c $(addprefix $(SRC_PATH)/,$(SRC_SUBDIR))
 SOURCES = main.c
 
 # Array
-SOURCES += array_add.c
-SOURCES += array_clear.c
-SOURCES += array_copy.c
-SOURCES += array_replace.c
-SOURCES += array_remove.c
-SOURCES += array_indexof.c
-SOURCES += array_insert.c
-SOURCES += array_strsplit.c
-SOURCES += array_iterator.c
+SOURCES += test_array_getset.c
+SOURCES += test_array_indexof.c
+SOURCES += test_array_create_node.c
+SOURCES += test_array_add.c
+SOURCES += test_array_replace.c
+SOURCES += test_array_insert.c
+SOURCES += test_array_remove.c
+SOURCES += test_array_strsplit.c
+# SOURCES += test_array_copy.c
+SOURCES += test_array_iterator.c
 
 # Buffer
 SOURCES += buffer_cat.c

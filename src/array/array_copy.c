@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   array_resize.c                                     :+:      :+:    :+:   */
+/*   array_copy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/10 16:31:25 by djean             #+#    #+#             */
-/*   Updated: 2016/09/07 15:13:49 by djean            ###   ########.fr       */
+/*   Created: 2016/09/07 20:14:18 by djean             #+#    #+#             */
+/*   Updated: 2016/09/07 20:16:36 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "array_42.h"
+/*
+** Alloue un nouveau array et copie la structure *v
+** Dans le nouvel espace.
+*/
 
-void	*array_resize(t_array *v)
+t_array	*array_copy(t_array *v)
 {
-	void	*new;
-	size_t	new_size;
+	t_array	*cp;
 
-	new_size = v->elem_size * v->max * TARRAY_GROWTH_FACTOR;
-	new = ft_realloc(v->data, new_size, v->count * v->elem_size);
-	if (new == NULL)
+	if ((cp = array_new(v->max)) == NULL)
 		return (NULL);
-	v->data = new;
-	v->max *= TARRAY_GROWTH_FACTOR;
-	return (v);
+	cp->count = v->count;
+	ft_memcpy(cp->data, v->data, v->count * v->elem_size);
+	return (cp);
 }

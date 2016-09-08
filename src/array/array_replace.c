@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   array_resize.c                                     :+:      :+:    :+:   */
+/*   array_replace.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/10 16:31:25 by djean             #+#    #+#             */
-/*   Updated: 2016/09/07 15:13:49 by djean            ###   ########.fr       */
+/*   Created: 2016/09/07 11:02:40 by djean             #+#    #+#             */
+/*   Updated: 2016/09/07 17:57:03 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "array_42.h"
 
-void	*array_resize(t_array *v)
-{
-	void	*new;
-	size_t	new_size;
+/*
+** Set le nouvel élément à la place i
+** Et retourne l'ancien élément
+** old est un emplacement mémoire qui va contenir l'élément remplacé
+** Si old == NULL, alors l'élément est simplement écrasé
+*/
 
-	new_size = v->elem_size * v->max * TARRAY_GROWTH_FACTOR;
-	new = ft_realloc(v->data, new_size, v->count * v->elem_size);
-	if (new == NULL)
+void	*array_replace(t_array *v, size_t i, void *e, void *old)
+{
+	void	*p;
+
+	if (i >= v->count)
 		return (NULL);
-	v->data = new;
-	v->max *= TARRAY_GROWTH_FACTOR;
-	return (v);
+	if (old != NULL)
+	{
+		p = TARRAY_GET(v, i);
+		ft_memcpy(old, p, v->elem_size);
+	}
+	array_set(v, i, e);
+	return (old);
 }

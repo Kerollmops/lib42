@@ -12,6 +12,8 @@ static void	test_00_buffer_RESET_InIfStatement(void)
 	v_assert_size_t(0, ==, buf->len);
 	v_assert_str("", buf->str);
 
+	free(TBUFFER_GET(buf));
+	free(buf);
 	VTS;
 }
 
@@ -27,6 +29,8 @@ static void	test_01_buffer_RESET_NotInBlockStatement(void)
 	v_assert_size_t(0, ==, buf->len);
 	v_assert_str("", buf->str);
 
+	free(TBUFFER_GET(buf));
+	free(buf);
 	VTS;
 }
 

@@ -63,12 +63,20 @@ SOURCES += ft_realloc.c
 SOURCES += ft_toa_base.c
 
 # Array
-SOURCES += array_delete.c
-SOURCES += array_getset.c
-SOURCES += array_iter.c
 SOURCES += array_new.c
 SOURCES += array_resize.c
-SOURCES += array_transform.c
+SOURCES += array_getset.c
+SOURCES += array_indexof.c
+SOURCES += array_create_node.c
+SOURCES += array_add.c
+SOURCES += array_replace.c
+SOURCES += array_insert.c
+SOURCES += array_reset.c
+SOURCES += array_destroy.c
+SOURCES += array_remove.c
+SOURCES += array_delete.c
+SOURCES += array_strsplit.c
+SOURCES += array_iter.c
 
 # Buffer
 SOURCES += buffer_cat.c

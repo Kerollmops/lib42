@@ -5,67 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/10 16:31:25 by djean             #+#    #+#             */
-/*   Updated: 2016/08/11 12:26:43 by djean            ###   ########.fr       */
+/*   Created: 2016/09/08 10:54:07 by djean             #+#    #+#             */
+/*   Updated: 2016/09/08 10:54:34 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "array_42.h"
 
-/*
-** Retire un élément et le retourne
-*/
-
-void	*array_remove(t_array *v, size_t i)
+void	array_delete(t_array *v, size_t i)
 {
-	void	*ret;
-	void	**ptr;
-	size_t	len;
-
-	if (i >= v->count)
-		return (NULL);
-	ret = v->data[i];
-	if (v->iterator > i)
-		--v->iterator;
-	ptr = v->data + i;
-	len = (v->count - i) * sizeof(void*);
-	ft_memmove(ptr, ptr + 1, len);
-	v->count -= 1;
-	return (ret);
-}
-
-void	*array_remove_elem(t_array *v, void *e)
-{
-	size_t	i;
-
-	i = 0;
-	while (v->data[i] != e)
-		++i;
-	return (array_remove(v, i));
-}
-
-void	array_destroy(t_array *v)
-{
-	free(v->data);
-	free(v);
-}
-
-/*
-** free() chaque pointer
-** set .data et .count à 0
-*/
-
-void	array_clear(t_array *v)
-{
-	while (v->count > 0)
-		free(v->data[--(v->count)]);
-	ft_memset(v->data, 0, v->max * sizeof(void*));
-	v->iterator = 0;
-}
-
-void	array_reset(t_array *v)
-{
-	v->count = 0;
-	v->iterator = 0;
-	v->data[0] = NULL;
+	array_remove(v, i, NULL);
 }

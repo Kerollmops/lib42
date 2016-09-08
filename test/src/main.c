@@ -36,13 +36,14 @@ int	main(void)
 	suite_buffer_macros();
 
 	// array
-	suite_array_add();
-	suite_array_insert();
+	suite_array_getset();
 	suite_array_indexof();
+	suite_array_create_node();
+	suite_array_add();
 	suite_array_replace();
+	suite_array_insert();
 	suite_array_remove();
-	suite_array_clear();
-	suite_array_copy();
+	/* suite_array_copy(); */
 #if !defined(SANITIZE)
 	suite_array_strsplit();
 #endif

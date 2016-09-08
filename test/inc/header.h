@@ -13,21 +13,21 @@
 #include <bsd/string.h>
 #endif
 #include <stdint.h>
+#include <stdio.h>
 #include "lib42.h"
 #include "vittf.h"
 
 // Array
-void	suite_array_add(void);
-void	suite_array_insert(void);
+void	suite_array_getset(void);
 void	suite_array_indexof(void);
+void	suite_array_create_node(void);
+void	suite_array_add(void);
 void	suite_array_replace(void);
+void	suite_array_insert(void);
 void	suite_array_remove(void);
-void	suite_array_destroy(void);
-void	suite_array_clear(void);
-void	suite_array_reset(void);
-void	suite_array_copy(void);
 void	suite_array_strsplit(void);
 void	suite_array_iterator(void);
+/* void	suite_array_copy(void); */
 
 // Buffer
 void	suite_buffer(void);

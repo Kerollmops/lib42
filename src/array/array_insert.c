@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   array_resize.c                                     :+:      :+:    :+:   */
+/*   array_insert.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/10 16:31:25 by djean             #+#    #+#             */
-/*   Updated: 2016/09/07 15:13:49 by djean            ###   ########.fr       */
+/*   Created: 2016/09/07 16:16:16 by djean             #+#    #+#             */
+/*   Updated: 2016/09/07 19:04:49 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "array_42.h"
 
-void	*array_resize(t_array *v)
+t_array		*array_insert(t_array *v, size_t i, void *e)
 {
-	void	*new;
-	size_t	new_size;
+	char	*src;
+	size_t	len;
 
-	new_size = v->elem_size * v->max * TARRAY_GROWTH_FACTOR;
-	new = ft_realloc(v->data, new_size, v->count * v->elem_size);
-	if (new == NULL)
+	if (i > v->count)
 		return (NULL);
-	v->data = new;
-	v->max *= TARRAY_GROWTH_FACTOR;
+	if (TARRAY_NEED_RESIZE(v))
+		if (array_resize(v) == NULL)
+			return (NULL);
+	if (i == v->count)
+		return (array_add(v, e));
+	src = TARRAY_GET(v, i);
+	len = (v->count - i) * v->elem_size;
+	ft_memmove(src + v->elem_size, src, len);
+	array_set(v, i, e);
+	v->count += 1;
 	return (v);
 }
