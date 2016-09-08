@@ -6,11 +6,12 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/07 20:14:18 by djean             #+#    #+#             */
-/*   Updated: 2016/09/07 20:16:36 by djean            ###   ########.fr       */
+/*   Updated: 2016/09/08 11:22:55 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "array_42.h"
+
 /*
 ** Alloue un nouveau array et copie la structure *v
 ** Dans le nouvel espace.
