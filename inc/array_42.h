@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 16:28:48 by djean             #+#    #+#             */
-/*   Updated: 2016/09/08 10:54:54 by djean            ###   ########.fr       */
+/*   Updated: 2016/09/08 13:40:12 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define ARRAY_42_H
 
 # include <stdlib.h>
+# include <stdint.h>
 # include "typedefs_42.h"
 # include "structs_42.h"
 # include "memory_42.h"
