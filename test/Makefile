@@ -37,6 +37,7 @@ vpath %.c $(addprefix $(SRC_PATH)/,$(SRC_SUBDIR))
 SOURCES = main.c
 
 # Array
+SOURCES += test_array_macros.c
 SOURCES += test_array_getset.c
 SOURCES += test_array_indexof.c
 SOURCES += test_array_create_node.c

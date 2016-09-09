@@ -18,6 +18,7 @@
 #include "vittf.h"
 
 // Array
+void	suite_array_macros(void);
 void	suite_array_getset(void);
 void	suite_array_indexof(void);
 void	suite_array_create_node(void);

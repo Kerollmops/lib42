@@ -36,6 +36,7 @@ int	main(void)
 	suite_buffer_macros();
 
 	// array
+	suite_array_macros();
 	suite_array_getset();
 	suite_array_indexof();
 	suite_array_create_node();
