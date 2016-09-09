@@ -71,7 +71,7 @@ static void	test_01_TARRAY_IN_RANGE_FilledArray(void)
 void	suite_array_macros(void)
 {
 	test_00_TARRAY_IN_RANGE_EmptyArray();
-	test_01_TARRAY_IN_RANGE_FullArray();
+	test_01_TARRAY_IN_RANGE_FilledArray();
 
 	VSS;
 }
