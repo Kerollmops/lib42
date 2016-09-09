@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 16:28:49 by djean             #+#    #+#             */
-/*   Updated: 2016/08/10 16:29:13 by djean            ###   ########.fr       */
+/*   Updated: 2016/09/09 16:24:09 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ char	*ft_utoa_base_r(char *buf, unsigned long long int n, int base);
 char	*ft_utoa_base(unsigned long long int n, int base);
 char	*ft_stoa_base_r(char *buf, long long int n, int base);
 char	*ft_stoa_base(long long int n, int base);
+size_t	next_power_of_2(size_t n);
 
 #endif

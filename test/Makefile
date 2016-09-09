@@ -71,6 +71,7 @@ SOURCES += memchr.c
 # Stdlib
 SOURCES += realloc.c
 SOURCES += toa_base.c
+SOURCES += next_power2.c
 
 # String
 SOURCES += strlen.c

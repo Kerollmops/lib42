@@ -13,6 +13,7 @@ int	main(void)
 	// stdlib
 	suite_realloc();
 	suite_toa_base();
+	suite_next_power_of_2();
 
 	// string
 #if !defined(SANITIZE)

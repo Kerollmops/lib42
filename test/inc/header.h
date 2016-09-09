@@ -52,6 +52,7 @@ void	suite_memchr(void);
 // Stdlib
 void	suite_realloc(void);
 void	suite_toa_base(void);
+void	suite_next_power_of_2(void);
 
 // String
 void	suite_strlen(void);

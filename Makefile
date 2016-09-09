@@ -61,6 +61,7 @@ SOURCES += ft_memchr.c
 # Stdlib
 SOURCES += ft_realloc.c
 SOURCES += ft_toa_base.c
+SOURCES += next_power2.c
 
 # Array
 SOURCES += array_new.c
