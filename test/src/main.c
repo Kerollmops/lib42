@@ -25,6 +25,7 @@ int	main(void)
 	suite_strrev();
 
 	// buffer
+	suite_buffer_dup();
 	suite_buffer_cat();
 	suite_buffer_insert();
 	suite_buffer_append();

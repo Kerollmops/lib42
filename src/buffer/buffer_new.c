@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 16:30:57 by djean             #+#    #+#             */
-/*   Updated: 2016/09/06 12:27:01 by djean            ###   ########.fr       */
+/*   Updated: 2016/09/09 15:33:07 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,21 +33,4 @@ t_buffer	*buffer_init(t_buffer *b, size_t size)
 	if (b->str == NULL)
 		return (NULL);
 	return (b);
-}
-
-t_buffer	*buffer_dup(const char *str)
-{
-	return (buffer_ndup(str, ft_strlen(str)));
-}
-
-t_buffer	*buffer_ndup(const char *str, size_t len)
-{
-	t_buffer	*new;
-
-	new = buffer_new(len + 1);
-	if (new == NULL)
-		return (NULL);
-	ft_memcpy(new->str, str, len);
-	new->len = len;
-	return (new);
 }

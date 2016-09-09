@@ -51,6 +51,7 @@ SOURCES += test_array_iterator.c
 
 # Buffer
 SOURCES += buffer_cat.c
+SOURCES += buffer_dup.c
 SOURCES += buffer_insert.c
 SOURCES += buffer_remove.c
 SOURCES += buffer_set.c

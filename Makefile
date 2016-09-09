@@ -79,11 +79,12 @@ SOURCES += array_strsplit.c
 SOURCES += array_iter.c
 
 # Buffer
+SOURCES += buffer_new.c
+SOURCES += buffer_dup.c
 SOURCES += buffer_cat.c
 SOURCES += buffer_destroy.c
 SOURCES += buffer_insert.c
 SOURCES += buffer_merge.c
-SOURCES += buffer_new.c
 SOURCES += buffer_remove.c
 SOURCES += buffer_replace.c
 SOURCES += buffer_resize.c

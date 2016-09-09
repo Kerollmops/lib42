@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 16:28:48 by djean             #+#    #+#             */
-/*   Updated: 2016/09/06 12:49:42 by djean            ###   ########.fr       */
+/*   Updated: 2016/09/09 15:34:42 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ t_buffer	*buffer_new(size_t size);
 t_buffer	*buffer_init(t_buffer *b, size_t size);
 t_buffer	*buffer_dup(const char *str);
 t_buffer	*buffer_ndup(const char *str, size_t len);
+t_buffer	*buffer_cdup(const char *str, int c);
 t_buffer	*buffer_cat(t_buffer *b, const char *s);
 t_buffer	*buffer_ncat(t_buffer *b, const char *s, size_t len);
 t_buffer	*buffer_replace(t_buffer *b, const char *s);

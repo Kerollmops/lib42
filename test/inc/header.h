@@ -31,7 +31,7 @@ void	suite_array_iterator(void);
 /* void	suite_array_copy(void); */
 
 // Buffer
-void	suite_buffer(void);
+void	suite_buffer_dup(void);
 void	suite_buffer_cat(void);
 void	suite_buffer_insert(void);
 void	suite_buffer_remove(void);
