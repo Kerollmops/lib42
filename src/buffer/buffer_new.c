@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 16:30:57 by djean             #+#    #+#             */
-/*   Updated: 2016/09/09 15:33:07 by djean            ###   ########.fr       */
+/*   Updated: 2016/09/12 18:30:02 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,12 @@ t_buffer	*buffer_init(t_buffer *b, size_t size)
 {
 	size_t	s;
 
-	s = (size == 0) ? BUFFER_INIT_SIZE : size;
+	if (size < BUFFER_INIT_SIZE)
+		s = BUFFER_INIT_SIZE;
+	else if (IS_POWER_OF_2(size))
+		s = size;
+	else
+		s = next_power_of_2(size);
 	b->sizemax = s;
 	b->len = 0;
 	b->str = ft_memalloc(sizeof(char) * s);

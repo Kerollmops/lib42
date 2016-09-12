@@ -30,16 +30,17 @@ int	main(void)
 	suite_buffer_cat();
 	suite_buffer_insert();
 	suite_buffer_append();
+	suite_buffer_macros();
 #endif
+	suite_buffer_new();
+	suite_buffer_resize();
 	suite_buffer_remove();
 	suite_buffer_set();
 	suite_buffer_rewindchr();
 	suite_buffer_rewind();
-	suite_buffer_macros();
 
 	// array
 	suite_array_macros();
-	suite_array_getset();
 	suite_array_indexof();
 	suite_array_create_node();
 	suite_array_add();
@@ -48,6 +49,7 @@ int	main(void)
 	suite_array_remove();
 	/* suite_array_copy(); */
 #if !defined(SANITIZE)
+	suite_array_getset();
 	suite_array_strsplit();
 #endif
 	suite_array_iterator();

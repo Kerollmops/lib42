@@ -6,19 +6,19 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 16:30:58 by djean             #+#    #+#             */
-/*   Updated: 2016/08/10 16:31:05 by djean            ###   ########.fr       */
+/*   Updated: 2016/09/12 18:40:04 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "buffer_42.h"
 
-t_buffer	*buffer_resize(t_buffer *b, size_t len)
+t_buffer	*buffer_resize(t_buffer *b, size_t expand)
 {
 	void	*new;
 	size_t	newsize;
 
 	newsize = b->sizemax * BUFFER_GROWTH_FACTOR;
-	while (b->len + len >= newsize)
+	while (b->len + expand >= newsize)
 		newsize *= BUFFER_GROWTH_FACTOR;
 	new = ft_realloc(b->str, newsize, b->sizemax);
 	if (new == NULL)

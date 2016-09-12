@@ -31,6 +31,9 @@ void	suite_array_iterator(void);
 /* void	suite_array_copy(void); */
 
 // Buffer
+void	suite_buffer_macros(void);
+void	suite_buffer_new(void);
+void	suite_buffer_resize(void);
 void	suite_buffer_dup(void);
 void	suite_buffer_cat(void);
 void	suite_buffer_insert(void);
@@ -39,7 +42,6 @@ void	suite_buffer_set(void);
 void	suite_buffer_rewindchr(void);
 void	suite_buffer_rewind(void);
 void	suite_buffer_append(void);
-void	suite_buffer_macros(void);
 
 // Memory
 void	suite_memcpy(void);

@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 16:28:48 by djean             #+#    #+#             */
-/*   Updated: 2016/09/09 15:34:42 by djean            ###   ########.fr       */
+/*   Updated: 2016/09/12 18:40:13 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ t_buffer	*buffer_cat(t_buffer *b, const char *s);
 t_buffer	*buffer_ncat(t_buffer *b, const char *s, size_t len);
 t_buffer	*buffer_replace(t_buffer *b, const char *s);
 t_buffer	*buffer_nreplace(t_buffer *b, const char *s, size_t len);
-t_buffer	*buffer_resize(t_buffer *b, size_t len);
+t_buffer	*buffer_resize(t_buffer *b, size_t expand);
 t_buffer	*buffer_insert(t_buffer *b, size_t pos, const char *s, size_t len);
 size_t		buffer_remove(t_buffer *b, size_t pos, size_t size);
 void		buffer_destroy(t_buffer **b);

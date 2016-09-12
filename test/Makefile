@@ -50,6 +50,9 @@ SOURCES += test_array_strsplit.c
 SOURCES += test_array_iterator.c
 
 # Buffer
+SOURCES += buffer_new.c
+SOURCES += buffer_resize.c
+SOURCES += buffer_macros.c
 SOURCES += buffer_cat.c
 SOURCES += buffer_dup.c
 SOURCES += buffer_insert.c
@@ -58,7 +61,6 @@ SOURCES += buffer_set.c
 SOURCES += buffer_rewindchr.c
 SOURCES += buffer_rewind.c
 SOURCES += buffer_append.c
-SOURCES += buffer_macros.c
 
 # Memory
 SOURCES += memset.c
