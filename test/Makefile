@@ -50,42 +50,42 @@ SOURCES += test_array_strsplit.c
 SOURCES += test_array_iterator.c
 
 # Buffer
-SOURCES += buffer_new.c
-SOURCES += buffer_resize.c
-SOURCES += buffer_macros.c
-SOURCES += buffer_cat.c
-SOURCES += buffer_dup.c
-SOURCES += buffer_insert.c
-SOURCES += buffer_remove.c
-SOURCES += buffer_set.c
-SOURCES += buffer_rewindchr.c
-SOURCES += buffer_rewind.c
-SOURCES += buffer_append.c
+SOURCES += test_buffer_new.c
+SOURCES += test_buffer_resize.c
+SOURCES += test_buffer_macros.c
+SOURCES += test_buffer_cat.c
+SOURCES += test_buffer_dup.c
+SOURCES += test_buffer_insert.c
+SOURCES += test_buffer_remove.c
+SOURCES += test_buffer_set.c
+SOURCES += test_buffer_rewindchr.c
+SOURCES += test_buffer_rewind.c
+SOURCES += test_buffer_append.c
 
 # Memory
-SOURCES += memset.c
-SOURCES += memcpy.c
-SOURCES += memccpy.c
-SOURCES += memmove.c
-SOURCES += memchr.c
+SOURCES += test_memset.c
+SOURCES += test_memcpy.c
+SOURCES += test_memccpy.c
+SOURCES += test_memmove.c
+SOURCES += test_memchr.c
 # SOURCES += memcmp.c
 
 # Stdlib
-SOURCES += realloc.c
-SOURCES += toa_base.c
-SOURCES += next_power2.c
+SOURCES += test_realloc.c
+SOURCES += test_toa_base.c
+SOURCES += test_next_power2.c
 
 # String
-SOURCES += strlen.c
-SOURCES += strnlen.c
-SOURCES += strdup.c
-SOURCES += strndup.c
-SOURCES += strchr.c
-SOURCES += strrchr.c
-SOURCES += strrev.c
+SOURCES += test_strlen.c
+SOURCES += test_strnlen.c
+SOURCES += test_strdup.c
+SOURCES += test_strndup.c
+SOURCES += test_strchr.c
+SOURCES += test_strrchr.c
+SOURCES += test_strrev.c
 
 # Error
-SOURCES += error.c
+SOURCES += test_error.c
 
 
 # Objects
