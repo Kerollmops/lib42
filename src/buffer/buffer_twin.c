@@ -6,11 +6,15 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 16:30:58 by djean             #+#    #+#             */
-/*   Updated: 2016/08/10 16:31:05 by djean            ###   ########.fr       */
+/*   Updated: 2016/09/14 19:11:57 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "buffer_42.h"
+
+/*
+** Return a strict copy of the buffer '*b'
+*/
 
 t_buffer	*buffer_twin(t_buffer *b)
 {

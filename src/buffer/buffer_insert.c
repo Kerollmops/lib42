@@ -6,11 +6,15 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 16:30:57 by djean             #+#    #+#             */
-/*   Updated: 2016/08/10 16:31:05 by djean            ###   ########.fr       */
+/*   Updated: 2016/09/14 18:54:50 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "buffer_42.h"
+
+/*
+** Insert at the position 'pos', the string '*s' of size 'len'
+*/
 
 t_buffer	*buffer_insert(t_buffer *b, size_t pos, const char *s, size_t len)
 {

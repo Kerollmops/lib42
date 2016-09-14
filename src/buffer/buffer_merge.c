@@ -6,11 +6,15 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 16:30:57 by djean             #+#    #+#             */
-/*   Updated: 2016/08/10 16:31:05 by djean            ###   ########.fr       */
+/*   Updated: 2016/09/14 18:54:58 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "buffer_42.h"
+
+/*
+** Create a new buffer, resulting in the merge of '*b1' and '*b2'
+*/
 
 t_buffer	*buffer_merge(t_buffer *b1, t_buffer *b2)
 {

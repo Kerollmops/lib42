@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 16:28:48 by djean             #+#    #+#             */
-/*   Updated: 2016/09/12 18:40:13 by djean            ###   ########.fr       */
+/*   Updated: 2016/09/14 19:06:14 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ size_t		buffer_remove(t_buffer *b, size_t pos, size_t size);
 void		buffer_destroy(t_buffer **b);
 t_buffer	*buffer_set(t_buffer *b, int c, size_t len);
 int			buffer_rewind(t_buffer *b, size_t n);
-size_t		buffer_rewindchr(t_buffer *b, int c);
-size_t		buffer_rewindnchr(t_buffer *b, int c, size_t n);
+int			buffer_rewindchr(t_buffer *b, int c);
+int			buffer_rewindnchr(t_buffer *b, int c, size_t n);
 t_buffer	*buffer_twin(t_buffer *b);
 t_buffer	*buffer_append(t_buffer *dst, t_buffer *src);
 t_buffer	*buffer_merge(t_buffer *b1, t_buffer *b2);

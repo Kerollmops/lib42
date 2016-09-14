@@ -6,19 +6,18 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 16:30:58 by djean             #+#    #+#             */
-/*   Updated: 2016/08/10 16:31:05 by djean            ###   ########.fr       */
+/*   Updated: 2016/09/14 19:07:31 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "buffer_42.h"
 
 /*
-** Recule le buffer de n caractere
-** Retourne -1 si n dépasse la len du buffer
-** 0 en cas de succès
+** Rewind the string by 'n' chars
+** Return the new size of the buffer or -1 if the rewind is to large
 */
 
-int		buffer_rewind(t_buffer *b, size_t n)
+int	buffer_rewind(t_buffer *b, size_t n)
 {
 	size_t	nlen;
 
@@ -31,34 +30,38 @@ int		buffer_rewind(t_buffer *b, size_t n)
 }
 
 /*
-** Recule le buffer jusqu'au char c
-** Retourne le nombre de char reculé
+** Rewind the string up to 'c' char
+** Return the number of chars that have been rewind, or -1 if it is not found
 */
 
-size_t	buffer_rewindchr(t_buffer *b, int c)
+int	buffer_rewindchr(t_buffer *b, int c)
 {
 	int		pos;
 	size_t	ret;
 
 	pos = ft_strrchrpos(b->str, c);
 	if (pos == -1)
-		return (0);
+		return (-1);
 	b->str[pos] = '\0';
-	ret = b->len - pos;
-	b->len = pos;
-	return (ret);
+	ret = b->len - (size_t)pos;
+	b->len = (size_t)pos;
+	return ((int)ret);
 }
 
-size_t	buffer_rewindnchr(t_buffer *b, int c, size_t n)
+/*
+** Same as buffer_rewindchr, but do it 'n' times
+*/
+
+int	buffer_rewindnchr(t_buffer *b, int c, size_t n)
 {
 	int		pos;
 	size_t	ret;
 
 	pos = ft_strrnchrpos(b->str, c, n);
 	if (pos == -1)
-		return (0);
+		return (-1);
 	b->str[pos] = '\0';
-	ret = b->len - pos;
-	b->len = pos;
-	return (ret);
+	ret = b->len - (size_t)pos;
+	b->len = (size_t)pos;
+	return ((int)ret);
 }

@@ -6,11 +6,18 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 16:30:57 by djean             #+#    #+#             */
-/*   Updated: 2016/09/12 18:30:02 by djean            ###   ########.fr       */
+/*   Updated: 2016/09/14 18:55:04 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "buffer_42.h"
+
+/*
+** Create a new buffer
+** The 'size' argument is the initial size for the string
+** The allocated string  will be BUFFER_INIT_SIZE at the minimum
+** or the next power of 2 if size is bigger than BUFFER_INIT_SIZE
+*/
 
 t_buffer	*buffer_new(size_t size)
 {
@@ -21,6 +28,11 @@ t_buffer	*buffer_new(size_t size)
 		return (NULL);
 	return (buffer_init(new, size));
 }
+
+/*
+** Initialize an already existing buffer
+** The rule for the size are the same than for buffer_new
+*/
 
 t_buffer	*buffer_init(t_buffer *b, size_t size)
 {

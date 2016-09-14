@@ -6,14 +6,15 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 16:30:57 by djean             #+#    #+#             */
-/*   Updated: 2016/08/10 16:31:05 by djean            ###   ########.fr       */
+/*   Updated: 2016/09/14 18:53:11 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "buffer_42.h"
 
 /*
-** Return the numbers of bytes effectively remove
+** Remove at position 'pos' a 'size' number of bytes
+** Return the numbers of bytes effectively removed
 */
 
 size_t	buffer_remove(t_buffer *b, size_t pos, size_t size)

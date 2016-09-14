@@ -6,11 +6,15 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 16:30:58 by djean             #+#    #+#             */
-/*   Updated: 2016/09/12 18:40:04 by djean            ###   ########.fr       */
+/*   Updated: 2016/09/14 18:59:26 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "buffer_42.h"
+
+/*
+** Enlarge the buffer by adding 'expand'
+*/
 
 t_buffer	*buffer_resize(t_buffer *b, size_t expand)
 {
