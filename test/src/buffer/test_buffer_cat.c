@@ -1,6 +1,6 @@
 #include "header.h"
 
-void	test_00_buffer_cat_Simple(void)
+static void	test_00_buffer_cat_Simple(void)
 {
 	t_buffer	*b;
 	char		*s = "Hello World!";
@@ -10,7 +10,7 @@ void	test_00_buffer_cat_Simple(void)
 	buffer_cat(b, s);
 
 	v_assert_size_t(l, ==, b->len);
-	v_assert_size_t(16, ==, b->sizemax);
+	v_assert_size_t(64, ==, TBUFFER_MAX(b));
 	v_assert_str(s, b->str);
 
 	free(b->str);
@@ -19,7 +19,7 @@ void	test_00_buffer_cat_Simple(void)
 	VTS;
 }
 
-void	test_01_buffer_cat_NeedResize(void)
+static void	test_01_buffer_cat_NeedResize(void)
 {
 	t_buffer	*b;
 	char		*s = "Hello World!";
@@ -29,7 +29,7 @@ void	test_01_buffer_cat_NeedResize(void)
 	buffer_cat(b, s);
 
 	v_assert_size_t(l, ==, b->len);
-	v_assert_size_t(24, ==, b->sizemax);
+	v_assert_size_t(64, ==, TBUFFER_MAX(b));
 	v_assert_str(s, b->str);
 
 	free(b->str);
@@ -38,7 +38,7 @@ void	test_01_buffer_cat_NeedResize(void)
 	VTS;
 }
 
-void	test_02_buffer_cat_BigConcatenation(void)
+static void	test_02_buffer_cat_BigConcatenation(void)
 {
 	t_buffer	*b;
 	char		a[300];
@@ -54,7 +54,7 @@ void	test_02_buffer_cat_BigConcatenation(void)
 	alen = strlen(a);
 	buffer_ncat(b, a, alen);
 	v_assert_size_t(alen, ==, b->len);
-	v_assert_size_t(512, ==, b->sizemax);
+	v_assert_size_t(512, ==, TBUFFER_MAX(b));
 	v_assert_str(a, b->str);
 
 	memset(m, 'm', sizeof(m));
@@ -65,7 +65,7 @@ void	test_02_buffer_cat_BigConcatenation(void)
 	strcat(am + sizeof(a) - 1, m);
 	buffer_ncat(b, m, mlen);
 	v_assert_size_t(alen + mlen, ==, b->len);
-	v_assert_size_t(4096, ==, b->sizemax);
+	v_assert_size_t(4096, ==, TBUFFER_MAX(b));
 	v_assert_str(am, b->str);
 
 	free(b->str);

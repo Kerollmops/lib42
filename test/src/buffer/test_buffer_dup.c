@@ -39,7 +39,7 @@ static void	test_01_buffer_dup_EmptyString(void)
 static void	test_02_buffer_ndup_SimpleString(void)
 {
 	char	*s = "Hello World!";
-	size_t	len = strlen(s);
+	/* size_t	len = strlen(s); */
 
 	b = buffer_ndup(s, 5);
 
@@ -53,11 +53,11 @@ static void	test_02_buffer_ndup_SimpleString(void)
 static void	test_03_buffer_ndup_ShortenString(void)
 {
 	char	*s = "abc";
-	size_t	len = strlen(s);
+	/* size_t	len = strlen(s); */
 
 	b = buffer_ndup(s, 10);
 
-	v_assert_size_t(11, ==, TBUFFER_MAX(b));
+	v_assert_size_t(64, ==, TBUFFER_MAX(b));
 	v_assert_size_t(3, ==, b->len);
 	v_assert_str("abc", b->str);
 
@@ -68,7 +68,7 @@ static void	test_03_buffer_ndup_ShortenString(void)
 static void	test_04_buffer_ndup_ZeroLength(void)
 {
 	char	*s = "World!";
-	size_t	len = strlen(s);
+	/* size_t	len = strlen(s); */
 
 	b = buffer_ndup(s, 0);
 
@@ -82,7 +82,7 @@ static void	test_04_buffer_ndup_ZeroLength(void)
 static void	test_05_buffer_cdup_CharInString(void)
 {
 	char	*s = "Hello World!";
-	size_t	len = strlen(s);
+	/* size_t	len = strlen(s); */
 
 	b = buffer_cdup(s, 'W');
 
@@ -96,7 +96,7 @@ static void	test_05_buffer_cdup_CharInString(void)
 static void	test_06_buffer_cdup_CharNotInString(void)
 {
 	char	*s = "Hello World!";
-	size_t	len = strlen(s);
+	/* size_t	len = strlen(s); */
 
 	b = buffer_cdup(s, 'z');
 
