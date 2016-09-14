@@ -16,7 +16,7 @@ int	main(void)
 	suite_next_power_of_2();
 
 	// string
-#if !defined(SANITIZE)
+/* #if !defined(SANITIZE) */
 	suite_strlen();
 	suite_strnlen();
 	suite_strdup();
@@ -32,7 +32,7 @@ int	main(void)
 	suite_buffer_append();
 	suite_buffer_macros();
 	suite_buffer_replace();
-#endif
+/* #endif */
 	suite_buffer_new();
 	suite_buffer_resize();
 	suite_buffer_remove();
@@ -49,10 +49,10 @@ int	main(void)
 	suite_array_insert();
 	suite_array_remove();
 	/* suite_array_copy(); */
-#if !defined(SANITIZE)
+/* #if !defined(SANITIZE) */
 	suite_array_getset();
 	suite_array_strsplit();
-#endif
+/* #endif */
 	suite_array_iterator();
 
 	// error

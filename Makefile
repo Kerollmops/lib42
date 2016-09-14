@@ -55,7 +55,11 @@ SOURCES += ft_memalloc.c
 SOURCES += ft_memcpy.c
 SOURCES += ft_memccpy.c
 SOURCES += ft_memmove.c
-SOURCES += ft_memchr.c
+ifeq ($(SAN), yes)
+	SOURCES += ft_memchr_sanitize.c
+else
+	SOURCES += ft_memchr.c
+endif
 # SOURCES += ft_memcmp.c
 
 # Stdlib
