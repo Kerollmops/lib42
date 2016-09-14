@@ -31,6 +31,7 @@ int	main(void)
 	suite_buffer_insert();
 	suite_buffer_append();
 	suite_buffer_macros();
+	suite_buffer_replace();
 #endif
 	suite_buffer_new();
 	suite_buffer_resize();

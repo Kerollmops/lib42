@@ -61,6 +61,7 @@ SOURCES += test_buffer_set.c
 SOURCES += test_buffer_rewindchr.c
 SOURCES += test_buffer_rewind.c
 SOURCES += test_buffer_append.c
+SOURCES += test_buffer_replace.c
 
 # Memory
 SOURCES += test_memset.c
