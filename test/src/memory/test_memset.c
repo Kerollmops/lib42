@@ -1,107 +1,235 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: adubois <adubois@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/12 15:19:05 by adubois           #+#    #+#             */
-/*   Updated: 2016/06/21 14:49:37 by leonhart         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "header.h"
 
-static void	test_00_memset_SizeOf0(void)
-{
-	char	str[2];
-	void	*res;
+// 134Mo
+#define BIG_CHUNKS	(1 << 27)
 
-	memset(str, 0, 2);
-	res = ft_memset(str, 48, 0);
-	v_assert_ptr(res, ==, str);
-	v_assert_str("", str);
+/*
+ * Aligné:
+ *	- sans expansion
+ *	- avec expansion
+ *
+ * Non aligné:
+ *	- sans expansion
+ *	- avec expansion
+ */
+
+static void	test_00_memset_AlignedLessThanWordSize(void)
+{
+	size_t	size = 16;
+	int		s = 'a';
+	char	*off = malloc(size);
+	char	*ft = malloc(size);
+
+	// setup
+	memset(off, '*', size);
+	memset(ft, '*', size);
+
+	// call
+	memset(off, s, 5);
+	ft_memset(ft, s, 5);
+
+	// test
+	int	res = memcmp(off, ft, size);
+	v_assert_int(0, ==, res);
 
 	VTS;
 }
 
-static void	test_01_memset_SizeOf1(void)
+static void	test_01_memset_UnalignedLessThanWordSize(void)
 {
-	char	str[2];
-	void	*res;
+	size_t	size = 16;
+	int		s = 'b';
+	char	*off = malloc(size);
+	char	*ft = malloc(size);
 
-	memset(str, 0 ,2);
-	res = ft_memset(str, 48, 1);
-	v_assert_ptr(res, ==, str);
-	v_assert_str("0", str);
+	// setup
+	memset(off, '*', size);
+	memset(ft, '*', size);
+	off[0] = 'x';
+	ft[0] = 'x';
+
+	// call
+	memset(off + 1, s, 5);
+	ft_memset(ft + 1, s, 5);
+
+	// test
+	int	res = memcmp(off, ft, size);
+	v_assert_int(0, ==, res);
 
 	VTS;
 }
 
-static void	test_02_memset_NullChar(void)
+static void	test_02_memset_AlignedOneWordSize(void)
 {
-	char	str[2];
-	void	*res;
+	size_t	size = 16;
+	size_t	set_size = 8;
+	int		s = 'c';
+	char	*off = malloc(size);
+	char	*ft = malloc(size);
 
-	memset(str, 0, 2);
-	str[0] = '0';
-	res = ft_memset(str, 0, 1);
-	v_assert_ptr(res, ==, str);
-	v_assert_str("", str);
+	// setup
+	memset(off, '*', size);
+	memset(ft, '*', size);
+
+	// call
+	memset(off, s, set_size);
+	ft_memset(ft, s, set_size);
+
+	// test
+	int	res = memcmp(off, ft, size);
+	v_assert_int(0, ==, res);
 
 	VTS;
 }
 
-static void	test_03_memset_SameChar(void)
+static void	test_03_memset_UnalignedOneWordSize(void)
 {
-	char	str[6];
-	void	*res;
+	size_t	size = 16;
+	size_t	set_size = 8;
+	int		s = 'd';
+	char	*off = malloc(size);
+	char	*ft = malloc(size);
 
-	memset(str, 0, 6);
-	res = ft_memset(str, 97, 5);
-	v_assert_ptr(res, ==, str);
-	v_assert_str("aaaaa", str);
+	// setup
+	memset(off, '*', size);
+	memset(ft, '*', size);
+
+	// call
+	memset(off + 1, s, set_size);
+	ft_memset(ft + 1, s, set_size);
+
+	// test
+	int	res = memcmp(off, ft, size);
+	v_assert_int(0, ==, res);
 
 	VTS;
 }
 
-static void	test_04_memset_SeveralChars(void)
+static void	test_04_memset_AlignedMultiplesWordSize(void)
 {
-	char	str[6];
-	void	*res;
+	size_t	size = 256;
+	size_t	set_size = 128;
+	int		s = 'e';
+	char	*off = malloc(size);
+	char	*ft = malloc(size);
 
-	memset(str, 0, 6);
-	res = ft_memset(str, 97, 5);
-	v_assert_ptr(res, ==, str);
-	ft_memset(str + 2, 98, 2);
-	v_assert_str("aabba", str);
+	// setup
+	memset(off, '*', size);
+	memset(ft, '*', size);
+
+	// call
+	memset(off, s, set_size);
+	ft_memset(ft, s, set_size);
+
+	// test
+	int	res = memcmp(off, ft, size);
+	v_assert_int(0, ==, res);
 
 	VTS;
 }
 
-static void	test_05_memset_NullCharInMiddle(void)
+static void	test_05_memset_UnalignedMultiplesWordSize(void)
 {
-	char	str[6];
-	void	*res;
+	size_t	size = 256;
+	size_t	set_size = 128;
+	int		s = 'f';
+	char	*off = malloc(size);
+	char	*ft = malloc(size);
 
-	memset(str, 0, 6);
-	res = ft_memset(str, 97, 5);
-	v_assert_ptr(res, ==, str);
-	ft_memset(str + 3, 98, 2);
-	ft_memset(str + 2, 0, 1);
-	v_assert_str("aa", str);
+	// setup
+	memset(off, '*', size);
+	memset(ft, '*', size);
+
+	// call
+	memset(off + 1, s, set_size);
+	ft_memset(ft + 1, s, set_size);
+
+	// test
+	int	res = memcmp(off, ft, size);
+	v_assert_int(0, ==, res);
+
+	VTS;
+}
+
+static void	test_06_memset_AlignedBigChunks(void)
+{
+	size_t	size = BIG_CHUNKS;
+	size_t	set_size = BIG_CHUNKS;
+	int		s = 'g';
+	char	*off;
+	char	*ft;
+
+	// setup
+	off = calloc(size, 1);
+	ft = calloc(size, 1);
+
+	// call
+	memset(off, s, set_size);
+	ft_memset(ft, s, set_size);
+
+	// test
+	int	res = memcmp(off, ft, size);
+	v_assert_int(0, ==, res);
+
+	VTS;
+}
+
+static void	test_07_memset_UnalignedBigChunks(void)
+{
+	size_t	size = BIG_CHUNKS;
+	size_t	set_size = BIG_CHUNKS;
+	int		s = 'g';
+	char	*off;
+	char	*ft;
+
+	// setup
+	off = calloc(size, 1);
+	ft = calloc(size, 1);
+
+	// call
+	memset(off + 1, s, set_size - 1);
+	ft_memset(ft + 1, s, set_size - 1);
+
+	// test
+	int	res = memcmp(off, ft, size);
+	v_assert_int(0, ==, res);
+
+	VTS;
+}
+
+static void	test_08_memset_BigInt(void)
+{
+	size_t	size = 16;
+	int		s = -1;
+	char	*off = malloc(size);
+	char	*ft = malloc(size);
+
+	// setup
+	memset(off, '*', size);
+	memset(ft, '*', size);
+
+	// call
+	memset(off, s, 5);
+	ft_memset(ft, s, 5);
+
+	// test
+	int	res = memcmp(off, ft, size);
+	v_assert_int(0, ==, res);
 
 	VTS;
 }
 
 void		suite_memset(void)
 {
-	test_00_memset_SizeOf0();
-	test_01_memset_SizeOf1();
-	test_02_memset_NullChar();
-	test_03_memset_SameChar();
-	test_04_memset_SeveralChars();
-	test_05_memset_NullCharInMiddle();
+	test_00_memset_AlignedLessThanWordSize();
+	test_01_memset_UnalignedLessThanWordSize();
+	test_02_memset_AlignedOneWordSize();
+	test_03_memset_UnalignedOneWordSize();
+	test_04_memset_AlignedMultiplesWordSize();
+	test_05_memset_UnalignedMultiplesWordSize();
+	test_06_memset_AlignedBigChunks();
+	test_07_memset_UnalignedBigChunks();
+	test_08_memset_BigInt();
 
 	VSS;
 }
