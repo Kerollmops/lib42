@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 16:28:48 by djean             #+#    #+#             */
-/*   Updated: 2016/09/26 19:29:16 by djean            ###   ########.fr       */
+/*   Updated: 2016/09/26 19:32:05 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ t_buffer	*buffer_nreplace(t_buffer *b, const char *s, size_t len);
 t_buffer	*buffer_resize(t_buffer *b, size_t expand);
 t_buffer	*buffer_insert(t_buffer *b, size_t pos, const char *s, size_t len);
 size_t		buffer_remove(t_buffer *b, size_t pos, size_t size);
-void		buffer_destroy(t_buffer **b);
+void		buffer_destroy(t_buffer *b);
 t_buffer	*buffer_set(t_buffer *b, int c, size_t len);
 int			buffer_rewind(t_buffer *b, size_t n);
 int			buffer_rewindchr(t_buffer *b, int c);
@@ -54,8 +54,5 @@ t_buffer	*buffer_append(t_buffer *dst, t_buffer *src);
 t_buffer	*buffer_merge(t_buffer *b1, t_buffer *b2);
 t_buffer	*buffer_stoa(t_buffer *b, long long value, int base);
 t_buffer	*buffer_utoa(t_buffer *b, unsigned long long value, int base);
-
-size_t		buffer_trim(t_buffer *b, const char *set);
-t_buffer	*buffer_fmt(t_buffer *b, const char *fmt, ...);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 16:30:57 by djean             #+#    #+#             */
-/*   Updated: 2016/09/14 18:54:11 by djean            ###   ########.fr       */
+/*   Updated: 2016/09/26 19:32:06 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,8 @@
 ** free the entire struct and set the buffer '*b' to NULL
 */
 
-void	buffer_destroy(t_buffer **b)
+void	buffer_destroy(t_buffer *b)
 {
-	free((*b)->str);
-	free((*b));
-	*b = NULL;
+	free(b->str);
+	free(b);
 }
