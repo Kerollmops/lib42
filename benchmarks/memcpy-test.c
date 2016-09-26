@@ -4,6 +4,7 @@
 #include "memory_42.h"
 
 #define MAX_ITERATION	10000000U
+#define MAX_ITER_STR	"10.000.000"
 #define ALLOC_SIZE		4096U
 
 /*
@@ -35,9 +36,9 @@ int main(void)
     double	t3;
 
 	fill_buffer(src);
-	printf("==== Iteration: %u\n", MAX_ITERATION);
+	printf("==== memcpy | Iteration: %s\n", MAX_ITER_STR);
 
-	// aligned
+	printf("# aligned\n");
     t1 = get_time();
     for(size_t i = 0; i < MAX_ITERATION; i++)
         memcpy(dst, src, ALLOC_SIZE);
@@ -45,10 +46,10 @@ int main(void)
     for(size_t i = 0; i < MAX_ITERATION; i++)
         ft_memcpy(dst, src, ALLOC_SIZE);
     t3 = get_time();
-    printf("time memset (aligned):\t%f\n", t2 - t1);
-    printf("time ft_memset (aligned):\t%f\n", t3 - t2);
+    printf("memset:\t\t%f\n", t2 - t1);
+    printf("ft_memset:\t%f\n", t3 - t2);
 
-	// misaligned
+	printf("\n# misaligned\n");
     t1 = get_time();
     for(size_t i = 0; i < MAX_ITERATION; i++)
         memcpy(dst + 2, src + 1, ALLOC_SIZE);
@@ -56,6 +57,6 @@ int main(void)
     for(size_t i = 0; i < MAX_ITERATION; i++)
         ft_memcpy(dst + 2, src + 1, ALLOC_SIZE);
     t3 = get_time();
-    printf("time memset (misaligned):\t%f\n", t2 - t1);
-    printf("time ft_memset (misaligned):\t%f\n", t3 - t2);
+    printf("memset:\t\t%f\n", t2 - t1);
+    printf("ft_memset:\t%f\n", t3 - t2);
 }

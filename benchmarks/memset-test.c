@@ -4,6 +4,7 @@
 #include "memory_42.h"
 
 #define MAX_ITERATION	10000000U
+#define MAX_ITER_STR	"10.000.000"
 #define ALLOC_SIZE		4096U
 
 /*
@@ -27,7 +28,7 @@ int main(void)
     double	t2;
     double	t3;
     
-	printf("==== Iteration: %u\n", MAX_ITERATION);
+	printf("==== memset | Iteration: %s\n", MAX_ITER_STR);
     t1 = get_time();
     for(size_t i = 0; i < MAX_ITERATION; i++)
         memset(p, i % 256, ALLOC_SIZE);
@@ -36,6 +37,6 @@ int main(void)
         ft_memset(p, i % 256, ALLOC_SIZE);
     t3 = get_time();
     
-    printf("time memset:\t%f\n", t2 - t1);
-    printf("time ft_memset:\t%f\n", t3 - t2);
+    printf("memset:\t\t%f\n", t2 - t1);
+    printf("ft_memset:\t%f\n", t3 - t2);
 }
