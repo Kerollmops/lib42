@@ -9,9 +9,9 @@ inline static void	align_word(unsigned char **p, unsigned char c, size_t *len)
 {
 	while (*len > 0 && (((uintptr_t)(*p) % WORD_LEN) != 0))
 	{
-		**p = c;
-		--(*len);
+		(*p)[0] = c;
 		*p += 1;
+		*len -= 1;
 	}
 }
 
@@ -27,7 +27,7 @@ inline static void	setblocks(unsigned long **p, unsigned long cccc, size_t *len)
 		(*p)[5] = cccc;
 		(*p)[6] = cccc;
 		(*p)[7] = cccc;
-		(*p) += 8;
+		*p += 8;
 		*len -= BLOCK_SIZE;
 	}
 }
@@ -36,8 +36,8 @@ inline static void	setwords(unsigned long **p, unsigned long cccc, size_t *len)
 {
 	while (*len >= WORD_LEN)
 	{
-		**p = cccc;
-		(*p) += 1;
+		(*p)[0] = cccc;
+		*p += 1;
 		*len -= WORD_LEN;
 	}
 }
