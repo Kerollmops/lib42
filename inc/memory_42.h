@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 16:28:49 by djean             #+#    #+#             */
-/*   Updated: 2016/09/21 17:47:39 by djean            ###   ########.fr       */
+/*   Updated: 2016/09/26 18:04:32 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <string.h>
+# include <stdint.h>
 # include "error_42.h"
 
 # define WORD_LEN	sizeof(unsigned long int)
