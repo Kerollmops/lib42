@@ -13,7 +13,7 @@ static void	teardown(void)
 	TBUFFER_FREE(&b);
 }
 
-void	test_00_buffer_rewind_SimpleSize(void)
+static void	test_00_buffer_rewind_SimpleSize(void)
 {
 	int res;
 	setup();
@@ -28,7 +28,7 @@ void	test_00_buffer_rewind_SimpleSize(void)
 	VTS;
 }
 
-void	test_01_buffer_rewind_ZeroSize(void)
+static void	test_01_buffer_rewind_ZeroSize(void)
 {
 	int res;
 	setup();
@@ -43,7 +43,7 @@ void	test_01_buffer_rewind_ZeroSize(void)
 	VTS;
 }
 
-void	test_02_buffer_rewind_FullSize(void)
+static void	test_02_buffer_rewind_FullSize(void)
 {
 	int res;
 	setup();
@@ -58,7 +58,7 @@ void	test_02_buffer_rewind_FullSize(void)
 	VTS;
 }
 
-void	test_03_buffer_rewind_SizeOverflow(void)
+static void	test_03_buffer_rewind_SizeOverflow(void)
 {
 	int res;
 	setup();

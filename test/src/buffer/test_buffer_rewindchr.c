@@ -13,7 +13,7 @@ static void	teardown(void)
 	TBUFFER_FREE(&b);
 }
 
-void	test_00_buffer_rewindchr_SimpleRewind(void)
+static void	test_00_buffer_rewindchr_SimpleRewind(void)
 {
 	/* size_t res; */
 	setup();
@@ -28,7 +28,7 @@ void	test_00_buffer_rewindchr_SimpleRewind(void)
 	VTS;
 }
 
-void	test_01_buffer_rewindchr_EndOfString(void)
+static void	test_01_buffer_rewindchr_EndOfString(void)
 {
 	/* size_t res; */
 	setup();
@@ -43,7 +43,7 @@ void	test_01_buffer_rewindchr_EndOfString(void)
 	VTS;
 }
 
-void	test_02_buffer_rewindchr_LastChar(void)
+static void	test_02_buffer_rewindchr_LastChar(void)
 {
 	/* size_t res; */
 	setup();
@@ -58,7 +58,7 @@ void	test_02_buffer_rewindchr_LastChar(void)
 	VTS;
 }
 
-void	test_03_buffer_rewindchr_FirstChar(void)
+static void	test_03_buffer_rewindchr_FirstChar(void)
 {
 	/* size_t res; */
 	setup();
@@ -73,7 +73,7 @@ void	test_03_buffer_rewindchr_FirstChar(void)
 	VTS;
 }
 
-void	test_04_buffer_rewindchr_MultipleOccurrence(void)
+static void	test_04_buffer_rewindchr_MultipleOccurrence(void)
 {
 	/* size_t res; */
 	setup();
