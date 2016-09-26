@@ -27,24 +27,7 @@ int main(void)
     double	t2;
     double	t3;
     
-	// little test
-	printf("==== Little test: 100\n");
-    memset(p, '*', 100);
-    printf("memset:\t\t%s\n", p);
-    ft_memset(p, '*', 100);
-    printf("ft_memset:\t%s\n", p);
-	write(1, "\n", 1);
-    
-	// little test unaligned
-	printf("==== Little test unaligned: 100\n");
-    memset(p + 1, '*', 100);
-    printf("memset:\t\t%s\n", p);
-    ft_memset(p + 1, '*', 100);
-    printf("ft_memset:\t%s\n", p);
-	write(1, "\n", 1);
-    
-	// big test
-	printf("==== Big test: %u\n", MAX_ITERATION);
+	printf("==== Iteration: %u\n", MAX_ITERATION);
     t1 = get_time();
     for(size_t i = 0; i < MAX_ITERATION; i++)
         memset(p, 0, ALLOC_SIZE);
