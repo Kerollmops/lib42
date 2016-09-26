@@ -30,10 +30,10 @@ int main(void)
 	printf("==== Iteration: %u\n", MAX_ITERATION);
     t1 = get_time();
     for(size_t i = 0; i < MAX_ITERATION; i++)
-        memset(p, 0, ALLOC_SIZE);
+        memset(p, i % 128, ALLOC_SIZE);
     t2 = get_time();
     for(size_t i = 0; i < MAX_ITERATION; i++)
-        ft_memset(p, 0, ALLOC_SIZE);
+        ft_memset(p, i % 128, ALLOC_SIZE);
     t3 = get_time();
     
     printf("time memset:\t%f\n", t2 - t1);
