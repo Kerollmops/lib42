@@ -43,6 +43,7 @@ void	suite_buffer_rewindchr(void);
 void	suite_buffer_rewind(void);
 void	suite_buffer_append(void);
 void	suite_buffer_replace(void);
+void	suite_buffer_twin(void);
 
 // Memory
 void	suite_memcpy(void);
