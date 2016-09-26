@@ -39,8 +39,9 @@ void	suite_buffer_cat(void);
 void	suite_buffer_insert(void);
 void	suite_buffer_remove(void);
 void	suite_buffer_set(void);
-void	suite_buffer_rewindchr(void);
 void	suite_buffer_rewind(void);
+void	suite_buffer_rewindchr(void);
+/* void	suite_buffer_rewindnchr(void); */
 void	suite_buffer_append(void);
 void	suite_buffer_replace(void);
 void	suite_buffer_twin(void);

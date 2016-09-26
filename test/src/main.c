@@ -37,6 +37,7 @@ int	main(void)
 	suite_buffer_set();
 	suite_buffer_rewind();
 	suite_buffer_rewindchr();
+	/* suite_buffer_rewindnchr(); */
 	suite_buffer_twin();
 	suite_buffer_merge();
 

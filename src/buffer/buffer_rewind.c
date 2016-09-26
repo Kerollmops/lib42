@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 16:30:58 by djean             #+#    #+#             */
-/*   Updated: 2016/09/14 19:07:31 by djean            ###   ########.fr       */
+/*   Updated: 2016/09/26 19:29:20 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	buffer_rewind(t_buffer *b, size_t n)
 
 /*
 ** Rewind the string up to 'c' char
+** The char 'c' is exclude from the buffer
 ** Return the number of chars that have been rewind, or -1 if it is not found
 */
 
@@ -40,24 +41,6 @@ int	buffer_rewindchr(t_buffer *b, int c)
 	size_t	ret;
 
 	pos = ft_strrchrpos(b->str, c);
-	if (pos == -1)
-		return (-1);
-	b->str[pos] = '\0';
-	ret = b->len - (size_t)pos;
-	b->len = (size_t)pos;
-	return ((int)ret);
-}
-
-/*
-** Same as buffer_rewindchr, but do it 'n' times
-*/
-
-int	buffer_rewindnchr(t_buffer *b, int c, size_t n)
-{
-	int		pos;
-	size_t	ret;
-
-	pos = ft_strrnchrpos(b->str, c, n);
 	if (pos == -1)
 		return (-1);
 	b->str[pos] = '\0';
