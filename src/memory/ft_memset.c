@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: adubois <adubois@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/24 15:48:41 by adubois           #+#    #+#             */
-/*   Updated: 2016/09/21 18:55:32 by djean            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "memory_42.h"
 
 /*
@@ -27,7 +15,7 @@ inline static void	align_word(unsigned char **p, unsigned char c, size_t *len)
 	}
 }
 
-inline static void	setblock(unsigned long **p, unsigned long cccc, size_t *len)
+inline static void	setblocks(unsigned long **p, unsigned long cccc, size_t *len)
 {
 	while (*len >= BLOCK_SIZE)
 	{
@@ -44,7 +32,7 @@ inline static void	setblock(unsigned long **p, unsigned long cccc, size_t *len)
 	}
 }
 
-inline static void	setword(unsigned long **p, unsigned long cccc, size_t *len)
+inline static void	setwords(unsigned long **p, unsigned long cccc, size_t *len)
 {
 	while (*len >= WORD_LEN)
 	{
@@ -62,9 +50,8 @@ void				*ft_memset(void *b, int c, size_t len)
 	cccc |= cccc << 24 | cccc << 16 | cccc << 8;
 	cccc |= cccc << 32;
 	align_word((unsigned char**)&b, (unsigned char)c, &len);
-	if (len >= (8 * WORD_LEN))
-		setblock((unsigned long**)&b, cccc, &len);
-	setword((unsigned long**)&b, cccc, &len);
+	setblocks((unsigned long**)&b, cccc, &len);
+	setwords((unsigned long**)&b, cccc, &len);
 	while (len--)
 	{
 		*(unsigned char *)b = (unsigned char)c;
