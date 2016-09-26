@@ -38,6 +38,7 @@ int	main(void)
 	suite_buffer_rewindchr();
 	suite_buffer_rewind();
 	suite_buffer_twin();
+	suite_buffer_merge();
 
 	// array
 	suite_array_macros();
