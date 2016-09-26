@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 16:28:48 by djean             #+#    #+#             */
-/*   Updated: 2016/09/14 19:06:14 by djean            ###   ########.fr       */
+/*   Updated: 2016/09/26 18:38:38 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 # define TBUFFER_LEN(b)			((b)->len)
 # define TBUFFER_GET(b)			((b)->str)
 # define TBUFFER_FREE(b)		(free((b)->str))
-# define TBUFFER_RESET(b)		{(b)->len = 0; (b)->str[0] = '\0';}
+# define TBUFFER_RESET(b)		((b)->str[(b)->len = 0] = '\0')
 # define TBUFFER_LAST(b)		((b)->str[(b)->len - 1])
 # define TBUFFER_FIRST(b)		((b)->str[0])
 # define TBUFFER_ISEMPTY(b)		(!((b)->len))
