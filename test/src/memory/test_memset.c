@@ -3,16 +3,6 @@
 // 134Mo
 #define BIG_CHUNKS	(1 << 27)
 
-/*
- * Aligné:
- *	- sans expansion
- *	- avec expansion
- *
- * Non aligné:
- *	- sans expansion
- *	- avec expansion
- */
-
 static void	test_00_memset_AlignedLessThanWordSize(void)
 {
 	size_t	size = 16;

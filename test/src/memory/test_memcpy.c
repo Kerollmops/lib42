@@ -1,106 +1,295 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   suite_ft_memcpy.c                                  :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: adubois <adubois@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/12 17:37:47 by adubois           #+#    #+#             */
-/*   Updated: 2016/07/26 14:26:46 by leonhart         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "header.h"
 
-static void	test_00_memcpy_SizeOf0(void)
+// 134Mo
+#define BIG_CHUNKS	(1 << 27)
+
+static void	test_00_memcpy_AlignedSizeOfZero(void)
 {
-	char	str1[11];
-	char	str2[11];
+	size_t	buf_size = 20;
+	char	*off_src = malloc(buf_size);
+	char	*off_dst = malloc(buf_size);
+	char	*ft_src = malloc(buf_size);
+	char	*ft_dst = malloc(buf_size);
 	void	*res;
 
-	memset(str1, 48, 11);
-	memset(str2, 42, 10);
-	str2[10] = 0;
-	res = ft_memcpy(str2, str1, 0);
-	v_assert_ptr(res, ==, str2);
-	v_assert_str("**********", str2);
+	// setup
+	memset(off_src, '*', buf_size);
+	memset(ft_src, '*', buf_size);
+	memset(off_dst, '#', buf_size);
+	memset(ft_dst, '#', buf_size);
+
+	memcpy(off_dst, off_src, 0);
+	res = ft_memcpy(ft_dst, ft_src, 0);
+
+	v_assert_ptr(res, ==, ft_dst);
+	v_assert(memcmp(off_src, ft_src, buf_size) == 0);
+	v_assert(memcmp(off_dst, ft_dst, buf_size) == 0);
 
 	VTS;
 }
 
-static void	test_01_memcpy_SizeOf1(void)
+static void	test_01_memcpy_MisalignedSizeOfZero(void)
 {
-	char	str1[11];
-	char	str2[11];
+	size_t	buf_size = 20;
+	char	*off_src = malloc(buf_size);
+	char	*off_dst = malloc(buf_size);
+	char	*ft_src = malloc(buf_size);
+	char	*ft_dst = malloc(buf_size);
 	void	*res;
 
-	memset(str1, 48, 11);
-	memset(str2, 0, 11);
-	res = ft_memcpy(str2, str1, 1);
-	v_assert_ptr(res, ==, str2);
-	v_assert_str("0", str2);
+	// setup
+	--buf_size;
+	off_src++;
+	off_dst++;
+	ft_src++;
+	ft_dst++;
+	memset(off_src, '*', buf_size);
+	memset(ft_src, '*', buf_size);
+	memset(off_dst, '#', buf_size);
+	memset(ft_dst, '#', buf_size);
+
+	memcpy(off_dst, off_src, 0);
+	res = ft_memcpy(ft_dst, ft_src, 0);
+
+	v_assert_ptr(res, ==, ft_dst);
+	v_assert(memcmp(off_src, ft_src, buf_size) == 0);
+	v_assert(memcmp(off_dst, ft_dst, buf_size) == 0);
 
 	VTS;
 }
 
-static void	test_02_memcpy_FullString(void)
+static void	test_02_memcpy_AlignedSizeLessThanWord(void)
 {
-	char	*str1;
-	char	str2[11];
+	size_t	buf_size = 5;
+	char	*off_src = malloc(buf_size);
+	char	*off_dst = malloc(buf_size);
+	char	*ft_src = malloc(buf_size);
+	char	*ft_dst = malloc(buf_size);
 	void	*res;
 
-	str1 = strdup("It works!");
-	memset(str2, 0, 11);
-	res = ft_memcpy(str2, str1, strlen(str1));
-	v_assert_ptr(res, ==, str2);
-	v_assert_str(str1, str2);
+	// setup
+	memset(off_src, '*', buf_size);
+	memset(ft_src, '*', buf_size);
+	memset(off_dst, '#', buf_size);
+	memset(ft_dst, '#', buf_size);
 
-	free(str1);
+	memcpy(off_dst, off_src, buf_size);
+	res = ft_memcpy(ft_dst, ft_src, buf_size);
+
+	v_assert_ptr(res, ==, ft_dst);
+	v_assert(memcmp(off_src, ft_src, buf_size) == 0);
+	v_assert(memcmp(off_dst, ft_dst, buf_size) == 0);
 
 	VTS;
 }
 
-static void	test_03_memcpy_PartialString(void)
+static void	test_03_memcpy_MisalignedSizeLessThanWord(void)
 {
-	char	*str1;
-	char	str2[11];
+	size_t	buf_size = 6;
+	char	*off_src = malloc(buf_size);
+	char	*off_dst = malloc(buf_size);
+	char	*ft_src = malloc(buf_size);
+	char	*ft_dst = malloc(buf_size);
 	void	*res;
 
-	str1 = strdup("It works!");
-	memset(str2, 0, 11);
-	res = ft_memcpy(str2, str1, strlen(str1) - 5);
-	v_assert_ptr(res, ==, str2);
-	v_assert_str("It w", str2);
+	// setup
+	--buf_size;
+	off_src++;
+	off_dst++;
+	ft_src++;
+	ft_dst++;
+	memset(off_src, '*', buf_size);
+	memset(ft_src, '*', buf_size);
+	memset(off_dst, '#', buf_size);
+	memset(ft_dst, '#', buf_size);
 
-	free(str1);
+	memcpy(off_dst, off_src, buf_size);
+	res = ft_memcpy(ft_dst, ft_src, buf_size);
+
+	v_assert_ptr(res, ==, ft_dst);
+	v_assert(memcmp(off_src, ft_src, buf_size) == 0);
+	v_assert(memcmp(off_dst, ft_dst, buf_size) == 0);
 
 	VTS;
 }
 
-static void	test_04_memcpy_LongString(void)
+static void	test_04_memcpy_AlignedSizeGreaterThanWord(void)
 {
-	char	*str1;
-	char	str2[250];
+	size_t	buf_size = 13;
+	char	*off_src = malloc(buf_size);
+	char	*off_dst = malloc(buf_size);
+	char	*ft_src = malloc(buf_size);
+	char	*ft_dst = malloc(buf_size);
 	void	*res;
 
-	str1 = strdup("KIa4jjPwBhAdTNhod2Q IYokyuGtHsTukcF7eXmM X1GMMRyONOTF3nvVg756 L2gUK6ite8DgGotsK7uT 5xHKqIrxa3paMM5r7v WL 4yRbouzdn0odl5ehELgN oyrGLZwXC0MSXBLbFYot YbpRY5k9v5Oq8DiwZHSG 9K8nnL2hLT38jUl0nyrV uonf1uol3dZii9Z 9b74x");
-	memset(str2, 0, 250);
-	res = ft_memcpy(str2, str1, strlen(str1));
-	v_assert_ptr(res, ==, str2);
-	v_assert_str(str1, str2);
+	// setup
+	memset(off_src, '*', buf_size);
+	memset(ft_src, '*', buf_size);
+	memset(off_dst, '#', buf_size);
+	memset(ft_dst, '#', buf_size);
 
-	free(str1);
+	memcpy(off_dst, off_src, buf_size);
+	res = ft_memcpy(ft_dst, ft_src, buf_size);
+
+	v_assert_ptr(res, ==, ft_dst);
+	v_assert(memcmp(off_src, ft_src, buf_size) == 0);
+	v_assert(memcmp(off_dst, ft_dst, buf_size) == 0);
+
+	VTS;
+}
+
+static void	test_05_memcpy_MisalignedSizeGreaterThanWord(void)
+{
+	size_t	buf_size = 14;
+	char	*off_src = malloc(buf_size);
+	char	*off_dst = malloc(buf_size);
+	char	*ft_src = malloc(buf_size);
+	char	*ft_dst = malloc(buf_size);
+	void	*res;
+
+	// setup
+	--buf_size;
+	off_src++;
+	off_dst++;
+	ft_src++;
+	ft_dst++;
+	memset(off_src, '*', buf_size);
+	memset(ft_src, '*', buf_size);
+	memset(off_dst, '#', buf_size);
+	memset(ft_dst, '#', buf_size);
+
+	memcpy(off_dst, off_src, buf_size);
+	res = ft_memcpy(ft_dst, ft_src, buf_size);
+
+	v_assert_ptr(res, ==, ft_dst);
+	v_assert(memcmp(off_src, ft_src, buf_size) == 0);
+	v_assert(memcmp(off_dst, ft_dst, buf_size) == 0);
+
+	VTS;
+}
+
+static void	test_06_memcpy_AlignedSizeEqualToWord(void)
+{
+	size_t	buf_size = 8;
+	char	*off_src = malloc(buf_size);
+	char	*off_dst = malloc(buf_size);
+	char	*ft_src = malloc(buf_size);
+	char	*ft_dst = malloc(buf_size);
+	void	*res;
+
+	// setup
+	memset(off_src, '*', buf_size);
+	memset(ft_src, '*', buf_size);
+	memset(off_dst, '#', buf_size);
+	memset(ft_dst, '#', buf_size);
+
+	memcpy(off_dst, off_src, buf_size);
+	res = ft_memcpy(ft_dst, ft_src, buf_size);
+
+	v_assert_ptr(res, ==, ft_dst);
+	v_assert(memcmp(off_src, ft_src, buf_size) == 0);
+	v_assert(memcmp(off_dst, ft_dst, buf_size) == 0);
+
+	VTS;
+}
+
+static void	test_07_memcpy_MisalignedSizeEqualToWord(void)
+{
+	size_t	buf_size = 8;
+	char	*off_src = malloc(buf_size);
+	char	*off_dst = malloc(buf_size);
+	char	*ft_src = malloc(buf_size);
+	char	*ft_dst = malloc(buf_size);
+	void	*res;
+
+	// setup
+	--buf_size;
+	off_src++;
+	off_dst++;
+	ft_src++;
+	ft_dst++;
+	memset(off_src, '*', buf_size);
+	memset(ft_src, '*', buf_size);
+	memset(off_dst, '#', buf_size);
+	memset(ft_dst, '#', buf_size);
+
+	memcpy(off_dst, off_src, buf_size);
+	res = ft_memcpy(ft_dst, ft_src, buf_size);
+
+	v_assert_ptr(res, ==, ft_dst);
+	v_assert(memcmp(off_src, ft_src, buf_size) == 0);
+	v_assert(memcmp(off_dst, ft_dst, buf_size) == 0);
+
+	VTS;
+}
+
+static void	test_08_memcpy_AlignedBigSize(void)
+{
+	size_t	buf_size = BIG_CHUNKS;
+	char	*off_src = malloc(buf_size);
+	char	*off_dst = malloc(buf_size);
+	char	*ft_src = malloc(buf_size);
+	char	*ft_dst = malloc(buf_size);
+	void	*res;
+
+	// setup
+	memset(off_src, '*', buf_size);
+	memset(ft_src, '*', buf_size);
+	memset(off_dst, '#', buf_size);
+	memset(ft_dst, '#', buf_size);
+
+	memcpy(off_dst, off_src, buf_size);
+	res = ft_memcpy(ft_dst, ft_src, buf_size);
+
+	v_assert_ptr(res, ==, ft_dst);
+	v_assert(memcmp(off_src, ft_src, buf_size) == 0);
+	v_assert(memcmp(off_dst, ft_dst, buf_size) == 0);
+
+	VTS;
+}
+
+static void	test_09_memcpy_MisalignedBigSize(void)
+{
+	size_t	buf_size = 8;
+	char	*off_src = malloc(buf_size);
+	char	*off_dst = malloc(buf_size);
+	char	*ft_src = malloc(buf_size);
+	char	*ft_dst = malloc(buf_size);
+	void	*res;
+
+	// setup
+	--buf_size;
+	off_src++;
+	off_dst++;
+	ft_src++;
+	ft_dst++;
+	memset(off_src, '*', buf_size);
+	memset(ft_src, '*', buf_size);
+	memset(off_dst, '#', buf_size);
+	memset(ft_dst, '#', buf_size);
+
+	memcpy(off_dst, off_src, buf_size);
+	res = ft_memcpy(ft_dst, ft_src, buf_size);
+
+	v_assert_ptr(res, ==, ft_dst);
+	v_assert(memcmp(off_src, ft_src, buf_size) == 0);
+	v_assert(memcmp(off_dst, ft_dst, buf_size) == 0);
 
 	VTS;
 }
 
 void		suite_memcpy(void)
 {
-	test_00_memcpy_SizeOf0();
-	test_01_memcpy_SizeOf1();
-	test_02_memcpy_FullString();
-	test_03_memcpy_PartialString();
-	test_04_memcpy_LongString();
+	test_00_memcpy_AlignedSizeOfZero();
+	test_01_memcpy_MisalignedSizeOfZero();
+	test_02_memcpy_AlignedSizeLessThanWord();
+	test_03_memcpy_MisalignedSizeLessThanWord();
+	test_04_memcpy_AlignedSizeGreaterThanWord();
+	test_05_memcpy_MisalignedSizeGreaterThanWord();
+	test_06_memcpy_AlignedSizeEqualToWord();
+	test_07_memcpy_MisalignedSizeEqualToWord();
+	test_08_memcpy_AlignedBigSize();
+	test_09_memcpy_MisalignedBigSize();
 
 	VSS;
 }
