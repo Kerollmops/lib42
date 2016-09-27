@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 16:28:49 by djean             #+#    #+#             */
-/*   Updated: 2016/09/02 13:52:30 by djean            ###   ########.fr       */
+/*   Updated: 2016/09/27 10:49:26 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ struct	s_buffer
 	char	*str;
 	size_t	len;
 	size_t	sizemax;
+	size_t	iterator;
 };
 
 struct	s_array

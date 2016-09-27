@@ -40,6 +40,7 @@ int	main(void)
 	/* suite_buffer_rewindnchr(); */
 	suite_buffer_twin();
 	suite_buffer_merge();
+	suite_buffer_iterator();
 
 	// array
 	suite_array_macros();

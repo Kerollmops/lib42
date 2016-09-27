@@ -8,10 +8,15 @@ static void	test_00_buffer_twin_Simple(void)
 	size_t		len = strlen(s);
 
 	origin = buffer_dup(s);
+	buffer_iterator_next(origin);
+	buffer_iterator_next(origin);
+	buffer_iterator_next(origin);
+	buffer_iterator_next(origin);
 	cp = buffer_twin(origin);
 
 	v_assert_size_t(BUFFER_INIT_SIZE, ==, TBUFFER_MAX(cp));
 	v_assert_size_t(len, ==, TBUFFER_LEN(cp));
+	v_assert_size_t(TBUFFER_ITER(origin), ==, TBUFFER_ITER(cp));
 	v_assert_str(s, TBUFFER_GET(cp));
 	v_assert_ptr(TBUFFER_GET(origin), !=, TBUFFER_GET(cp));
 	v_assert_ptr(origin, !=, cp);

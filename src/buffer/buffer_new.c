@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 16:30:57 by djean             #+#    #+#             */
-/*   Updated: 2016/09/14 18:55:04 by djean            ###   ########.fr       */
+/*   Updated: 2016/09/27 10:49:43 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ t_buffer	*buffer_init(t_buffer *b, size_t size)
 		s = next_power_of_2(size);
 	b->sizemax = s;
 	b->len = 0;
+	b->iterator = 0;
 	b->str = ft_memalloc(sizeof(char) * s);
 	if (b->str == NULL)
 		return (NULL);

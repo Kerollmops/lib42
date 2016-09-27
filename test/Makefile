@@ -65,6 +65,7 @@ SOURCES += test_buffer_append.c
 SOURCES += test_buffer_replace.c
 SOURCES += test_buffer_twin.c
 SOURCES += test_buffer_merge.c
+SOURCES += test_buffer_iterator.c
 
 # Memory
 SOURCES += test_memset.c

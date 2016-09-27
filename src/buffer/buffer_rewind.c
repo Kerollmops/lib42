@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 16:30:58 by djean             #+#    #+#             */
-/*   Updated: 2016/09/26 19:29:20 by djean            ###   ########.fr       */
+/*   Updated: 2016/09/27 15:48:42 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	buffer_rewind(t_buffer *b, size_t n)
 	nlen = b->len - n;
 	b->str[nlen] = '\0';
 	b->len = nlen;
+	if (b->iterator > b->len)
+		buffer_iterator_set(b, b->len);
 	return ((int)nlen);
 }
 
@@ -46,5 +48,7 @@ int	buffer_rewindchr(t_buffer *b, int c)
 	b->str[pos] = '\0';
 	ret = b->len - (size_t)pos;
 	b->len = (size_t)pos;
+	if (b->iterator > b->len)
+		buffer_iterator_set(b, b->len);
 	return ((int)ret);
 }

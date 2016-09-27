@@ -98,6 +98,7 @@ SOURCES += buffer_set.c
 SOURCES += buffer_toa.c
 SOURCES += buffer_twin.c
 SOURCES += buffer_append.c
+SOURCES += buffer_iter.c
 
 # String
 SOURCES += ft_strlen.c

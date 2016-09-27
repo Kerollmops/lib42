@@ -46,6 +46,7 @@ void	suite_buffer_append(void);
 void	suite_buffer_replace(void);
 void	suite_buffer_twin(void);
 void	suite_buffer_merge(void);
+void	suite_buffer_iterator(void);
 
 // Memory
 void	suite_memcpy(void);

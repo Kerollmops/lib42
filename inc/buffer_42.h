@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 16:28:48 by djean             #+#    #+#             */
-/*   Updated: 2016/09/26 19:32:05 by djean            ###   ########.fr       */
+/*   Updated: 2016/09/27 16:10:33 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@
 # define TBUFFER_LAST(b)		((b)->str[(b)->len - 1])
 # define TBUFFER_FIRST(b)		((b)->str[0])
 # define TBUFFER_ISEMPTY(b)		(!((b)->len))
+# define TBUFFER_ITER(b)		((b)->iterator)
+# define TBUFFER_RESET_ITER(b)	(b)->iterator = 0
 
 t_buffer	*buffer_new(size_t size);
 t_buffer	*buffer_init(t_buffer *b, size_t size);
@@ -54,5 +56,9 @@ t_buffer	*buffer_append(t_buffer *dst, t_buffer *src);
 t_buffer	*buffer_merge(t_buffer *b1, t_buffer *b2);
 t_buffer	*buffer_stoa(t_buffer *b, long long value, int base);
 t_buffer	*buffer_utoa(t_buffer *b, unsigned long long value, int base);
+char		buffer_iterator(t_buffer *b);
+void		buffer_iterator_prev(t_buffer *b);
+void		buffer_iterator_next(t_buffer *b);
+void		buffer_iterator_set(t_buffer *b, size_t index);
 
 #endif
