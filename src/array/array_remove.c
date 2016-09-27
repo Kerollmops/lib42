@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/07 19:35:29 by djean             #+#    #+#             */
-/*   Updated: 2016/09/07 20:04:39 by djean            ###   ########.fr       */
+/*   Updated: 2016/09/27 16:18:41 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	*array_remove(t_array *v, size_t i, void *removed)
 	ft_memmove(p, p + v->elem_size, len);
 	v->count -= 1;
 	if (v->iterator > i)
-		--v->iterator;
+		array_iterator_prev(v);
 	return (removed);
 }
 

@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 16:28:48 by djean             #+#    #+#             */
-/*   Updated: 2016/09/08 13:40:12 by djean            ###   ########.fr       */
+/*   Updated: 2016/09/27 16:17:04 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@
 # define TARRAY_IN_RANGE(v, p)	((p) >= (v)->data && (p) < TARRAY_ADDR_MAX(v))
 # define TARRAY_FREE(v)			free((v)->data)
 # define TARRAY_ISEMPTY(v)		(!((v)->count))
+# define TARRAY_ITER(v)			((v)->iterator)
 # define TARRAY_RESET_ITER(v)	(v)->iterator = 0
 
 t_array	*array_new(size_t size, size_t elem_size);
@@ -55,5 +56,6 @@ t_array	*array_strsplit(char *str, char c);
 void	*array_iterator(t_array *v);
 void	array_iterator_prev(t_array *v);
 void	array_iterator_next(t_array *v);
+void	array_iterator_set(t_array *v, size_t index);
 
 #endif
