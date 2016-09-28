@@ -1,97 +1,300 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   memchr.c                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: adubois <adubois@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/25 14:52:06 by adubois           #+#    #+#             */
-/*   Updated: 2016/07/26 14:14:06 by leonhart         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "header.h"
 
-static void	test_00_memchr_Len0(void)
-{
-	char	str[] = "Hello World!";
-	int		chr = 'W';
-	size_t	n = 0;
+// 134Mo
+#define BIG_CHUNKS	(1 << 27)
 
-	v_assert_ptr(ft_memchr(str, chr, n), ==, memchr(str, chr, n));
+static char	c = 60; // '<'
+
+// HAS_ZERO
+static void	test_00_memchr_MacroHAS_ZERO_ValidZeroInFirstPlace(void)
+{
+	unsigned long	n;
+	unsigned long	res;
+
+	n = 0x00020304a0b0c0d0UL;
+	res = HAS_ZERO(n);
+	v_assert(res > 0);
 
 	VTS;
 }
 
-static void	test_01_memchr_Len1(void)
+static void	test_01_memchr_MacroHAS_ZERO_ValidZeroInMiddlePlace(void)
 {
-	char	str[] = "Hello World!";
-	int		chr = 'W';
-	size_t	n = 1;
+	unsigned long	n;
+	unsigned long	res;
 
-	v_assert_ptr(ft_memchr(str, chr, n), ==, memchr(str, chr, n));
+	n = 0x01020300a0b0c0d0UL;
+	res = HAS_ZERO(n);
+	v_assert(res > 0);
 
 	VTS;
 }
 
-static void	test_02_memchr_FindFirstChar(void)
+static void	test_02_memchr_MacroHAS_ZERO_ValidZeroInLastPlace(void)
 {
-	char	str[] = "Hello World!";
-	int		chr = 'H';
-	size_t	n = 10;
+	unsigned long	n;
+	unsigned long	res;
 
-	v_assert_ptr(ft_memchr(str, chr, n), ==, memchr(str, chr, n));
+	n = 0x01020304a0b0c000UL;
+	res = HAS_ZERO(n);
+	v_assert(res > 0);
 
 	VTS;
 }
 
-static void	test_03_memchr_FindNoChar(void)
+static void	test_03_memchr_MacroHAS_ZERO_InvalidNoZero(void)
 {
-	char	str[] = "Hello World!";
-	int		chr = '*';
-	size_t	n = 13;
+	unsigned long	n;
+	unsigned long	res;
 
-	v_assert_ptr(ft_memchr(str, chr, n), ==, memchr(str, chr, n));
+	n = 0x01020304a0b0c0d0UL;
+	res = HAS_ZERO(n);
+	v_assert(res == 0);
 
 	VTS;
 }
 
-#if !defined(SANITIZE)
-static void	test_04_memchr_FindNullChar(void)
+// HAS_BYTE
+static void	test_00_memchr_MacroHAS_BYTE_ValidCharInFirstPlace(void)
 {
-	char	str[] = "Hello World!";
-	int		chr = '\0';
-	size_t	n = 25;
+	unsigned long	n;
+	unsigned long	res;
+	unsigned long	cccc;
 
-	v_assert_ptr(ft_memchr(str, chr, n), ==, memchr(str, chr, n));
+	n = 0x01020304a0b0c0d0UL;
+	cccc = 0x0101010101010101UL;
+	res = HAS_BYTE(n, cccc);
+	v_assert(res > 0);
 
 	VTS;
 }
-#endif
 
-static void	test_05_memchr_FindNullCharLongString(void)
+static void	test_01_memchr_MacroHAS_BYTE_ValidCharInMiddlePlace(void)
 {
-	char	str[4096];
-	int		chr = '\0';
-	size_t	n = 4096;
+	unsigned long	n;
+	unsigned long	res;
+	unsigned long	cccc;
 
-	memset(str, '*', 4096);
-	str[4090] = '\0';
-	v_assert_ptr(ft_memchr(str, chr, n), ==, memchr(str, chr, n));
+	n = 0x01020304a0b0c0d0UL;
+	cccc = 0x0404040404040404UL;
+	res = HAS_BYTE(n, cccc);
+	v_assert(res > 0);
 
+	VTS;
+}
+
+static void	test_02_memchr_MacroHAS_BYTE_ValidCharInLastPlace(void)
+{
+	unsigned long	n;
+	unsigned long	res;
+	unsigned long	cccc;
+
+	n = 0x01020304a0b0c0d0UL;
+	cccc = 0xd0d0d0d0d0d0d0d0UL;
+	res = HAS_BYTE(n, cccc);
+	v_assert(res > 0);
+
+	VTS;
+}
+
+static void	test_03_memchr_MacroHAS_BYTE_InvalidNoChar(void)
+{
+	unsigned long	n;
+	unsigned long	res;
+	unsigned long	cccc;
+
+	n = 0x01020304a0b0c0d0UL;
+	cccc = 0xb1b1b1b1b1b1b1b1UL;
+	res = HAS_BYTE(n, cccc);
+	v_assert(res == 0);
+
+	VTS;
+}
+
+// ft_memchr
+static void	test_00_memchr_AlignedCharPastSize(void)
+{
+	void	*off;
+	void	*ft;
+	char	*p = malloc(30);
+
+	memset(p, 0, 30);
+	p[20] = c;
+
+	off = memchr(p, c, 20);
+	ft = ft_memchr(p, c, 20);
+
+	v_assert_ptr(NULL, ==, off);
+	v_assert_ptr(off, ==, ft);
+
+	free(p);
+	VTS;
+}
+
+static void	test_01_memchr_MisalignedCharPastSize(void)
+{
+	void	*off;
+	void	*ft;
+	char	*p = malloc(30);
+
+	memset(p, 0, 30);
+	p[20] = c;
+
+	off = memchr(p + 2, c, 18);
+	ft = ft_memchr(p + 2, c, 18);
+
+	v_assert_ptr(NULL, ==, off);
+	v_assert_ptr(off, ==, ft);
+
+	free(p);
+	VTS;
+}
+
+static void	test_02_memchr_AlignedFindChar(void)
+{
+	void	*off;
+	void	*ft;
+	char	*p = malloc(30);
+
+	memset(p, 0, 30);
+	p[20] = c;
+
+	off = memchr(p, c, 21);
+	ft = ft_memchr(p, c, 21);
+
+	v_assert_ptr(NULL, !=, off);
+	v_assert_ptr(p + 20, ==, off);
+	v_assert_ptr(off, ==, ft);
+
+	free(p);
+	VTS;
+}
+
+static void	test_03_memchr_MisalignedFindChar(void)
+{
+	void	*off;
+	void	*ft;
+	char	*p = malloc(30);
+	size_t	location = 18;
+
+	memset(p, 0, 30);
+	p[location] = c;
+
+	off = memchr(p + 2, c, location);
+	ft = ft_memchr(p + 2, c, location);
+
+	v_assert_ptr(NULL, !=, off);
+	v_assert_ptr(p + location, ==, off);
+	v_assert_ptr(off, ==, ft);
+
+	free(p);
+	VTS;
+}
+
+static void	test_04_memchr_AlignedNullInString(void)
+{
+	void	*off;
+	void	*ft;
+	char	*p = malloc(30);
+	char	*s = "Hello World!";
+	size_t	len = strlen(s);
+
+	memset(p, 0, 30);
+	memcpy(p, s, len);
+
+	off = memchr(p, '\0', ~0UL);
+	ft = ft_memchr(p, '\0', ~0UL);
+
+	v_assert_ptr(NULL, !=, off);
+	v_assert_ptr(p + len, ==, off);
+	v_assert_ptr(off, ==, ft);
+
+	free(p);
+	VTS;
+}
+
+static void	test_05_memchr_MisalignedNullInString(void)
+{
+	void	*off;
+	void	*ft;
+	char	*p = malloc(30);
+	char	*s = "Hello World!";
+	size_t	len = strlen(s);
+
+	memset(p, 0, 30);
+	memcpy(p, s, len);
+
+	off = memchr(p + 2, '\0', ~0UL);
+	ft = ft_memchr(p + 2, '\0', ~0UL);
+
+	v_assert_ptr(NULL, !=, off);
+	v_assert_ptr(p + len, ==, off);
+	v_assert_ptr(off, ==, ft);
+
+	free(p);
+	VTS;
+}
+
+static void	test_06_memchr_AlignedBigChunk(void)
+{
+	void	*off;
+	void	*ft;
+	char	*p = malloc(BIG_CHUNKS);
+
+	memset(p, 0, BIG_CHUNKS);
+	p[BIG_CHUNKS - 1] = '*';
+
+	off = memchr(p, '*', BIG_CHUNKS);
+	ft = ft_memchr(p, '*', BIG_CHUNKS);
+
+	v_assert_ptr(NULL, !=, off);
+	v_assert_ptr(p + BIG_CHUNKS - 1, ==, off);
+	v_assert_ptr(off, ==, ft);
+
+	free(p);
+	VTS;
+}
+
+static void	test_07_memchr_MisalignedBigChunk(void)
+{
+	void	*off;
+	void	*ft;
+	char	*p = malloc(BIG_CHUNKS);
+
+	memset(p, 0, BIG_CHUNKS);
+	p[BIG_CHUNKS - 1] = '*';
+
+	off = memchr(p + 2, '*', BIG_CHUNKS);
+	ft = ft_memchr(p + 2, '*', BIG_CHUNKS);
+
+	v_assert_ptr(NULL, !=, off);
+	v_assert_ptr(p + BIG_CHUNKS - 1, ==, off);
+	v_assert_ptr(off, ==, ft);
+
+	free(p);
 	VTS;
 }
 
 void		suite_memchr(void)
 {
-	test_00_memchr_Len0();
-	test_01_memchr_Len1();
-	test_02_memchr_FindFirstChar();
-	test_03_memchr_FindNoChar();
-#if !defined(SANITIZE)
-	test_04_memchr_FindNullChar();
-#endif
-	test_05_memchr_FindNullCharLongString();
+	test_00_memchr_MacroHAS_ZERO_ValidZeroInFirstPlace();
+	test_01_memchr_MacroHAS_ZERO_ValidZeroInMiddlePlace();
+	test_02_memchr_MacroHAS_ZERO_ValidZeroInLastPlace();
+	test_03_memchr_MacroHAS_ZERO_InvalidNoZero();
+
+	test_00_memchr_MacroHAS_BYTE_ValidCharInFirstPlace();
+	test_01_memchr_MacroHAS_BYTE_ValidCharInMiddlePlace();
+	test_02_memchr_MacroHAS_BYTE_ValidCharInLastPlace();
+	test_03_memchr_MacroHAS_BYTE_InvalidNoChar();
+
+	test_00_memchr_AlignedCharPastSize();
+	test_01_memchr_MisalignedCharPastSize();
+	test_02_memchr_AlignedFindChar();
+	test_03_memchr_MisalignedFindChar();
+	test_04_memchr_AlignedNullInString();
+	test_05_memchr_MisalignedNullInString();
+	test_06_memchr_AlignedBigChunk();
+	test_07_memchr_MisalignedBigChunk();
 
 	VSS;
 }
