@@ -5,7 +5,7 @@ static t_buffer	*buffer;
 static void	setup(char *s, size_t len, size_t max)
 {
 	buffer = malloc(sizeof(t_buffer));
-	buffer->str = malloc(len);
+	buffer->str = malloc(max);
 	memcpy(buffer->str, s, len);
 	buffer->len = len;
 	buffer->sizemax = max;
@@ -66,14 +66,14 @@ static void	test_02_buffer_replace_LowerString(void)
 {
 	char	*s = "Hello World!";
 	size_t	len = strlen(s);
-	size_t	max = 8;
+	size_t	max = 16;
 	setup(s, len, max);
 
 	char	*replace = "abc";
 	size_t	lrep = strlen(replace);
 	buffer_replace(buffer, replace);
 
-	v_assert_size_t(8, ==, TBUFFER_MAX(buffer));
+	v_assert_size_t(16, ==, TBUFFER_MAX(buffer));
 	v_assert_size_t(lrep, ==, TBUFFER_LEN(buffer));
 	v_assert_str(replace, TBUFFER_GET(buffer));
 
