@@ -39,7 +39,7 @@ inline static void	copy_words(unsigned long **dest, const unsigned long **src,
 		(*dest)[0] = (*src)[0];
 		*dest += 1;
 		*src += 1;
-		*n -= 8;
+		*n -= WORD_LEN;
 	}
 }
 
