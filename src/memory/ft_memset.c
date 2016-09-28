@@ -42,6 +42,16 @@ inline static void	setwords(unsigned long **p, unsigned long cccc, size_t *len)
 	}
 }
 
+inline static void	setbytes(unsigned char **p, unsigned char c, size_t *len)
+{
+	while (*len > 0)
+	{
+		(*p)[0] = c;
+		*p += 1;
+		*len -= 1;
+	}
+}
+
 void				*ft_memset(void *b, int c, size_t len)
 {
 	unsigned long int	cccc;
@@ -52,10 +62,6 @@ void				*ft_memset(void *b, int c, size_t len)
 	align_word((unsigned char**)&b, (unsigned char)c, &len);
 	setblocks((unsigned long**)&b, cccc, &len);
 	setwords((unsigned long**)&b, cccc, &len);
-	while (len--)
-	{
-		*(unsigned char *)b = (unsigned char)c;
-		b = (unsigned char*)b + 1;
-	}
+	setbytes((unsigned char**)&b, (unsigned char)c, &len);
 	return (b);
 }
