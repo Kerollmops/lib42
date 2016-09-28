@@ -65,8 +65,10 @@ static void	test_01_array_getset_String(void)
 
 	// set
 	char	*s = "zut";
-	array_set(v, 2, s);
-	v_assert_str(s, array_get(v, 2));
+	char	**value = array_get(v, 2);
+	array_set(v, 2, &s);
+	v_assert_ptr(s, ==, *value);
+	v_assert_str(s, *value);
 
 	teardown();
 	VTS;
@@ -78,10 +80,11 @@ static void	test_02_array_getset_Struct(void)
 		void	*e;
 		int		i;
 		char	c;
+		char	padding[3];
 	} data[3] = {
-		{ NULL, 42, 'a' },
-		{ (void*)0xdeadbeef, 8, 'z' },
-		{ (void*)0xabcdef, -1, '*' },
+		{ NULL, 42, 'a', {0} },
+		{ (void*)0xdeadbeef, 8, 'z', {0} },
+		{ (void*)0xabcdef, -1, '*', {0} },
 	};
 	setup(data, sizeof(struct s_test), ARR_SIZ_MAX(data));
 
@@ -94,7 +97,7 @@ static void	test_02_array_getset_Struct(void)
 	}
 
 	// set
-	struct s_test new = { (void*)0x1234, 1 << 31, 'X' };
+	struct s_test new = { (void*)0x1234, 1 << 31, 'X', {0} };
 	array_set(v, 0, &new);
 	struct s_test value = *(struct s_test*)array_get(v, 0);
 	v_assert_ptr(new.e, ==, value.e);
