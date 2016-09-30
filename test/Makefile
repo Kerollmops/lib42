@@ -73,7 +73,7 @@ SOURCES += test_memcpy.c
 SOURCES += test_memccpy.c
 SOURCES += test_memmove.c
 SOURCES += test_memchr.c
-# SOURCES += memcmp.c
+SOURCES += test_memcmp.c
 
 # Stdlib
 SOURCES += test_realloc.c

@@ -4,7 +4,7 @@ int	main(void)
 {
 	// memory
 	suite_memset();
-	/* suite_memcmp(); */
+	suite_memcmp();
 	suite_memcpy();
 	suite_memccpy();
 	suite_memchr();

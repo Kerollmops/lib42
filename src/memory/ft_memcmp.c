@@ -1,102 +1,78 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: adubois <adubois@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/25 18:27:27 by adubois           #+#    #+#             */
-/*   Updated: 2016/05/25 18:52:48 by adubois          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "memory_42.h"
-#include <stdio.h>
 
-static int	ft_memcmp_align(const void **s1, const void **s2, size_t *n)
+inline static void	align_word(const unsigned char **s1,
+		const unsigned char **s2, size_t *n)
 {
-	unsigned char	*str1;
-	unsigned char	*str2;
-	size_t			size;
-
-	str1 = (unsigned char *)*s1;
-	str2 = (unsigned char *)*s2;
-	size = (unsigned long)str1 % sizeof(void *);
-	if (size > *n)
-		size = *n;
-	*n -= size;
-	while (size--)
+	while (*n > 0 && (uintptr_t)*s1 % WORD_LEN != 0)
 	{
-		if (*str1 != *str2)
-			return (*str1 - *str2);
-		++str1;
-		++str2;
+		if (**s1 != **s2)
+			break ;
+		*s1 += 1;
+		*s2 += 1;
+		*n -= 1;
 	}
-	*s1 = (void*)str1;
-	*s2 = (void*)str2;
-	return (0);
 }
 
-static int	ft_memcmp_bulk(const void **s1, const void **s2, size_t *n)
+inline static void	cmp_blocks(const unsigned long **s1,
+		const unsigned long **s2, size_t *n)
 {
-	unsigned long	*str1;
-	unsigned long	*str2;
-	int				i;
-
-	str1 = (unsigned long *)*s1;
-	str2 = (unsigned long *)*s2;
-	while (*n > 7)
+	while (*n >= BLOCK_SIZE)
 	{
-		if (str1 != str2)
-		{
-			i = 8;
-			while (--i >= 0)
-				if (*((unsigned char *)str1 + i) !=
-					*((unsigned char *)str2 + i))
-					return (*((unsigned char *)str1 + i) -
-							*((unsigned char *)str2 + i));
-		}
-		++str1;
-		++str2;
-		*n -= 8;
+		if ((*s1)[0] != (*s2)[0]
+				|| (*s1)[1] != (*s2)[1]
+				|| (*s1)[2] != (*s2)[2]
+				|| (*s1)[3] != (*s2)[3]
+				|| (*s1)[4] != (*s2)[4]
+				|| (*s1)[5] != (*s2)[5]
+				|| (*s1)[6] != (*s2)[6]
+				|| (*s1)[7] != (*s2)[7])
+			break ;
+		*s1 += 8;
+		*s2 += 8;
+		*n -= BLOCK_SIZE;
 	}
-	*s1 = (void*)str1;
-	*s2 = (void*)str2;
-	return (0);
 }
 
-static int	ft_memcmp_terminate(const void *s1, const void *s2, size_t n)
+inline static void	cmp_words(const unsigned long **s1,
+		const unsigned long **s2, size_t *n)
 {
-	unsigned char	*str1;
-	unsigned char	*str2;
-
-	str1 = (unsigned char *)s1;
-	str2 = (unsigned char *)s2;
-	while (n--)
+	while (*n >= WORD_LEN)
 	{
-		if (*str1 != *str2)
-			return (*str1 - *str2);
-		++str1;
-		++str2;
+		if (**s1 != **s2)
+			break ;
+		*s1 += 1;
+		*s2 += 1;
+		*n -= WORD_LEN;
 	}
-	return (0);
 }
+
+inline static void	cmp_bytes(const unsigned char **s1,
+		const unsigned char **s2, size_t *n)
+{
+	while (*n > 0)
+	{
+		if (**s1 != **s2)
+			break ;
+		*s1 += 1;
+		*s2 += 1;
+		*n -= 1;
+	}
+}
+
 
 int			ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	int		result;
+	int	res;
 
-	if (n == 0)
-		return (0);
-	result = 0;
-	if ((unsigned long)s1 % sizeof(void *))
-		if ((result = ft_memcmp_align(&s1, &s2, &n)))
-			return (result);
-	if (n > 7)
-		if ((result = ft_memcmp_bulk(&s1, &s2, &n)))
-			return (result);
+	res = 0;
 	if (n > 0)
-		if ((result = ft_memcmp_terminate(s1, s2, n)))
-			return (result);
-	return (result);
+	{
+		align_word((const unsigned char**)&s1, (const unsigned char**)&s2, &n);
+		cmp_blocks((const unsigned long**)&s1, (const unsigned long**)&s2, &n);
+		cmp_words((const unsigned long**)&s1, (const unsigned long**)&s2, &n);
+		cmp_bytes((const unsigned char**)&s1, (const unsigned char**)&s2, &n);
+		if (n > 0)
+			res = (int)(*(const unsigned char*)s1 - *(const unsigned char*)s2);
+	}
+	return (res);
 }
