@@ -3,7 +3,7 @@
 inline static void	align_word(unsigned char **dest, const unsigned char **src,
 		size_t *n)
 {
-	while (*n > 0 && (uintptr_t)*dest % WORD_LEN != 0)
+	while (*n > 0 && (uintptr_t)*dest % MEM_WORD_LEN != 0)
 	{
 		(*dest)[0] = (*src)[0];
 		*dest += 1;
@@ -15,7 +15,7 @@ inline static void	align_word(unsigned char **dest, const unsigned char **src,
 inline static void	copy_blocks(unsigned long **dest, const unsigned long **src,
 		size_t *n)
 {
-	while (*n >= BLOCK_SIZE)
+	while (*n >= MEM_BLOCK_SIZE)
 	{
 		(*dest)[0] = (*src)[0];
 		(*dest)[1] = (*src)[1];
@@ -27,19 +27,19 @@ inline static void	copy_blocks(unsigned long **dest, const unsigned long **src,
 		(*dest)[7] = (*src)[7];
 		*dest += 8;
 		*src += 8;
-		*n -= BLOCK_SIZE;
+		*n -= MEM_BLOCK_SIZE;
 	}
 }
 
 inline static void	copy_words(unsigned long **dest, const unsigned long **src,
 		size_t *n)
 {
-	while (*n >= WORD_LEN)
+	while (*n >= MEM_WORD_LEN)
 	{
 		(*dest)[0] = (*src)[0];
 		*dest += 1;
 		*src += 1;
-		*n -= WORD_LEN;
+		*n -= MEM_WORD_LEN;
 	}
 }
 

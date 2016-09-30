@@ -33,7 +33,7 @@
 inline static void	*align_word(const unsigned char **s, unsigned char c,
 		size_t *n)
 {
-	while (*n > 0 && (uintptr_t)*s % WORD_LEN != 0)
+	while (*n > 0 && (uintptr_t)*s % MEM_WORD_LEN != 0)
 	{
 		if (*s[0] == c)
 			return ((void*)(uintptr_t)*s);
@@ -64,12 +64,12 @@ inline static void	*search_in_words(const unsigned long **s, unsigned char c,
 	cccc = c;
 	cccc |= cccc << 24 | cccc << 16 | cccc << 8;
 	cccc |= cccc << 32;
-	while (*n >= WORD_LEN)
+	while (*n >= MEM_WORD_LEN)
 	{
 		if (HAS_BYTE(**s, cccc))
 			return (locate_byte_in_word((const unsigned char**)s, c, n));
 		*s += 1;
-		*n -= WORD_LEN;
+		*n -= MEM_WORD_LEN;
 	}
 	return (NULL);
 }

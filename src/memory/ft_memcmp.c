@@ -3,7 +3,7 @@
 inline static void	align_word(const unsigned char **s1,
 		const unsigned char **s2, size_t *n)
 {
-	while (*n > 0 && (uintptr_t)*s1 % WORD_LEN != 0)
+	while (*n > 0 && (uintptr_t)*s1 % MEM_WORD_LEN != 0)
 	{
 		if (**s1 != **s2)
 			break ;
@@ -16,7 +16,7 @@ inline static void	align_word(const unsigned char **s1,
 inline static void	cmp_blocks(const unsigned long **s1,
 		const unsigned long **s2, size_t *n)
 {
-	while (*n >= BLOCK_SIZE)
+	while (*n >= MEM_BLOCK_SIZE)
 	{
 		if ((*s1)[0] != (*s2)[0]
 				|| (*s1)[1] != (*s2)[1]
@@ -29,20 +29,20 @@ inline static void	cmp_blocks(const unsigned long **s1,
 			break ;
 		*s1 += 8;
 		*s2 += 8;
-		*n -= BLOCK_SIZE;
+		*n -= MEM_BLOCK_SIZE;
 	}
 }
 
 inline static void	cmp_words(const unsigned long **s1,
 		const unsigned long **s2, size_t *n)
 {
-	while (*n >= WORD_LEN)
+	while (*n >= MEM_WORD_LEN)
 	{
 		if (**s1 != **s2)
 			break ;
 		*s1 += 1;
 		*s2 += 1;
-		*n -= WORD_LEN;
+		*n -= MEM_WORD_LEN;
 	}
 }
 

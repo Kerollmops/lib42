@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 16:28:49 by djean             #+#    #+#             */
-/*   Updated: 2016/09/28 14:36:14 by djean            ###   ########.fr       */
+/*   Updated: 2016/09/30 14:54:25 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@
 # include <stdint.h>
 # include "error_42.h"
 
-# define WORD_LEN			sizeof(unsigned long int)
-# define BLOCK_SIZE			(8 * WORD_LEN)
+# define MEM_WORD_LEN		sizeof(unsigned long int)
+# define MEM_BLOCK_SIZE		(8 * MEM_WORD_LEN)
+# define MEM_PAGE_SIZE		4096
 # define HIGHBIT_0X01(n)	((n) - 0x0101010101010101UL)
 # define HIGHBIT_0X80(n)	(~(n) & 0x8080808080808080UL)
 # define HAS_ZERO(n)		(HIGHBIT_0X01(n) & HIGHBIT_0X80(n))
