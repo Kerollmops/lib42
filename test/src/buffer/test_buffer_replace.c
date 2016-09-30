@@ -6,6 +6,7 @@ static void	setup(char *s, size_t len, size_t max)
 {
 	buffer = malloc(sizeof(t_buffer));
 	buffer->str = malloc(max);
+	memset(buffer->str, 0, max);
 	memcpy(buffer->str, s, len);
 	buffer->len = len;
 	buffer->sizemax = max;

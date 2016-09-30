@@ -12,6 +12,7 @@ static void	setup(void)
 	b->sizemax = BUFFER_INIT_SIZE;
 	b->len = strlen(s);
 	b->str = malloc(BUFFER_INIT_SIZE);
+	memset(b->str, 0, BUFFER_INIT_SIZE);
 	b->iterator = 0;
 	memcpy(b->str, s, b->len);
 }

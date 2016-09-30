@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 12:14:45 by djean             #+#    #+#             */
-/*   Updated: 2016/07/22 04:24:53 by leonhart         ###   ########.fr       */
+/*   Updated: 2016/09/30 11:06:03 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	size_t	i;
+	size_t	len;
 
-	i = ft_strlen(s);
+	len = ft_strlen(s);
 	if (c == '\0')
-		return ((char*)s + i);
-	while (i--)
-		if (s[i] == c)
-			return ((char*)s + i);
+		return ((char*)((uintptr_t)s + len));
+	while (len--)
+		if (s[len] == c)
+			return ((char*)((uintptr_t)s + len));
 	return (NULL);
 }
 
@@ -32,19 +32,19 @@ int		ft_strrchrpos(const char *s, int c)
 	p = ft_strrchr(s, c);
 	if (p == NULL)
 		return (-1);
-	return (p - s);
+	return ((int)(p - s));
 }
 
 char	*ft_strrnchr(const char *s, int c, size_t n)
 {
-	size_t	i;
+	size_t	len;
 
-	i = ft_strlen(s);
+	len = ft_strlen(s);
 	while (n--)
 	{
-		if (s[i] == c)
-			return ((char*)s + i);
-		--i;
+		if (s[len] == c)
+			return ((char*)((uintptr_t)s + len));
+		--len;
 	}
 	return (NULL);
 }
@@ -56,5 +56,5 @@ int		ft_strrnchrpos(const char *s, int c, size_t n)
 	p = ft_strrnchr(s, c, n);
 	if (p == NULL)
 		return (-1);
-	return (p - s);
+	return ((int)(p - s));
 }

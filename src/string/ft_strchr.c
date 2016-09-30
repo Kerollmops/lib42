@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 12:14:45 by djean             #+#    #+#             */
-/*   Updated: 2016/07/22 04:20:17 by leonhart         ###   ########.fr       */
+/*   Updated: 2016/09/30 11:04:57 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strchr(const char *s, int c)
 
 	len = ft_strlen(s);
 	if ((char)c == '\0')
-		return ((char *)s + len);
+		return ((char *)((uintptr_t)s + len));
 	return (ft_memchr(s, c, len));
 }
 
@@ -29,7 +29,7 @@ int		ft_strchrpos(const char *s, int c)
 	p = ft_strchr(s, c);
 	if (p == NULL)
 		return (-1);
-	return (p - s);
+	return ((int)(p - s));
 }
 
 char	*ft_strnchr(const char *s, int c, size_t n)
@@ -49,5 +49,5 @@ int		ft_strnchrpos(const char *s, int c, size_t n)
 	p = ft_strnchr(s, c, n);
 	if (p == NULL)
 		return (-1);
-	return (p - s);
+	return ((int)(p - s));
 }
