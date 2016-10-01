@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/10/01 15:50:37 by djean             #+#    #+#             */
+/*   Updated: 2016/10/01 15:53:07 by djean            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "memory_42.h"
 
 inline static void	align_word(unsigned char **dest, const unsigned char **src,
 		size_t *n)
 {
-	while (*n > 0 && (uintptr_t)*dest % MEM_WORD_LEN != 0)
+	while (*n > 0 && (uintptr_t)(*dest) % MEM_WORD_LEN != 0)
 	{
 		(*dest)[0] = (*src)[0];
 		*dest += 1;
@@ -55,7 +67,7 @@ inline static void	copy_bytes(unsigned char **dest, const unsigned char **src,
 	}
 }
 
-void		*ft_memcpy(void *dest, const void *src, size_t n)
+void				*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	void	*orig;
 

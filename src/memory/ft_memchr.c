@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/10/01 15:49:35 by djean             #+#    #+#             */
+/*   Updated: 2016/10/01 15:51:54 by djean            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "memory_42.h"
 
 /*
@@ -33,10 +45,10 @@
 inline static void	*align_word(const unsigned char **s, unsigned char c,
 		size_t *n)
 {
-	while (*n > 0 && (uintptr_t)*s % MEM_WORD_LEN != 0)
+	while (*n > 0 && (uintptr_t)(*s) % MEM_WORD_LEN != 0)
 	{
 		if (*s[0] == c)
-			return ((void*)(uintptr_t)*s);
+			return ((void*)(uintptr_t)(*s));
 		*s += 1;
 		*n -= 1;
 	}
@@ -49,7 +61,7 @@ inline static void	*locate_byte_in_word(const unsigned char **s,
 	while (*n > 0)
 	{
 		if (**s == c)
-			return ((void*)(uintptr_t)*s);
+			return ((void*)(uintptr_t)(*s));
 		*s += 1;
 		*n -= 1;
 	}

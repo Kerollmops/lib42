@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/10/01 15:49:43 by djean             #+#    #+#             */
+/*   Updated: 2016/10/01 15:50:10 by djean            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "memory_42.h"
 
 /*
@@ -15,7 +27,8 @@ inline static void	align_word(unsigned char **p, unsigned char c, size_t *len)
 	}
 }
 
-inline static void	setblocks(unsigned long **p, unsigned long cccc, size_t *len)
+inline static void	setblocks(unsigned long **p, unsigned long cccc,
+								size_t *len)
 {
 	while (*len >= MEM_BLOCK_SIZE)
 	{

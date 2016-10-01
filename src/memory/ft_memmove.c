@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/10/01 15:50:54 by djean             #+#    #+#             */
+/*   Updated: 2016/10/01 15:52:23 by djean            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "memory_42.h"
 
 inline static void	move_page_size(unsigned char **dest,
@@ -19,7 +31,7 @@ inline static void	move_page_size(unsigned char **dest,
 	ft_memcpy(*dest, swap, *n);
 }
 
-void		*ft_memmove(void *dest, const void *src, size_t n)
+void				*ft_memmove(void *dest, const void *src, size_t n)
 {
 	void	*orig;
 

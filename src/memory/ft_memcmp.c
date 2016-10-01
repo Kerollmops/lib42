@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/10/01 15:53:40 by djean             #+#    #+#             */
+/*   Updated: 2016/10/01 15:54:13 by djean            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "memory_42.h"
 
 inline static void	align_word(const unsigned char **s1,
 		const unsigned char **s2, size_t *n)
 {
-	while (*n > 0 && (uintptr_t)*s1 % MEM_WORD_LEN != 0)
+	while (*n > 0 && (uintptr_t)(*s1) % MEM_WORD_LEN != 0)
 	{
 		if (**s1 != **s2)
 			break ;
@@ -59,8 +71,7 @@ inline static void	cmp_bytes(const unsigned char **s1,
 	}
 }
 
-
-int			ft_memcmp(const void *s1, const void *s2, size_t n)
+int					ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	int	res;
 
