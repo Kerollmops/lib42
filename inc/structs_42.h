@@ -6,12 +6,14 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 16:28:49 by djean             #+#    #+#             */
-/*   Updated: 2016/09/27 10:49:26 by djean            ###   ########.fr       */
+/*   Updated: 2016/10/01 15:43:49 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_42_H
 # define STRUCTS_42_H
+
+# include <stdlib.h>
 
 struct	s_buffer
 {
