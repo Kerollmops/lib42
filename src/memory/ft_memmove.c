@@ -1,88 +1,38 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: adubois <adubois@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/17 21:00:52 by adubois           #+#    #+#             */
-/*   Updated: 2016/05/25 18:00:09 by adubois          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "memory_42.h"
 
-static void	ft_memmove_align(void **dest, const void **src, size_t *n)
+inline static void	move_page_size(unsigned char **dest,
+		const unsigned char **src, size_t *n)
 {
-	size_t			size;
-	unsigned char	*destination;
-	unsigned char	*source;
+	unsigned char	swap[MEM_PAGE_SIZE];
 
-	destination = (unsigned char *)*dest + *n;
-	source = (unsigned char *)*src + *n;
-	size = (unsigned long int)destination % sizeof(void *);
-	if (*n < size)
-		size = *n;
-	*n -= size;
-	while (size)
+	while (*n >= MEM_PAGE_SIZE)
 	{
-		--destination;
-		--source;
-		*destination = *source;
-		--size;
+		(*dest) -= MEM_PAGE_SIZE;
+		(*src) -= MEM_PAGE_SIZE;
+		ft_memcpy(swap, *src, MEM_PAGE_SIZE);
+		ft_memcpy(*dest, swap, MEM_PAGE_SIZE);
+		*n -= MEM_PAGE_SIZE;
 	}
-	*dest = (void *)destination;
-	*src = (void *)source;
-}
-
-static void	ft_memmove_bulk(void **dest, const void **src, size_t *n)
-{
-	unsigned char	swap[4096];
-	unsigned char	*destination;
-	unsigned char	*source;
-
-	destination = (unsigned char *)*dest;
-	source = (unsigned char *)*src;
-	while (*n >= 4096)
-	{
-		destination -= 4096;
-		source -= 4096;
-		ft_memcpy(swap, source, 4096);
-		ft_memcpy(destination, swap, 4096);
-		*n -= 4096;
-	}
-	*dest = (void *)destination;
-	*src = (void *)source;
-}
-
-static void	ft_memmove_terminate(void **dest, const void **src, size_t *n)
-{
-	unsigned char	swap[*n];
-	unsigned char	*destination;
-	unsigned char	*source;
-
-	destination = (unsigned char *)*dest - *n;
-	source = (unsigned char *)*src - *n;
-	ft_memcpy(swap, source, *n);
-	ft_memcpy(destination, swap, *n);
-	*n -= 0;
-	*dest = (void *)destination;
-	*src = (void *)source;
+	(*dest) -= *n;
+	(*src) -= *n;
+	ft_memcpy(swap, *src, *n);
+	ft_memcpy(*dest, swap, *n);
 }
 
 void		*ft_memmove(void *dest, const void *src, size_t n)
 {
 	void	*orig;
 
+	orig = dest;
 	if (n == 0 || dest == src)
 		return (dest);
-	if (src > dest)
-		return (ft_memcpy(dest, src, n));
-	orig = dest;
-	ft_memmove_align(&dest, &src, &n);
-	if (n >= 4096)
-		ft_memmove_bulk(&dest, &src, &n);
-	if (n != 0)
-		ft_memmove_terminate(&dest, &src, &n);
+	else if (src > dest)
+		ft_memcpy(dest, src, n);
+	else
+	{
+		dest = (unsigned char*)dest + n;
+		src = (const unsigned char*)src + n;
+		move_page_size((unsigned char**)&dest, (const unsigned char**)&src, &n);
+	}
 	return (orig);
 }

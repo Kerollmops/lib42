@@ -1,140 +1,98 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   suite_ft_memmove.c                                 :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: adubois <adubois@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/12 17:37:47 by adubois           #+#    #+#             */
-/*   Updated: 2016/07/26 14:25:53 by leonhart         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "header.h"
 
-static void	test_00_memmove_SizeOf0(void)
+// 134Mo
+#define BIG_CHUNKS	(1 << 27)
+
+static void	test_00_memmove_SizeZero(void)
 {
-	char	str1[11];
-	char	str2[11];
+	char	s1[20];
+	char	bs1[20];
+	char	s2[20];
+	char	bs2[20];
 	void	*res;
 
-	memset(str1, 48, 11);
-	memset(str2, 0, 11);
-	res = ft_memmove(str2, str1, 0);
-	v_assert_ptr(res, ==, str2);
-	v_assert_str("", str2);
+	memset(s1, '*', 20);
+	memset(bs1, '*', 20);
+	memset(s2, '#', 20);
+	memset(bs2, '#', 20);
+	res = ft_memmove(s2, s1, 0);
+
+	v_assert_ptr(s2, ==, res);
+	v_assert(memcmp(s1, bs1, 20) == 0);
+	v_assert(memcmp(s2, bs2, 20) == 0);
 
 	VTS;
 }
 
-static void	test_01_memmove_SizeOf1(void)
+static void	test_01_memmove_DstAfterSimpleString(void)
 {
-	char	str1[11];
-	char	str2[11];
+	char	s1[13] = "Hello World!";
 	void	*res;
 
-	memset(str1, 48, 11);
-	memset(str2, 0, 11);
-	res = ft_memmove(str2, str1, 1);
-	v_assert_ptr(res, ==, str2);
-	v_assert_str("0", str2);
+	res = ft_memmove(s1 + 6, s1, 5);
+
+	v_assert_ptr(s1 + 6, ==, res);
+	v_assert_str("Hello Hello!", s1);
 
 	VTS;
 }
 
-static void	test_02_memmove_FullString(void)
+static void	test_02_memmove_DstBeforeSimpleString(void)
 {
-	char	*str1;
-	char	str2[11];
+	char	s1[13] = "Hello World!";
+	char	*s2;
 	void	*res;
 
-	str1 = strdup("It works!");
-	memset(str2, 0, 11);
-	res = ft_memmove(str2, str1, strlen(str1));
-	v_assert_ptr(res, ==, str2);
-	v_assert_str(str1, str2);
+	res = ft_memmove(s1, s1 + 6, 5);
 
-	free(str1);
+	v_assert_ptr(s1, ==, res);
+	v_assert_str("World World!", s1);
 
 	VTS;
 }
 
-static void	test_03_memmove_PartialString(void)
+static void	test_03_memmove_DstAfterSrcCheckBorder(void)
 {
-	char	*str1;
-	char	str2[11];
+	size_t	size = 100;
+	char	*s = malloc(size);
 	void	*res;
 
-	str1 = strdup("It works!");
-	memset(str2, 0, 11);
-	res = ft_memmove(str2, str1, strlen(str1) - 5);
-	v_assert_ptr(res, ==, str2);
-	v_assert_str("It w", str2);
+	memset(s, '*', size);
+	s[0] = '#';
+	s[99] = '#';
+	res = ft_memmove(s + 1, s, 100 - 2);
 
-	free(str1);
+	v_assert_ptr(s + 1, ==, res);
+	v_assert_char('#', ==, s[0]);
+	v_assert_char('#', ==, s[99]);
 
+	free(s);
 	VTS;
 }
 
-static void	test_04_memmove_LongString(void)
+static void	test_04_memmove_DstAfterSrcBigChunks(void)
 {
-	char	*str1;
-	char	str2[250];
+	char	*s = malloc(BIG_CHUNKS);
 	void	*res;
 
-	str1 = strdup("KIa4jjPwBhAdTNhod2Q IYokyuGtHsTukcF7eXmM X1GMMRyONOTF3nvVg756 L2gUK6ite8DgGotsK7uT 5xHKqIrxa3paMM5r7v WL 4yRbouzdn0odl5ehELgN oyrGLZwXC0MSXBLbFYot YbpRY5k9v5Oq8DiwZHSG 9K8nnL2hLT38jUl0nyrV uonf1uol3dZii9Z 9b74x");
-	memset(str2, 0, 250);
-	res = ft_memmove(str2, str1, strlen(str1));
-	v_assert_ptr(res, ==, str2);
-	v_assert_str(str1, str2);
+	memset(s, '*', BIG_CHUNKS);
+	s[0] = '#';
+	res = ft_memmove(s + 1, s, BIG_CHUNKS - 1);
 
-	free(str1);
+	v_assert_ptr(s + 1, ==, res);
+	v_assert_char('#', ==, s[0]);
 
-	VTS;
-}
-
-static void	test_05_memmove_LongStringDestinationFirst(void)
-{
-	char	*str1;
-	char	*str2;
-	void	*res;
-
-	str2 = strdup("KIa4jjPwBhAdTNhod2Q IYokyuGtHsTukcF7eXmM X1GMMRyONOTF3nvVg756 L2gUK6ite8DgGotsK7uT 5xHKqIrxa3paMM5r7v WL 4yRbouzdn0odl5ehELgN oyrGLZwXC0MSXBLbFYot YbpRY5k9v5Oq8DiwZHSG 9K8nnL2hLT38jUl0nyrV uonf1uol3dZii9Z 9b74x");
-    str1 = str2 + 62;
-	res = ft_memmove(str2, str1, strlen(str1));
-	v_assert_ptr(res, ==, str2);
-	v_assert_str("L2gUK6ite8DgGotsK7uT 5xHKqIrxa3paMM5r7v WL 4yRbouzdn0odl5ehELgN oyrGLZwXC0MSXBLbFYot YbpRY5k9v5Oq8DiwZHSG 9K8nnL2hLT38jUl0nyrV uonf1uol3dZii9Z 9b74xbpRY5k9v5Oq8DiwZHSG 9K8nnL2hLT38jUl0nyrV uonf1uol3dZii9Z 9b74x", str2);
-	free(str2);
-
-	VTS;
-}
-
-static void	test_06_memmove_LongStringSourceFirst(void)
-{
-	char	*str1;
-	char	*str2;
-	void	*res;
-
-	str1 = strdup("KIa4jjPwBhAdTNhod2Q IYokyuGtHsTukcF7eXmM X1GMMRyONOTF3nvVg756 L2gUK6ite8DgGotsK7uT 5xHKqIrxa3paMM5r7v WL 4yRbouzdn0odl5ehELgN oyrGLZwXC0MSXBLbFYot YbpRY5k9v5Oq8DiwZHSG 9K8nnL2hLT38jUl0nyrV uonf1uol3dZii9Z 9b74x");
-    str2 = str1 + 13;
-	res = ft_memmove(str2, str1, strlen(str1) - 13);
-	v_assert_ptr(res, ==, str2);
-	v_assert_str("KIa4jjPwBhAdTNhod2Q IYokyuGtHsTukcF7eXmM X1GMMRyONOTF3nvVg756 L2gUK6ite8DgGotsK7uT 5xHKqIrxa3paMM5r7v WL 4yRbouzdn0odl5ehELgN oyrGLZwXC0MSXBLbFYot YbpRY5k9v5Oq8DiwZHSG 9K8nnL2hLT38jUl0nyrV uonf1uol", str2);
-
-	free(str1);
-
+	free(s);
 	VTS;
 }
 
 void		suite_memmove(void)
 {
-	test_00_memmove_SizeOf0();
-	test_01_memmove_SizeOf1();
-	test_02_memmove_FullString();
-	test_03_memmove_PartialString();
-	test_04_memmove_LongString();
-	test_05_memmove_LongStringDestinationFirst();
-	test_06_memmove_LongStringSourceFirst();
+	test_00_memmove_SizeZero();
+	test_01_memmove_DstAfterSimpleString();
+	test_02_memmove_DstBeforeSimpleString();
+	test_03_memmove_DstAfterSrcCheckBorder();
+	test_04_memmove_DstAfterSrcBigChunks();
 
 	VSS;
 }
