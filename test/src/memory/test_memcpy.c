@@ -25,6 +25,10 @@ static void	test_00_memcpy_AlignedSizeOfZero(void)
 	v_assert(memcmp(off_src, ft_src, buf_size) == 0);
 	v_assert(memcmp(off_dst, ft_dst, buf_size) == 0);
 
+	free(off_src);
+	free(off_dst);
+	free(ft_src);
+	free(ft_dst);
 	VTS;
 }
 
@@ -55,6 +59,10 @@ static void	test_01_memcpy_MisalignedSizeOfZero(void)
 	v_assert(memcmp(off_src, ft_src, buf_size) == 0);
 	v_assert(memcmp(off_dst, ft_dst, buf_size) == 0);
 
+	free(--off_src);
+	free(--off_dst);
+	free(--ft_src);
+	free(--ft_dst);
 	VTS;
 }
 
@@ -80,6 +88,10 @@ static void	test_02_memcpy_AlignedSizeLessThanWord(void)
 	v_assert(memcmp(off_src, ft_src, buf_size) == 0);
 	v_assert(memcmp(off_dst, ft_dst, buf_size) == 0);
 
+	free(off_src);
+	free(off_dst);
+	free(ft_src);
+	free(ft_dst);
 	VTS;
 }
 
@@ -110,6 +122,10 @@ static void	test_03_memcpy_MisalignedSizeLessThanWord(void)
 	v_assert(memcmp(off_src, ft_src, buf_size) == 0);
 	v_assert(memcmp(off_dst, ft_dst, buf_size) == 0);
 
+	free(--off_src);
+	free(--off_dst);
+	free(--ft_src);
+	free(--ft_dst);
 	VTS;
 }
 
@@ -135,6 +151,10 @@ static void	test_04_memcpy_AlignedSizeGreaterThanWord(void)
 	v_assert(memcmp(off_src, ft_src, buf_size) == 0);
 	v_assert(memcmp(off_dst, ft_dst, buf_size) == 0);
 
+	free(off_src);
+	free(off_dst);
+	free(ft_src);
+	free(ft_dst);
 	VTS;
 }
 
@@ -165,6 +185,10 @@ static void	test_05_memcpy_MisalignedSizeGreaterThanWord(void)
 	v_assert(memcmp(off_src, ft_src, buf_size) == 0);
 	v_assert(memcmp(off_dst, ft_dst, buf_size) == 0);
 
+	free(--off_src);
+	free(--off_dst);
+	free(--ft_src);
+	free(--ft_dst);
 	VTS;
 }
 
@@ -190,6 +214,10 @@ static void	test_06_memcpy_AlignedSizeEqualToWord(void)
 	v_assert(memcmp(off_src, ft_src, buf_size) == 0);
 	v_assert(memcmp(off_dst, ft_dst, buf_size) == 0);
 
+	free(off_src);
+	free(off_dst);
+	free(ft_src);
+	free(ft_dst);
 	VTS;
 }
 
@@ -220,6 +248,10 @@ static void	test_07_memcpy_MisalignedSizeEqualToWord(void)
 	v_assert(memcmp(off_src, ft_src, buf_size) == 0);
 	v_assert(memcmp(off_dst, ft_dst, buf_size) == 0);
 
+	free(--off_src);
+	free(--off_dst);
+	free(--ft_src);
+	free(--ft_dst);
 	VTS;
 }
 
@@ -245,6 +277,10 @@ static void	test_08_memcpy_AlignedBigSize(void)
 	v_assert(memcmp(off_src, ft_src, buf_size) == 0);
 	v_assert(memcmp(off_dst, ft_dst, buf_size) == 0);
 
+	free(off_src);
+	free(off_dst);
+	free(ft_src);
+	free(ft_dst);
 	VTS;
 }
 
@@ -275,6 +311,10 @@ static void	test_09_memcpy_MisalignedBigSize(void)
 	v_assert(memcmp(off_src, ft_src, buf_size) == 0);
 	v_assert(memcmp(off_dst, ft_dst, buf_size) == 0);
 
+	free(--off_src);
+	free(--off_dst);
+	free(--ft_src);
+	free(--ft_dst);
 	VTS;
 }
 

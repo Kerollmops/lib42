@@ -22,6 +22,8 @@ static void	test_00_memset_AlignedLessThanWordSize(void)
 	int	res = memcmp(off, ft, size);
 	v_assert_int(0, ==, res);
 
+	free(off);
+	free(ft);
 	VTS;
 }
 
@@ -46,6 +48,8 @@ static void	test_01_memset_UnalignedLessThanWordSize(void)
 	int	res = memcmp(off, ft, size);
 	v_assert_int(0, ==, res);
 
+	free(off);
+	free(ft);
 	VTS;
 }
 
@@ -69,6 +73,8 @@ static void	test_02_memset_AlignedOneWordSize(void)
 	int	res = memcmp(off, ft, size);
 	v_assert_int(0, ==, res);
 
+	free(off);
+	free(ft);
 	VTS;
 }
 
@@ -92,6 +98,8 @@ static void	test_03_memset_UnalignedOneWordSize(void)
 	int	res = memcmp(off, ft, size);
 	v_assert_int(0, ==, res);
 
+	free(off);
+	free(ft);
 	VTS;
 }
 
@@ -115,6 +123,8 @@ static void	test_04_memset_AlignedMultiplesWordSize(void)
 	int	res = memcmp(off, ft, size);
 	v_assert_int(0, ==, res);
 
+	free(off);
+	free(ft);
 	VTS;
 }
 
@@ -138,6 +148,8 @@ static void	test_05_memset_UnalignedMultiplesWordSize(void)
 	int	res = memcmp(off, ft, size);
 	v_assert_int(0, ==, res);
 
+	free(off);
+	free(ft);
 	VTS;
 }
 
@@ -161,6 +173,8 @@ static void	test_06_memset_AlignedBigChunks(void)
 	int	res = memcmp(off, ft, size);
 	v_assert_int(0, ==, res);
 
+	free(off);
+	free(ft);
 	VTS;
 }
 
@@ -184,6 +198,8 @@ static void	test_07_memset_UnalignedBigChunks(void)
 	int	res = memcmp(off, ft, size);
 	v_assert_int(0, ==, res);
 
+	free(off);
+	free(ft);
 	VTS;
 }
 
@@ -206,6 +222,8 @@ static void	test_08_memset_BigInt(void)
 	int	res = memcmp(off, ft, size);
 	v_assert_int(0, ==, res);
 
+	free(off);
+	free(ft);
 	VTS;
 }
 
