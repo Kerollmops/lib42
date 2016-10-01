@@ -35,10 +35,10 @@ static void	test_01_buffer_resize_ExpandMoreThan2(void)
 static void	test_02_buffer_resize_ExpandPowerOf2(void)
 {
 	buffer = buffer_new(256);
-	v_assert_size_t(256, ==, TBUFFER_MAX(buffer));
+	v_assert_size_t(512, ==, TBUFFER_MAX(buffer));
 
 	buffer = buffer_resize(buffer, 256);
-	v_assert_size_t(512, ==, TBUFFER_MAX(buffer));
+	v_assert_size_t(1024, ==, TBUFFER_MAX(buffer));
 
 	teardown();
 	VTS;

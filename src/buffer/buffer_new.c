@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 16:30:57 by djean             #+#    #+#             */
-/*   Updated: 2016/09/27 10:49:43 by djean            ###   ########.fr       */
+/*   Updated: 2016/10/01 15:04:34 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ t_buffer	*buffer_init(t_buffer *b, size_t size)
 {
 	size_t	s;
 
+	size += 1;
 	if (size < BUFFER_INIT_SIZE)
 		s = BUFFER_INIT_SIZE;
 	else if (IS_POWER_OF_2(size))

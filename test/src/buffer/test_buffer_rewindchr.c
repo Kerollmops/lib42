@@ -4,7 +4,7 @@ static t_buffer b;
 
 static void	setup(void)
 {
-	buffer_init(&b, 128);
+	buffer_init(&b, 127);
 	buffer_ncat(&b, "Hello World!", 12);
 }
 

@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 16:30:58 by djean             #+#    #+#             */
-/*   Updated: 2016/09/27 11:16:03 by djean            ###   ########.fr       */
+/*   Updated: 2016/10/01 15:14:15 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_buffer	*buffer_twin(t_buffer *b)
 {
 	t_buffer	*copy;
 
-	copy = buffer_new(b->sizemax);
+	copy = buffer_new(b->sizemax - 1);
 	if (copy == NULL)
 		return (NULL);
 	copy->len = b->len;

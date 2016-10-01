@@ -6,7 +6,7 @@
 /*   By: djean <djean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 16:28:48 by djean             #+#    #+#             */
-/*   Updated: 2016/09/27 16:10:33 by djean            ###   ########.fr       */
+/*   Updated: 2016/10/01 15:12:00 by djean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include "memory_42.h"
 # include "stdlib_42.h"
 # include "string_42.h"
-# include "stdlib_42.h"
 
 # define BUFFER_INIT_SIZE		64U
 # define BUFFER_GROWTH_FACTOR	2U

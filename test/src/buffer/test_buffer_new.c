@@ -32,6 +32,26 @@ static void	test_02_buffer_new_SizePowerOf2(void)
 {
 	buffer = buffer_new(256);
 
+	v_assert_size_t(512, ==, TBUFFER_MAX(buffer));
+
+	teardown();
+	VTS;
+}
+
+static void	test_03_buffer_new_SizeOfInit(void)
+{
+	buffer = buffer_new(BUFFER_INIT_SIZE);
+
+	v_assert_size_t(BUFFER_INIT_SIZE * 2, ==, TBUFFER_MAX(buffer));
+
+	teardown();
+	VTS;
+}
+
+static void	test_04_buffer_new_SizePowerOf2MinsOne(void)
+{
+	buffer = buffer_new(255);
+
 	v_assert_size_t(256, ==, TBUFFER_MAX(buffer));
 
 	teardown();
@@ -43,6 +63,8 @@ void	suite_buffer_new(void)
 	test_00_buffer_new_SizeBelowMinimum();
 	test_01_buffer_new_SizeAboveMinimum();
 	test_02_buffer_new_SizePowerOf2();
+	test_03_buffer_new_SizeOfInit();
+	test_04_buffer_new_SizePowerOf2MinsOne();
 
 	VSS;
 }
